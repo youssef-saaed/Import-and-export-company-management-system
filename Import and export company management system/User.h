@@ -4,19 +4,20 @@
 
 class User {
 private:
-    float Ubalance;
+    double Ubalance;
     Cart userCart;
     Order pastOrders;
 
 public:
     User();
 
-    float getBalance();
-    void setBalance(float Ubalance);
+    double getBalance() const;
+    void setBalance(double const& Ubalance);
 
-    void viewProfile();
-    void view_P_history();
+    void viewProfile() const;
+    void view_P_history() const;
 
-    void change_Password();
+    void change_Password() const;
 };
-#endif
+
+#endif // IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_USER_H
