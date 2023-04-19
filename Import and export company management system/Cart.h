@@ -10,6 +10,12 @@ public:
 	Cart(Product*, const int&);
 	~Cart();
 
+	void setShipmentType(const int&);
+	int getShipmentType() const;
+
+	void setProduct(Product*);
+	Product* getProduct() const;
+
 	double totalCost(Product*);
 
 	// void checkOut();
