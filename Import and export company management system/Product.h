@@ -8,7 +8,7 @@ private:
 	std::string lifeCyclePeriod, name, description, image;
 	double price, amount, mass, volume;
 	int productID;
-puplic:
+public:
 	Product(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&, const double&, const int&);
 	~Product();
 
@@ -41,6 +41,8 @@ puplic:
 
 	bool isExists(int& productID);
 
-	void editProduct()
+	// void editProduct();
+
+	// void addtoDB();
 };
 
