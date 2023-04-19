@@ -9,7 +9,7 @@ private:
     Order pastOrders;
 
 public:
-    User();
+   User(float Ubalance, Cart userCart, Order pastOrders);
 
     double getBalance() const;
     void setBalance(double const& Ubalance);
