@@ -22,6 +22,7 @@ private:
 
 public:
     Person();
+
     string getName();
     void setName(string name);
 
