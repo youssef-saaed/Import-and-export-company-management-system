@@ -1,50 +1,49 @@
 #pragma once
-
+#include <string>
 #include "Date.h"
 #include "Account.h"
 
 class Person {
 private:
-    string name;
+    std::string name;
     Date birthdate;
-    string address;
+    std::string address;
     int phonenum;
     int gender;
-    string profilePic;
+    std::string profilePic;
     int referecode;
-    string membership;
+    std::string membership;
     Account account;
 
 public:
     Person();
 
-    string getName();
-    void setName(string name);
+    std::string getName() const;
+    void setName(std::string const& name);
 
-    int getAge();
-    Date getBirthdate();
-    void setBirthdate(Date birthdate);
+    int getAge() const;
+    Date getBirthdate() const;
+    void setBirthdate(Date const& birthdate);
 
-    string getAddress();
-    void setAddress(string address);
+    std::string getAddress() const;
+    void setAddress(std::string const& address);
 
-    int getPhonenum();
+    int getPhonenum() const;
 
-    int getGender();
-    void setGender(int gender);
+    int getGender() const;
+    void setGender(int const& gender);
 
-    int getReferecode();
-    void setReferecode(int referecode);
+    int getReferecode() const;
+    void setReferecode(int const& referecode);
 
-    string getProfilePic();
-    void setProfilePic(string profilePic);
+    std::string getProfilePic() const;
+    void setProfilePic(std::string const& profilePic);
 
-    string getMemberShip();
-    void setMemberShip(string membership);
+    std::string getMemberShip() const;
+    void setMemberShip(std::string const& membership);
 
-    void viewInfo();
-    void delete_account();
+    void viewInfo() const;
+    void delete_account() const;
 };
 
-
-#ndif //IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_PERSON_H
+#endif //IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_PERSON_H
