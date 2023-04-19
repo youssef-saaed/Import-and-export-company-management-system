@@ -1,32 +1,36 @@
-#pragma once
+#ifndef ACCOUNTS_H
+#define ACCOUNTS_H
+
 #include <string>
 
-class Employee {
+class Accounts {
 private:
-    int EmployeeID;
-    std::string jobTitle;
-    double salary;
-    std::string department;
-    double overtimehrs;
+    std::string username;
+    std::string password;
+    std::string email;
+    bool isverified;
+    std::string accountType;
 
 public:
-    Employee();
+    
+    Accounts(std::string const& username, std::string const& password, std::string const& email, bool const& isverified, std::string const& accountType);
 
-    int getemployeeID() const;
-    void setemployeeID(int const& EmployeeID);
+    std::string const& getUsername() const;
+    void setUsername(std::string const& username);
 
-    std::string getDepartment() const;
-    void setDepartment(std::string const& department);
+    std::string const& getPassword() const;
+    void setPassword(std::string const& password);
 
-    double getSalary() const;
-    void setSalary(double const& salary);
+    std::string const& getEmail() const;
+    void setEmail(std::string const& email);
 
-    std::string getJobTitle() const;
-    void setJobTitle(std::string const& jobTitle);
+    bool const& getIsVerified() const;
+    void setIsVerified(bool const& isverified);
 
-    double overTime_Ecalc() const;
+    std::string const& getAccountType() const;
+    void setAccountType(std::string const& accountType);
 
-    void add(double const& value, double& variable) const {
-        variable += value;
-    }
+    void verify() const;
 };
+
+#endif // ACCOUNTS_H
