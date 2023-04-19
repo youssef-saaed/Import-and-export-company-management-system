@@ -1,28 +1,30 @@
 #pragma once
+#include <string>
+
 class Employee {
 private:
     int EmployeeID;
-    string jobTitle;
-    float salary;
-    string department;
-    float overtimehrs;
+    std::string jobTitle;
+    double salary;
+    std::string department;
+    double overtimehrs;
 
 public:
     Employee();
 
-    int getemployeeID();
-    void setemployeeID(int EmployeeID);
+    int getemployeeID() const;
+    void setemployeeID(int const& EmployeeID);
 
-    string getDepartment();
-    void setDepartment(string department);
+    std::string getDepartment() const;
+    void setDepartment(std::string const& department);
 
-    float getSalary();
-    void setSalary(float salary);
+    double getSalary() const;
+    void setSalary(double const& salary);
 
-    string getJobTitle();
-    void setJobTitle(string jobTitle);
+    std::string getJobTitle() const;
+    void setJobTitle(std::string const& jobTitle);
 
-    float overTime_Ecalc();
+    double overTime_Ecalc() const;
 };
 
 #endif //IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_EMPLOYEE_H
