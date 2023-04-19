@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Product.h"
+#include "User.h"
+
 enum State{};
 
 class Order
@@ -10,16 +13,16 @@ private:
 	Product* products;
 	User orderReciever;
 public:
-	Order(int&, State&, Product*, User&);
+	Order(const int&, const State&, Product*, const User&);
 	~Order();
 	int getNumber() const;
-	bool setNumber(int&);
+	bool setNumber(const int&);
 	State getState() const;
-	bool setState(State&);
+	bool setState(const State&);
 	Product* getProducts() const;
 	bool setProducts(Product*);
 	User getOrderReciever() const;
-	bool setOrderReciever(User&);
+	bool setOrderReciever(const User&);
 	bool isCompleted();
 	bool advanceState();
 };
