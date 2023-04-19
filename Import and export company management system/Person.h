@@ -1,8 +1,3 @@
-//
-// Created by Adham Ashraf on 4/19/2023.
-//
-
-
 #pragma once
 
 #include "Date.h"
