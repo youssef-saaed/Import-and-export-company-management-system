@@ -16,7 +16,8 @@ private:
     Account account;
 
 public:
-    Person();
+    Person(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
+
 
     std::string getName() const;
     void setName(std::string const& name);
