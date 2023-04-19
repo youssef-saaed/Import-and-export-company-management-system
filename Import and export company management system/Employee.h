@@ -10,7 +10,8 @@ private:
     double overtimehrs;
 
 public:
-    Employee();
+     Employee(int EmployeeID, std::string jobTitle, float salary, std::string department, float overtimehrs);
+
 
     int getemployeeID() const;
     void setemployeeID(int const& EmployeeID);
