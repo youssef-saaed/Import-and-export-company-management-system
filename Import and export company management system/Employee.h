@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include "Person.h"
 
-class Employee {
+class Employee : public Person {
 private:
     int EmployeeID;
     std::string jobTitle;
@@ -10,22 +11,16 @@ private:
     double overtimehrs;
 
 public:
-     Employee(int EmployeeID, std::string jobTitle, float salary, std::string department, float overtimehrs);
-
-
+    Employee(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs);
     int getemployeeID() const;
-    void setemployeeID(int const& EmployeeID);
-
+    bool setemployeeID(int const& EmployeeID);
     std::string getDepartment() const;
-    void setDepartment(std::string const& department);
-
+    bool setDepartment(std::string const& department);
     double getSalary() const;
-    void setSalary(double const& salary);
-
+    bool setSalary(double const& salary);
     std::string getJobTitle() const;
-    void setJobTitle(std::string const& jobTitle);
-
+    bool setJobTitle(std::string const& jobTitle);
     double overTime_Ecalc() const;
+    void viewInfo() const override;
+    void delete_account() const override;
 };
-
-#endif //IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_EMPLOYEE_H
