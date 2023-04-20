@@ -11,25 +11,18 @@ private:
     bool isverified;
     std::string accountType;
 
-public:
-    
+public:   
     Accounts(std::string const& username, std::string const& password, std::string const& email, bool const& isverified, std::string const& accountType);
-
     std::string const& getUsername() const;
-    void setUsername(std::string const& username);
-
+    bool setUsername(std::string const& username);
     std::string const& getPassword() const;
-    void setPassword(std::string const& password);
-
+    bool setPassword(std::string const& password);
     std::string const& getEmail() const;
-    void setEmail(std::string const& email);
-
+    bool setEmail(std::string const& email);
     bool const& getIsVerified() const;
-    void setIsVerified(bool const& isverified);
-
+    bool setIsVerified(bool const& isverified);
     std::string const& getAccountType() const;
-    void setAccountType(std::string const& accountType);
-
+    bool setAccountType(std::string const& accountType);
     void verify() const;
 };
 
