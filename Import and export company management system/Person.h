@@ -4,7 +4,7 @@
 #include "Account.h"
 
 class Person {
-private:
+protected:
     std::string name;
     Date birthdate;
     std::string address;
@@ -17,34 +17,23 @@ private:
 
 public:
     Person(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
-
-
+    virtual ~Person() {};
     std::string getName() const;
-    void setName(std::string const& name);
-
+    bool setName(std::string const& name);
     int getAge() const;
     Date getBirthdate() const;
-    void setBirthdate(Date const& birthdate);
-
+    bool setBirthdate(Date const& birthdate);
     std::string getAddress() const;
-    void setAddress(std::string const& address);
-
+    bool setAddress(std::string const& address);
     int getPhonenum() const;
-
     int getGender() const;
-    void setGender(int const& gender);
-
+    bool setGender(int const& gender);
     int getReferecode() const;
-    void setReferecode(int const& referecode);
-
+    bool setReferecode(int const& referecode);
     std::string getProfilePic() const;
-    void setProfilePic(std::string const& profilePic);
-
+    bool setProfilePic(std::string const& profilePic);
     std::string getMemberShip() const;
-    void setMemberShip(std::string const& membership);
-
-    void viewInfo() const;
-    void delete_account() const;
+    bool setMemberShip(std::string const& membership);
+    virtual void viewInfo() const = 0;
+    virtual void delete_account() const = 0;
 };
-
-#endif //IMPORT_AND_EXPORT_COMPANY_MANAGEMENT_SYSTEM_PERSON_H
