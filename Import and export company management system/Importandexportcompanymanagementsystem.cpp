@@ -4,6 +4,7 @@ Importandexportcompanymanagementsystem::Importandexportcompanymanagementsystem(Q
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    ui.passwordI->setEchoMode(QLineEdit::Password);
 }
 
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()

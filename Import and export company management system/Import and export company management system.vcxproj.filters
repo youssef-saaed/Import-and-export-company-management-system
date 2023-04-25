@@ -35,9 +35,6 @@
     <QtUic Include="Importandexportcompanymanagementsystem.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="Importandexportcompanymanagementsystem.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <ClCompile Include="Importandexportcompanymanagementsystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,56 +43,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Order.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Product.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vehicle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shipment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Promocode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Category.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Order.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Product.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vehicle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Shipment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Promocode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Category.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Date.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\facebook_cover_photo_1.png">
@@ -146,5 +93,10 @@
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\youtube_profile_image.png">
       <Filter>Media\Logos</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Importandexportcompanymanagementsystem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
