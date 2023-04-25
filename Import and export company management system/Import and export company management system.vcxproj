@@ -112,6 +112,24 @@
     <ClInclude Include="User.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\facebook_cover_photo_1.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\facebook_cover_photo_2.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\facebook_profile_image.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\favicon.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\instagram_profile_image.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\linkedin_banner_image_1.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\linkedin_banner_image_2.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\linkedin_profile_image.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\logo.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\logo_transparent.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\pinterest_board_photo.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\pinterest_profile_image.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\twitter_header_photo_1.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\twitter_header_photo_2.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\twitter_profile_image.png" />
+    <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\youtube_profile_image.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
