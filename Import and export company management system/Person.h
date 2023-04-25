@@ -48,8 +48,6 @@ public:
     bool setProfilePic(std::string const& profilePic);
 
     std::string getMembership() const;
-    std::string getMemberShip() const;
-    bool setMemberShip(std::string const& membership);
     bool setMembership(std::string const& membership);
 
     int getReferecode() const;
