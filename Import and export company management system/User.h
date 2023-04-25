@@ -11,6 +11,7 @@ private:
 
 public:
     User();
+    
     User(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, double Ubalance, Cart userCart, Order* pastOrders);
 
     double getBalance() const;
