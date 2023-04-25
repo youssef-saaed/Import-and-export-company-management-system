@@ -10,7 +10,7 @@ public:
 	Inventory();
 	~Inventory();
 
-	void setCategories(Category*);
+	bool setCategories(Category*);
 	Category* getCategories() const;
 
 	// bool addCategory();
