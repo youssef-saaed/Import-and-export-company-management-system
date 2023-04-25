@@ -1,20 +1,20 @@
 #pragma once
 #include "Product.h"
-
+enum ShipmentType {delivery, notDelivery};
 class Cart
 {
 private:
 	Product* products;
-	int shipmentType;
+	ShipmentType type;
 public:
-	Cart(Product*, const int&);
+	Cart(Product*, const ShipmentType&);
 	Cart();
 	~Cart();
 
-	void setShipmentType(const int&);
-	int getShipmentType() const;
+	bool setShipmentType(const ShipmentType&);
+	ShipmentType getShipmentType() const;
 
-	void setProduct(Product*);
+	bool setProduct(Product*);
 	Product* getProduct() const;
 
 	double totalCost(Product*);
