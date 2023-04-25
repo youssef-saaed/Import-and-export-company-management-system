@@ -14,6 +14,7 @@ private:
 	Order* orders;
 public:
 	Vehicle(const VehicleType&, const std::string&, const double&, const double&, const double&, const double&, Order*);
+	Vehicle();
 	~Vehicle();
 	bool setType(const VehicleType&);
 	VehicleType getType() const;

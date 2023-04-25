@@ -12,13 +12,14 @@ private:
 	Order* waitingOrders;
 public:
 	Shipment(Vehicle*, Vehicle*, Order*);
+	Shipment();
 	~Shipment();
 	bool setVehicles(Vehicle*);
 	Vehicle* getVehicles() const;
 	bool setAvailableVehicles(Vehicle*);
 	Vehicle* getAvailableVehicles() const;
 	bool setWaitingOrders(Order*);
-	Order* getWaitingOrder() const;
+	Order* getWaitingOrders() const;
 	bool addVehicle(const Vehicle&);
 	bool removeVehicle(const Vehicle&);
 	bool changeVehicleState(const Vehicle&, std::string);

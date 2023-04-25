@@ -14,6 +14,7 @@ private:
 	User orderReciever;
 public:
 	Order(const int&, const State&, Product*, const User&);
+	Order();
 	~Order();
 	int getNumber() const;
 	bool setNumber(const int&);

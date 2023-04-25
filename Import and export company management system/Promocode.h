@@ -14,6 +14,7 @@ private:
 	Product* products;
 public:
 	Promocode(const std::string&, const Date&, Category*, Product*);
+	Promocode();
 	~Promocode();
 	bool setCode(const std::string&);
 	std::string getCode() const;

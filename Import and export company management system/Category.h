@@ -9,6 +9,7 @@ private:
 	Product* products;
 public:
 	Category(const std::string&, const std::string&, const std::string&, const std::string&, Product*);
+	Category();
 	~Category();
 
 	void setName(std::string&);

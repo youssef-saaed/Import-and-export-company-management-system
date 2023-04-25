@@ -7,6 +7,7 @@ private:
 	Category* categories;
 public:
 	Inventory(Category*);
+	Inventory();
 	~Inventory();
 
 	void setCategories(Category*);

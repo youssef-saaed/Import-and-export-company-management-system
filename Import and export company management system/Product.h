@@ -10,6 +10,7 @@ private:
 	int productID;
 public:
 	Product(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&, const double&, const int&);
+	Product();
 	~Product();
 
 	void setlifeCyclePeriod(const std::string&);

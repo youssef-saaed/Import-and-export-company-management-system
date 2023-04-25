@@ -8,6 +8,7 @@ private:
 	int shipmentType;
 public:
 	Cart(Product*, const int&);
+	Cart();
 	~Cart();
 
 	void setShipmentType(const int&);
