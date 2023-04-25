@@ -51,7 +51,7 @@ bool Shipment::setWaitingOrders(Order* waitingOrders)
 	return false;
 }
 
-Order* Shipment::getWaitingOrder() const
+Order* Shipment::getWaitingOrders() const
 {
 	return waitingOrders;
 }

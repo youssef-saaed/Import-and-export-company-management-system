@@ -1,9 +1,7 @@
-#ifndef ACCOUNTS_H
-#define ACCOUNTS_H
-
+#pragma once
 #include <string>
 
-class Accounts {
+class Account {
 private:
     std::string username;
     std::string password;
@@ -12,7 +10,8 @@ private:
     std::string accountType;
 
 public:   
-    Accounts(std::string const& username, std::string const& password, std::string const& email, bool const& isverified, std::string const& accountType);
+    Account(std::string const& username, std::string const& password, std::string const& email, bool const& isverified, std::string const& accountType);
+    Account();
     
     std::string const& getUsername() const;
     bool setUsername(std::string const& username);
@@ -31,5 +30,3 @@ public:
     
     void verify() const;
 };
-
-#endif // ACCOUNTS_H

@@ -9,22 +9,23 @@ private:
 	Product* products;
 public:
 	Category(const std::string&, const std::string&, const std::string&, const std::string&, Product*);
+	Category();
 	~Category();
 
-	void setName(std::string&);
+	bool setName(const std::string&);
 	std::string getName() const;
 	
-	void setDescription(std::string&);
+	bool setDescription(const std::string&);
 	std::string getDescription() const;
 		
-	void setTags(std::string&);
+	bool setTags(const std::string&);
 	std::string getTags() const;
 		
-	void setImage(std::string&);
+	bool setImage(const std::string&);
 	std::string getImage() const;
 		
 
-	void setProducts(Product*);
+	bool setProducts(Product*);
 	Product* getProducts() const;
 
 	// void display_Info();

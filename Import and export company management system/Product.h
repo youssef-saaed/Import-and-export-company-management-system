@@ -10,33 +10,34 @@ private:
 	int productID;
 public:
 	Product(const std::string&, const std::string&, const std::string&, const std::string&, const double&, const double&, const double&, const double&, const int&);
+	Product();
 	~Product();
 
-	void setlifeCyclePeriod(const std::string&);
+	bool setlifeCyclePeriod(const std::string&);
 	std::string getlifeCyclePeriod() const;
 
-	void setName(const std::string&);
+	bool setName(const std::string&);
 	std::string getName() const;
 
-	void setDescription(const std::string&);
+	bool setDescription(const std::string&);
 	std::string getDescription() const;
 
-	void setImage(const std::string&);
+	bool setImage(const std::string&);
 	std::string getImage() const;
 
-	void setPrice(const double&);
+	bool setPrice(const double&);
 	double getPrice() const;
 
-	void setAmount(const double&);
+	bool setAmount(const double&);
 	double getAmount() const;
 
-	void setMass(const double&);
+	bool setMass(const double&);
 	double getMass() const;
 
-	void setVolume(const double&);
+	bool setVolume(const double&);
 	double getVolume() const;
 
-	void setProductID(const int&);
+	bool setProductID(const int&);
 	int getProductID() const;
 
 	bool isExists(int& productID);
