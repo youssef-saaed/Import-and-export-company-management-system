@@ -32,7 +32,14 @@ public:
 
     int getAge() const;
     Date getBirthdate() const;
-    bool setBirthdate(Date const& birthdate);
+    bool setBirthdate(Date const& birthdate)
+    {
+        if (birthdate.isValid()) {
+            this->birthdate = birthdate;
+            return true;
+        }
+        return false;
+    }
 
     std::string getAddress() const;
     bool setAddress(std::string const& address);
@@ -41,6 +48,8 @@ public:
     bool setProfilePic(std::string const& profilePic);
 
     std::string getMembership() const;
+    std::string getMemberShip() const;
+    bool setMemberShip(std::string const& membership);
     bool setMembership(std::string const& membership);
 
     int getReferecode() const;
