@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Nahed Management System</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>D:/CSAI/Year 1/Semster 2/CSAI 151/Project/Import and export company management system/Media/Logo/logo_transparent.png</normaloff>D:/CSAI/Year 1/Semster 2/CSAI 151/Project/Import and export company management system/Media/Logo/logo_transparent.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
