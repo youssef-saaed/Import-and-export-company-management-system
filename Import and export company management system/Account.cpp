@@ -1,6 +1,7 @@
 
 #include "Account.h"
 #include <string>
+
 Account::Account(std::string const& username, std::string const& password, std::string const& email, bool const& isverified,
     std::string const& accountType) {
     Account::username = username;
