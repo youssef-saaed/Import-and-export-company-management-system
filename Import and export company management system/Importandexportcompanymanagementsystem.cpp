@@ -5,6 +5,8 @@ Importandexportcompanymanagementsystem::Importandexportcompanymanagementsystem(Q
 {
     ui.setupUi(this);
     ui.passwordI->setEchoMode(QLineEdit::Password);
+    ui.passwordLoginI->setEchoMode(QLineEdit::Password);
+    /*QObject::connect(ui.registerBtn,Q)*/
 }
 
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
