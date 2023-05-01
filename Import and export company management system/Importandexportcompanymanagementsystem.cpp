@@ -13,13 +13,6 @@ Importandexportcompanymanagementsystem::Importandexportcompanymanagementsystem(Q
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
-void Importandexportcompanymanagementsystem::loginUser()
-{
-    QString UserName = ui.userLoginI->text();
-    QString password = ui.passwordLoginI->text();
-    
-}
-
 void Importandexportcompanymanagementsystem::registerUser()
 {
     QString name = ui.nameI->text();
@@ -29,4 +22,14 @@ void Importandexportcompanymanagementsystem::registerUser()
     QString phone = ui.phoneNumI->text();
     QString address = ui.addressI->text();
 
+    // Perform the registration logic here, e.g., create a new user account, save it to a database, etc.
+
+    QString message = "Name: " + name + "\n" +
+        "Username: " + username + "\n" +
+        "Email: " + email + "\n" +
+        "Password: " + password + "\n" +
+        "Phone: " + phone + "\n" +
+        "Address: " + address;
+
+    QMessageBox::information(this, tr("Registration Successful"), message);
 }
