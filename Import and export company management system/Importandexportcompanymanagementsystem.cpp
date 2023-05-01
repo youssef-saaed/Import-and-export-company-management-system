@@ -40,12 +40,6 @@ void Importandexportcompanymanagementsystem::registerUser()
     {
         gender = "female";
     }
-    QString message = "Name: " + name + "\n" +
-        "Username: " + username + "\n" +
-        "Email: " + email + "\n" +
-        "Password: " + password + "\n" +
-        "Phone: " + phone + "\n" +
-        "Address: " + address+"\n"+
-        "Gender:"+gender;
+    QString message = "Name: " + name + "\n" +"Username: " + username + "\n" + "Email: " + email + "\n" +"Password:" + password + "\n" +"Phone: " + phone + "\n" +"Address: " + address+"\n"+"Gender:"+gender;
     QMessageBox::information(this, tr("Registration Successful"), message);
 }
