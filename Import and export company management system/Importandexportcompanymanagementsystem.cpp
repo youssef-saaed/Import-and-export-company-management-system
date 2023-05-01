@@ -18,8 +18,8 @@ void Importandexportcompanymanagementsystem::loginUser()
 {
     QString username=ui.userLoginI->text();
     QString password=ui.passwordLoginI->text();
-    QMessageBox::information(this, tr("Login Successful"),tr("Login succefully mother fucker"));
-
+    QString message2 = "Welcome " + username + "\n";
+    QMessageBox::information(this, tr("Login Successful"),message2);
 }
 
 void Importandexportcompanymanagementsystem::registerUser()
