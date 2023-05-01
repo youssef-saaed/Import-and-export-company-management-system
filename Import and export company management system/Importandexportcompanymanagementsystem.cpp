@@ -22,8 +22,6 @@ void Importandexportcompanymanagementsystem::registerUser()
     QString phone = ui.phoneNumI->text();
     QString address = ui.addressI->text();
 
-    // Perform the registration logic here, e.g., create a new user account, save it to a database, etc.
-
     QString message = "Name: " + name + "\n" +
         "Username: " + username + "\n" +
         "Email: " + email + "\n" +
