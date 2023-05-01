@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>D:/CSAI/Year 1/Semster 2/CSAI 151/Project/Import and export company management system/Media/Logo/logo_transparent.png</normaloff>D:/CSAI/Year 1/Semster 2/CSAI 151/Project/Import and export company management system/Media/Logo/logo_transparent.png</iconset>
+    <normaloff>logo_transparent.png</normaloff>logo_transparent.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="Header" native="true">
@@ -57,7 +57,7 @@ background-color:#a2a2a2;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>D:/CSAI/Year 1/Semster 2/CSAI 151/Project/Import and export company management system/Media/Logo/logo_transparent.png</pixmap>
+      <pixmap>logo_transparent.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
