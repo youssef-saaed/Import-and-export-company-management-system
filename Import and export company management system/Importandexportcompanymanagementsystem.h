@@ -14,7 +14,7 @@ public:
 
 private slots:
     void registerUser();
-
+    void loginUser();
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
 };
