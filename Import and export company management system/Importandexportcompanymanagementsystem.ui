@@ -521,7 +521,7 @@ font-size:16px;
 font-weight:700;
 transition: 1s;
 }
-#registerBtn:hover{
+#loginBtn:hover{
 background-color:#FFFFFF;
 color:#000000;
 border:1px solid #000000;
