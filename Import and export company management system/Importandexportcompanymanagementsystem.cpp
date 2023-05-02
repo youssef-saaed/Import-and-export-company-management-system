@@ -3,17 +3,6 @@
 #include <iostream>
 #include <string>
 
-Importandexportcompanymanagementsystem::Importandexportcompanymanagementsystem(QWidget* parent)
-    : QMainWindow(parent)
-{
-    ui.setupUi(this);
-    ui.passwordI->setEchoMode(QLineEdit::Password);
-    ui.passwordLoginI->setEchoMode(QLineEdit::Password);
-
-    connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
-    connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
-}
-
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
