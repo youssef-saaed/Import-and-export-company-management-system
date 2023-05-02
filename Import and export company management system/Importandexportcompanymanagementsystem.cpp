@@ -35,13 +35,12 @@ void Importandexportcompanymanagementsystem::registerUser()
             gender = "female";
         }
 
-        handler << name.toStdString() << "," << age << "," << email.toStdString() << "," << password.toStdString() << "," << gender.toStdString() << "\n";
+        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," <<
+            phone.toStdString() << "," <<address
+            .toStdString()  << "," << gender.toStdString() << "\n";
         handler.close();
 
-        QString message = "Name: " + name + "\n" + "Username: " + username + "\n" + "Email: " + email + "\n" + "Password:" + password + "\n" + "Phone: " + phone + "\n" + "Address: " + address + "\n" + "Gender:" + gender;
+        QString message = "Data Exported to database succefuly";
         QMessageBox::information(this, tr("Registration Successful"), message);
-    }
-    else {
-        std::cerr << "Unable to open file." << std::endl;
     }
 }
