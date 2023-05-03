@@ -32,7 +32,7 @@ void Importandexportcompanymanagementsystem::registerUser()
         }
         else if (ui.genderFemale->isChecked())
         {
-            gender = "female";
+            gender =  "female";
         }
 
         handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," <<
