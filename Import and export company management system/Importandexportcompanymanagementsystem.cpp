@@ -10,9 +10,9 @@ void Importandexportcompanymanagementsystem::loginUser()
 {
     QString username = ui.userLoginI->text();
     QString password = ui.passwordLoginI->text();
-    QString message2 = "Welcome " + username + "\n";
-    QMessageBox::information(this, tr("Login Successful"), message2);
-}
+    QMessageBox::warning(this, tr("Login Failed"), tr("Invalid username or password."));
+    
+} 
 
 void Importandexportcompanymanagementsystem::registerUser()
 {
@@ -40,7 +40,8 @@ void Importandexportcompanymanagementsystem::registerUser()
             .toStdString()  << "," << gender.toStdString() << "\n";
         handler.close();
 
-        QString message = "Data Exported to database succefuly";
+        QString message = "Registred Succefuly";
+        
         QMessageBox::information(this, tr("Registration Successful"), message);
     }
 }
