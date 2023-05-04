@@ -14,6 +14,7 @@ void Importandexportcompanymanagementsystem::loginUser()
     while (std::getline(handler, line))
     {
         QString qline = QString::fromStdString(line);
+        
         QStringList columns = qline.split(",");
         if (columns[1] == username && columns[3] == password)
         {
@@ -50,7 +51,7 @@ void Importandexportcompanymanagementsystem::registerUser()
             gender = "female";
         }
         
-        QString photoPath ;
+        //QString photoPath ;
         
         QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "/", tr("JPEG files (*.jpg);;All files (*.*)"));
         
@@ -60,6 +61,6 @@ void Importandexportcompanymanagementsystem::registerUser()
             << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << ",";
         handler.close();
 
-        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
+        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully")) ;
     }
 }
