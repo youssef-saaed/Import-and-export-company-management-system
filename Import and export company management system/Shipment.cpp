@@ -1,3 +1,4 @@
+#pragma once
 #include "Shipment.h"
 
 Shipment::Shipment(Vehicle* vehicles, Vehicle* availableVehicles, Order* waitingOrders)

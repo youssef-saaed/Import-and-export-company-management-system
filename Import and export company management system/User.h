@@ -1,3 +1,4 @@
+#pragma once
 #include "Cart.h"
 #include "Order.h"
 #include "Person.h"

@@ -1,3 +1,4 @@
+#pragma once
 #include "Importandexportcompanymanagementsystem.h"
 #include <fstream>
 #include <iostream>

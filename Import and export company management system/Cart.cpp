@@ -1,3 +1,4 @@
+#pragma once
 #include "Cart.h"
 
 Cart::Cart(Product* products, const ShipmentType& type)

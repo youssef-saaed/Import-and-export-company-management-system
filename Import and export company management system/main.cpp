@@ -1,3 +1,4 @@
+#pragma once
 #include "Importandexportcompanymanagementsystem.h"
 
 int main(int argc, char *argv[])
