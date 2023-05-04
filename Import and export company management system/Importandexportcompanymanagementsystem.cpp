@@ -17,8 +17,8 @@ void Importandexportcompanymanagementsystem::loginUser()
     while (std::getline(handler, line)) 
     {
         QString qline = QString::fromStdString(line);
-        QStringList fields = qline.split(",");
-        if (fields[1] == username && fields[3] == password)
+        QStringList columns = qline.split(",");
+        if (columns[1] == username && columns[3] == password)
         {
             QString message2 = "Welcome Back  " + username + "\n";
             QMessageBox::information(this, tr("Login Successful"), message2);
@@ -30,7 +30,6 @@ void Importandexportcompanymanagementsystem::loginUser()
         }
     }
     handler.close();
-
 }
 void Importandexportcompanymanagementsystem::registerUser()
 {
