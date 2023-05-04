@@ -17,7 +17,8 @@ void Importandexportcompanymanagementsystem::loginUser()
         QStringList columns = qline.split(",");
         if (columns[1] == username && columns[3] == password)
         {
-            QMessageBox::information(this, tr("Login Successful"),tr("Welcome Back  " + username + "\n");
+            QString message = "Welcome Back " + username + "\n";
+            QMessageBox::information(this, tr("Login Successful"),message);
             break;
         }
         else
@@ -59,6 +60,6 @@ void Importandexportcompanymanagementsystem::registerUser()
             << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << ",";
         handler.close();
 
-        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully");
+        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
     }
 }
