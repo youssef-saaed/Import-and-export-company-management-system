@@ -88,10 +88,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Order.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Promocode.cpp" />
+    <ClCompile Include="Shipment.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
     <QtRcc Include="Importandexportcompanymanagementsystem.qrc" />
     <QtUic Include="Importandexportcompanymanagementsystem.ui" />
     <QtMoc Include="Importandexportcompanymanagementsystem.h" />
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="Cart.cpp" />
+    <ClCompile Include="Category.cpp" />
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Importandexportcompanymanagementsystem.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +124,21 @@
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\twitter_header_photo_2.png" />
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\twitter_profile_image.png" />
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\youtube_profile_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="Cart.h" />
+    <ClInclude Include="Category.h" />
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Order.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Product.h" />
+    <ClInclude Include="Promocode.h" />
+    <ClInclude Include="Shipment.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

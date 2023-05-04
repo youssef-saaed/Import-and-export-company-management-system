@@ -12,6 +12,8 @@ public:
 	int getDay() const;
 	int getMonth() const;
 	int getYear() const;
+	bool isValid() const;
+	int getAge() const;
 	int timeTillDate(const Date&) const;
 	int timeFromDate(const Date&) const;
 };

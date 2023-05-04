@@ -54,5 +54,5 @@ public:
     bool setReferecode(int const& referecode);
 
     virtual void viewInfo() const = 0;
-    virtual void delete_account() = 0;
+    virtual void delete_account() const = 0;
 };

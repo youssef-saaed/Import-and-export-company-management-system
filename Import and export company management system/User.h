@@ -26,4 +26,4 @@ public:
     void viewInfo() const override;
 
     void delete_account() const override;
-};)
+};
