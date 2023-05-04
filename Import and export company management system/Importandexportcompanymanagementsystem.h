@@ -2,6 +2,13 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QDir>
+#include <QFileInfo>
+#include <fstream>
+#include <iostream>
+#include <string>
+
 #include "ui_Importandexportcompanymanagementsystem.h"
 
 class Importandexportcompanymanagementsystem : public QMainWindow
@@ -19,12 +26,18 @@ public:
         ui.signupErrorBox->hide();
         connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
+        connect(ui.upload, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
     }
     ~Importandexportcompanymanagementsystem();
 
 private slots:
     void registerUser();
     void loginUser();
+
 private:
+    struct Tk
+    {
+        QString filename;
+    } root;
     Ui::ImportandexportcompanymanagementsystemClass ui;
 };

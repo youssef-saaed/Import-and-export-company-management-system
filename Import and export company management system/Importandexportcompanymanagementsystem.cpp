@@ -1,7 +1,4 @@
 #include "Importandexportcompanymanagementsystem.h"
-#include <fstream>
-#include <iostream>
-#include <string>
 
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
@@ -12,9 +9,9 @@ void Importandexportcompanymanagementsystem::loginUser()
     QString password = ui.passwordLoginI->text();
 
     std::ifstream handler("test.csv");
- 
+
     std::string line;
-    while (std::getline(handler, line)) 
+    while (std::getline(handler, line))
     {
         QString qline = QString::fromStdString(line);
         QStringList columns = qline.split(",");
@@ -31,6 +28,7 @@ void Importandexportcompanymanagementsystem::loginUser()
     }
     handler.close();
 }
+
 void Importandexportcompanymanagementsystem::registerUser()
 {
     std::ofstream handler("test.csv", std::ios::app);
@@ -41,26 +39,28 @@ void Importandexportcompanymanagementsystem::registerUser()
         QString password = ui.passwordI->text();
         QString phone = ui.phoneNumI->text();
         QString address = ui.addressI->text();
-        
         QString gender;
-        
+
         if (ui.genderMale->isChecked())
         {
             gender = "male";
         }
         else if (ui.genderFemale->isChecked())
         {
-            gender =  "female";
+            gender = "female";
         }
+        
+        QString photoPath ;
+        
+        QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "/", tr("JPEG files (*.jpg);;All files (*.*)"));
+        
+        
 
-        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," <<
-            phone.toStdString() << "," <<address
-            .toStdString()  << "," << gender.toStdString() << "\n";
+        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << ","
+            << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << ",";
         handler.close();
 
-        QString message = "Registred Succefuly";
-        
+        QString message = "Registered Successfully";
         QMessageBox::information(this, tr("Registration Successful"), message);
-        
     }
 }
