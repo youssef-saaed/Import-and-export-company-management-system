@@ -2,6 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    SystemStart system(argc,argv,"Nahed","/Media/logo.png");
+    SystemStart system(argc,argv,"Nahed","/media/logo.png");
     return 0;
 }
