@@ -15,7 +15,8 @@ public:
         ui.setupUi(this);
         ui.passwordI->setEchoMode(QLineEdit::Password);
         ui.passwordLoginI->setEchoMode(QLineEdit::Password);
-
+        ui.loginErrorBox->hide();
+        ui.signupErrorBox->hide();
         connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
     }
