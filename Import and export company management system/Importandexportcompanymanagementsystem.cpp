@@ -52,7 +52,7 @@ void Importandexportcompanymanagementsystem::registerUser()
         
         QString photoPath ;
         
-        QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "/", tr("JPEG files (*.jpg);;All files (*.*)"));
+        QString fileName = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
         
         
 
