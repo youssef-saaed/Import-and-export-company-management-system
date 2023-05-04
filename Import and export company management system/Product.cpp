@@ -13,7 +13,7 @@ Product::Product(const std::string& lifeCyclePeriod, const std::string& name, co
 	setProductID(productID);
 }
 
-Product::Product()
+Product::Product():amount(0),mass(0.),volume(0.),price(0.),productID(0)
 {
 }
 

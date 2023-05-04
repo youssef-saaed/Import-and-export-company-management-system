@@ -1,5 +1,9 @@
 #include "Person.h"
 
+Person::Person()
+{
+}
+
 Person::Person(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account)
     : name(name), birthdate(birthdate), address(address), phonenum(phonenum), gender(gender), profilePic(profilePic), referecode(referecode), membership(membership), account(account) {}
 

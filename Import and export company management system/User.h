@@ -2,7 +2,7 @@
 #include "Cart.h"
 #include "Order.h"
 #include "Person.h"
-
+class Order;
 class User : public Person {
 
 private:

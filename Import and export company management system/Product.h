@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-
 class Product
 {
 private:
@@ -46,4 +45,3 @@ public:
 
 	// void addtoDB();
 };
-
