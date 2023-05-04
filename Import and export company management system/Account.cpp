@@ -1,6 +1,4 @@
-
 #include "Account.h"
-#include <string>
 
 Account::Account(std::string const& username, std::string const& password, std::string const& email, bool const& isverified,
     std::string const& accountType) {
@@ -27,7 +25,7 @@ std::string const& Account::getUsername() const
 
 bool Account::setUsername(std::string const& username)
 {
-    Account::username = username;
+    this->username = username;
     return true;
 }
 
@@ -38,7 +36,7 @@ std::string const& Account::getPassword() const
 
 bool Account::setPassword(std::string const& password)
 {
-    Account::password = password;
+    this->password = password;
     return true;
 }
 
@@ -49,7 +47,7 @@ std::string const& Account::getEmail() const
 
 bool Account::setEmail(std::string const& email)
 {
-    Account::email = email;
+    this->email = email;
     return true;
 }
 
@@ -60,7 +58,7 @@ bool const& Account::getIsVerified() const
 
 bool Account::setIsVerified(bool const& isverified)
 {
-    Account::isverified = isverified;
+    this->isverified = isverified;
     return true;
 }
 
@@ -71,7 +69,7 @@ std::string const& Account::getAccountType() const
 
 bool Account::setAccountType(std::string const& accountType)
 {
-    Account::accountType = accountType;
+    this->accountType = accountType;
     return true;
 }
 

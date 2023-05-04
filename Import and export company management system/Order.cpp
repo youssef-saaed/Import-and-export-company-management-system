@@ -1,6 +1,6 @@
 #include "Order.h"
 
-Order::Order(const int& number, const State& state, Product* products, const User& orderReciever)
+Order::Order(const int& number, const State& state, Product* products, User* orderReciever)
 {
 	setNumber(number);
 	setState(state);
@@ -55,13 +55,16 @@ bool Order::setProducts(Product* products)
 	return false;
 }
 
-User Order::getOrderReciever() const
+User * Order::getOrderReciever() const
 {
 	return orderReciever;
 }
 
-bool Order::setOrderReciever(const User& orderReciever)
+bool Order::setOrderReciever(User* orderReciever)
 {
-	this->orderReciever = orderReciever;
-	return true;
+	if (orderReciever) {
+		this->orderReciever = orderReciever;
+		return true;
+	}
+	return false;
 }

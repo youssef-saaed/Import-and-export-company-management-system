@@ -11,9 +11,9 @@ private:
 	int number;
 	State state;
 	Product* products;
-	User orderReciever;
+	User* orderReciever;
 public:
-	Order(const int&, const State&, Product*, const User&);
+	Order(const int&, const State&, Product*, User*);
 	Order();
 	~Order();
 	int getNumber() const;
@@ -22,8 +22,8 @@ public:
 	bool setState(const State&);
 	Product* getProducts() const;
 	bool setProducts(Product*);
-	User getOrderReciever() const;
-	bool setOrderReciever(const User&);
+	User* getOrderReciever() const;
+	bool setOrderReciever(User*);
 	bool isCompleted();
 	bool advanceState();
 };
