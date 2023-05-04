@@ -191,7 +191,7 @@ background-color:#000;
        <x>120</x>
        <y>90</y>
        <width>301</width>
-       <height>421</height>
+       <height>461</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -452,6 +452,24 @@ border:1px solid #000000;
        <string>Register</string>
       </property>
      </widget>
+     <widget class="QLabel" name="signupErrorBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>430</y>
+        <width>261</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#signupErrorBox{
+color: #ff0000;
+}</string>
+      </property>
+      <property name="text">
+       <string>Error!</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QFrame" name="loginForm">
      <property name="geometry">
@@ -459,7 +477,7 @@ border:1px solid #000000;
        <x>660</x>
        <y>180</y>
        <width>301</width>
-       <height>201</height>
+       <height>211</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -529,6 +547,24 @@ border:1px solid #000000;
       </property>
       <property name="text">
        <string>Login</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="loginErrorBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>261</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#loginErrorBox{
+color: #ff0000;
+}</string>
+      </property>
+      <property name="text">
+       <string>Error!</string>
       </property>
      </widget>
     </widget>
