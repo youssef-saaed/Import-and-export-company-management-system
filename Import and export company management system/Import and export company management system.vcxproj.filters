@@ -82,6 +82,9 @@
     <ClCompile Include="Inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SystemStart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D:\CSAI\Year 1\Semster 2\CSAI 151\Project\Import and export company management system\Media\Logo\facebook_cover_photo_1.png">
@@ -134,6 +137,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Importandexportcompanymanagementsystem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="Account.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -173,10 +181,8 @@
     <ClInclude Include="Vehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Importandexportcompanymanagementsystem.h">
+    <ClInclude Include="SystemStart.h">
       <Filter>Header Files</Filter>
-    </QtMoc>
+    </ClInclude>
   </ItemGroup>
 </Project>

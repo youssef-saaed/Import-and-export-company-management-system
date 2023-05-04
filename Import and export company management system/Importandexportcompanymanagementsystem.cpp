@@ -32,6 +32,10 @@ void Importandexportcompanymanagementsystem::loginUser()
     }
 }
 
+void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
+    ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
+}
+
 void Importandexportcompanymanagementsystem::registerUser()
 {
     std::ofstream handler("test.csv", std::ios::app);

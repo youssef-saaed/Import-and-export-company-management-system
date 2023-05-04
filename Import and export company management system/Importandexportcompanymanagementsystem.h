@@ -15,7 +15,6 @@
 class Importandexportcompanymanagementsystem : public QMainWindow
 {
     Q_OBJECT
-
 public:
     Importandexportcompanymanagementsystem(QWidget* parent = nullptr)
         : QMainWindow(parent)
@@ -30,6 +29,7 @@ public:
         connect(ui.upload, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadFile);
     }
     ~Importandexportcompanymanagementsystem();
+    void customizeUI(std::string);
 
 private slots:
     void registerUser();
