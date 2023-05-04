@@ -11,23 +11,25 @@ void Importandexportcompanymanagementsystem::loginUser()
     std::ifstream handler("test.csv");
 
     std::string line;
+    bool found = false;
     while (std::getline(handler, line))
     {
         QString qline = QString::fromStdString(line);
-        
+
         QStringList columns = qline.split(",");
         if (columns[1] == username && columns[3] == password)
         {
+            found = true;
             QString message = "Welcome Back " + username + "\n";
-            QMessageBox::information(this, tr("Login Successful"),message);
+            QMessageBox::information(this, tr("Login Successful"), message);
             break;
-        }
-        else
-        {
-            QMessageBox::information(this, tr("Login Failed"), tr("Invalid username or password."));
         }
     }
     handler.close();
+    if (!found)
+    {
+        QMessageBox::information(this, tr("Login Failed"), tr("Invalid username or password."));
+    }
 }
 
 void Importandexportcompanymanagementsystem::registerUser()
@@ -41,6 +43,7 @@ void Importandexportcompanymanagementsystem::registerUser()
         QString phone = ui.phoneNumI->text();
         QString address = ui.addressI->text();
         QString gender;
+        QString prime;
 
         if (ui.genderMale->isChecked())
         {
@@ -50,17 +53,34 @@ void Importandexportcompanymanagementsystem::registerUser()
         {
             gender = "female";
         }
-        
-        //QString photoPath ;
-        
-        QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "/", tr("JPEG files (*.jpg);;All files (*.*)"));
-        
-        
 
-        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << ","
-            << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << ",";
+        if (ui.isPrimeCheckbox->isChecked())
+        {
+            prime = "Prime";
+        }
+        else
+        {
+            prime = "Normal";
+        }
+
+
+        QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
+            
+        QDir mediaDir("media");
+        if (!mediaDir.exists())
+        {
+            mediaDir.mkpath(".");
+        }
+
+        QFileInfo Info(PhotoSelect);
+        QString FilePath = mediaDir.path() + "/" + Info.fileName();
+        QFile::copy(PhotoSelect, FilePath);
+
+
+
+        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << FilePath.toStdString() << "," << prime.toStdString();
         handler.close();
 
-        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully")) ;
+        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
     }
 }

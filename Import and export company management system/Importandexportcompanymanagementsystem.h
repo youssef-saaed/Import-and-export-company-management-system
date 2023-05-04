@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <fstream>
 #include <iostream>
@@ -26,14 +27,16 @@ public:
         ui.signupErrorBox->hide();
         connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
-        connect(ui.upload, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
+        connect(ui.upload, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadFile);
     }
     ~Importandexportcompanymanagementsystem();
 
 private slots:
     void registerUser();
     void loginUser();
+    void uploadFile();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
 };
+
