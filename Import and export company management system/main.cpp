@@ -1,9 +1,7 @@
-#include "Importandexportcompanymanagementsystem.h"
+#include "SystemStart.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    Importandexportcompanymanagementsystem w;
-    w.show();
-    return a.exec();
+    SystemStart system(argc,argv,"Nahed","/Media/logo.png");
+    return 0;
 }
