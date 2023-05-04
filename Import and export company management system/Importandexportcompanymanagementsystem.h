@@ -35,9 +35,5 @@ private slots:
     void loginUser();
 
 private:
-    struct Tk
-    {
-        QString filename;
-    } root;
     Ui::ImportandexportcompanymanagementsystemClass ui;
 };
