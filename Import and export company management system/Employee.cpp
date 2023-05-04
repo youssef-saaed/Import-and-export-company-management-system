@@ -49,3 +49,11 @@ bool Employee::setJobTitle(std::string const& jobTitle)
     this->jobTitle = jobTitle;
     return true;
 }
+
+void Employee::viewInfo() const
+{
+}
+
+void Employee::delete_account() const
+{
+}

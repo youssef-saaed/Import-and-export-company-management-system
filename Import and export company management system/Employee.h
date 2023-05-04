@@ -28,6 +28,6 @@ public:
     bool setJobTitle(std::string const& jobTitle);
 
     double overTime_Ecalc() const;
-    void viewInfo() const override;
-    void delete_account() const override;
+    void viewInfo() const;
+    void delete_account() const;
 };

@@ -4,7 +4,7 @@
 #include "User.h"
 
 enum State{};
-
+class User;
 class Order
 {
 private:

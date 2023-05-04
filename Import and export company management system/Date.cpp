@@ -55,3 +55,8 @@ int Date::getYear() const
 {
 	return year;
 }
+
+int Date::getAge() const
+{
+	return 0;
+}
