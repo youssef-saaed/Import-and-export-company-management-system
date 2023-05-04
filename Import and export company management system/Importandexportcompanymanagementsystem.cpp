@@ -10,7 +10,7 @@ void Importandexportcompanymanagementsystem::loginUser()
 {
     QString username = ui.userLoginI->text();
     QString password = ui.passwordLoginI->text();
-    QMessageBox::warning(this, tr("Login Failed"), tr("Invalid username or password."));
+
     
 } 
 
@@ -43,5 +43,6 @@ void Importandexportcompanymanagementsystem::registerUser()
         QString message = "Registred Succefuly";
         
         QMessageBox::information(this, tr("Registration Successful"), message);
+        
     }
 }
