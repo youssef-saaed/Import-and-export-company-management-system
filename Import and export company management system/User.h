@@ -7,16 +7,16 @@ class User : public Person {
 
 private:
     double Ubalance;
-    Cart userCart;
+    Cart* userCart;
     Order* pastOrders;
 
 public:
     User();
     
-    User(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, double Ubalance, Cart userCart, Order* pastOrders);
+    User(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, double Ubalance, Cart* userCart, Order* pastOrders);
 
     double getBalance() const;
-    bool setBalance(double const& Ubalance);
+    bool setBalance(const double& Ubalance);
 
     void viewProfile() const;
 
@@ -24,7 +24,7 @@ public:
 
     void change_Password() const;
 
-    void viewInfo() const override;
+    void viewInfo() const;
 
-    void delete_account() const override;
+    void delete_account() const;
 };

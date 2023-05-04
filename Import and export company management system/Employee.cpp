@@ -1,6 +1,6 @@
 #include "Employee.h"
 
-Employee::Employee(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs)
+Employee::Employee(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs)
     : Person(name, birthdate, address, phonenum, gender, profilePic, referecode, membership, account), EmployeeID(EmployeeID), jobTitle(jobTitle), salary(salary), department(department), overtimehrs(overtimehrs) {}
 
 int Employee::getemployeeID() const
@@ -48,20 +48,4 @@ bool Employee::setJobTitle(std::string const& jobTitle)
 {
     this->jobTitle = jobTitle;
     return true;
-}
-
-
-double Employee::overTime_Ecalc() const
-{
-
-}
-
-void Employee::viewInfo() const
-{
-
-}
-
-void Employee::delete_account() const
-{
-
 }

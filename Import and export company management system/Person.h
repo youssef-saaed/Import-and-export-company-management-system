@@ -8,7 +8,7 @@ class Person {
 
 protected:
     std::string name;
-    int phonenum;
+    std::string phonenum;
     int gender;
     Date birthdate;
     std::string address;
@@ -18,14 +18,15 @@ protected:
     int referecode;
 
 public:
-    Person(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
+    Person();
+    Person(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
     virtual ~Person();
 
     std::string getName() const;
-    bool setName(std::string const& name);
+    bool setName(const std::string& name);
 
-    int getPhonenum() const;
-    bool setPhonenum(int const& phonenum);
+    std::string getPhonenum() const;
+    bool setPhonenum(const std::string& phonenum);
 
     int getGender() const;
     bool setGender(int const& gender);
