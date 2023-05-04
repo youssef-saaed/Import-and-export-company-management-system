@@ -1,4 +1,3 @@
-#pragma once
 #include "Employee.h"
 
 Employee::Employee(std::string name, Date birthdate, std::string address, int phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs)

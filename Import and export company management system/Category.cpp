@@ -1,4 +1,3 @@
-#pragma once
 #include "Category.h"
 
 Category::Category(const std::string& name, const std::string& description, const std::string& tags, const std::string& image, Product* products) {

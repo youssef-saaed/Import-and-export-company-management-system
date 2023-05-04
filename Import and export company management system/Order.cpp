@@ -1,4 +1,3 @@
-#pragma once
 #include "Order.h"
 
 Order::Order(const int& number, const State& state, Product* products, const User& orderReciever)

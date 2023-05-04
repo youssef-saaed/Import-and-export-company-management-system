@@ -1,4 +1,3 @@
-#pragma once
 #include "Inventory.h"
 
 Inventory::Inventory(Category* categories)

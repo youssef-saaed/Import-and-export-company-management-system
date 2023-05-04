@@ -1,4 +1,3 @@
-#pragma once
 #include "Vehicle.h"
 
 Vehicle::Vehicle(const VehicleType& type, const std::string& vehicleDetails, const double& maxMass, const double& maxVolume, const double& availableMass, const double& availableVolume, Order* orders)

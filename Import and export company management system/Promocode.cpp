@@ -1,4 +1,3 @@
-#pragma once
 #include "Promocode.h"
 
 Promocode::Promocode(const std::string& code, const Date& expiryDate, Category* categories, Product* products)

@@ -1,4 +1,3 @@
-#pragma once
 #include "Product.h"
 
 Product::Product(const std::string& lifeCyclePeriod, const std::string& name, const std::string& description, const std::string& image, const double& price, const double& amount, const double& mass, const double& volume, const int& productID)
