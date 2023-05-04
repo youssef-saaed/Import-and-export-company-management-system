@@ -11,29 +11,27 @@ void Importandexportcompanymanagementsystem::loginUser()
     QString username = ui.userLoginI->text();
     QString password = ui.passwordLoginI->text();
 
-    std::ifstream file("test.csv");
+    std::ifstream handler("test.csv");
+ 
     std::string line;
-    while (std::getline(file, line))
+    while (std::getline(handler, line)) 
     {
         QString qline = QString::fromStdString(line);
-        QStringList columns = qline.split(",");
-        if (columns[1] == username && columns[3] == password)
+        QStringList fields = qline.split(",");
+        if (fields[1] == username && fields[3] == password)
         {
-            QString mess1 = " Welcome Back  " + username + "\n";
-            QMessageBox::information(this, tr("Login Successful"), mess1);
+            QString message2 = "Welcome Back  " + username + "\n";
+            QMessageBox::information(this, tr("Login Successful"), message2);
             break;
         }
-        else if (columns[1] != username && columns[3] != password)
+        else
         {
-            QMessageBox::information(this, tr("Login Failed"), tr("Invalid UserName or PassWord"));
+            QMessageBox::information(this, tr("Login Failed"), tr("Invalid username or password."));
         }
     }
+    handler.close();
 
-    file.close();
-
-    
-} 
-
+}
 void Importandexportcompanymanagementsystem::registerUser()
 {
     std::ofstream handler("test.csv", std::ios::app);
