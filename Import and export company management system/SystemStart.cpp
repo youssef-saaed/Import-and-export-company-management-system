@@ -5,6 +5,7 @@ SystemStart::SystemStart(int argc, char* argv[], std::string companyName, std::s
     QApplication a(argc, argv);
     Importandexportcompanymanagementsystem w;
     w.setWindowTitle(QString::fromStdString(companyName + " Management System"));
+    w.setWindowIcon(QIcon(QString::fromStdString(logoPath)));
     w.customizeUI(logoPath);
     w.show();
     a.exec();
