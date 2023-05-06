@@ -4,7 +4,7 @@
 #include "Date.h"
 #include "Account.h"
 
-enum Gender{Male,Female};
+enum Gender{Male,Female,None};
 
 class Person {
 

@@ -38,6 +38,6 @@ private slots:
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
-    std::string filePath;
+    std::string filePath = "";
 };
 

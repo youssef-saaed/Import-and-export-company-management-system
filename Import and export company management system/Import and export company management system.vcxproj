@@ -142,6 +142,11 @@
     <ClInclude Include="User.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DB\employee.csv" />
+    <None Include="DB\user.csv" />
+    <None Include="DB\userAndEmployeeData.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

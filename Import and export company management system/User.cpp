@@ -40,6 +40,19 @@ bool User::setMembership(std::string const& membership)
 
 std::string User::Register()
 {
+    if (name == "") {
+        return "name must be filled";
+    }
+
+    if (account.getUsername() == "") {
+        return "username is empty, please enter a username";
+    }
+
+    if (account.getEmail() == "") {
+        return "email is empty, please enter an email";
+    }
+
+    if ()
 
     return std::string();
 }
