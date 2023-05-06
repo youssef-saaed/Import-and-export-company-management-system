@@ -125,4 +125,4 @@ std::string User::Register()
 
         return std::string();
     }
-}
+
