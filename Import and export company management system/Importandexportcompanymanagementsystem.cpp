@@ -32,6 +32,10 @@ void Importandexportcompanymanagementsystem::loginUser()
     }
 }
 
+void Importandexportcompanymanagementsystem::uploadFile()
+{
+}
+
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
