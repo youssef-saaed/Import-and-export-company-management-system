@@ -34,6 +34,7 @@ void Importandexportcompanymanagementsystem::loginUser()
 
 void Importandexportcompanymanagementsystem::uploadFile()
 {
+   
 }
 
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
@@ -76,7 +77,7 @@ void Importandexportcompanymanagementsystem::registerUser()
     if (handler.is_open()) {
 
         QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
-            
+
         QDir mediaDir("media");
         if (!mediaDir.exists())
         {
@@ -95,3 +96,4 @@ void Importandexportcompanymanagementsystem::registerUser()
         QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
     }
 }
+
