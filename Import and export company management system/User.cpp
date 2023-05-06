@@ -62,7 +62,7 @@ std::string User::Register()
 
 
     std::ifstream handler;
-    std::string path = "youssef-saaed\\Import-and-export-company-management-system\\Import and export company management system\\DB\\userAndEmployeeData.csv";
+    std::string path = "./DB/userAndEmployeeData.csv";
     handler.open(path);
     std::string line = "";
 
