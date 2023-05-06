@@ -46,36 +46,37 @@ void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
 void Importandexportcompanymanagementsystem::registerUser()
 {
     User user;
-    user.setName(ui.nameI->text().toStdString());
-    user.account.setUsername(ui.userI->text().toStdString());
+    Account userAcc;
+    Date birthDate;
+    QString name = ui.nameI->text();
+    QString username = ui.userI->text();
+    QString email = ui.emailI->text();
+    QString password = ui.passwordI->text();
+    QString phone = ui.phoneNumI->text();
+    QString address = ui.addressI->text();
+    Gender gender;
+    bool prime;
+
+    if (ui.genderMale->isChecked())
+    {
+        gender = Male;
+    }
+    else if (ui.genderFemale->isChecked())
+    {
+        gender = Female;
+    }
+
+    if (ui.isPrimeCheckbox->isChecked())
+    {
+        prime = true;
+    }
+    else
+    {
+        prime = false;
+    }
+    
     std::ofstream handler("test.csv", std::ios::app);
     if (handler.is_open()) {
-        QString name = ui.nameI->text();
-        QString username = ui.userI->text();
-        QString email = ui.emailI->text();
-        QString password = ui.passwordI->text();
-        QString phone = ui.phoneNumI->text();
-        QString address = ui.addressI->text();
-        QString gender;
-        QString prime;
-
-        if (ui.genderMale->isChecked())
-        {
-            gender = "male";
-        }
-        else if (ui.genderFemale->isChecked())
-        {
-            gender = "female";
-        }
-
-        if (ui.isPrimeCheckbox->isChecked())
-        {
-            prime = "Prime";
-        }
-        else
-        {
-            prime = "Normal";
-        }
 
         QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
 
@@ -89,8 +90,9 @@ void Importandexportcompanymanagementsystem::registerUser()
         QString FilePath = mediaDir.path() + "/" + Info.fileName();
         QFile::copy(PhotoSelect, FilePath);
 
-        
-        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << prime.toStdString();
+
+
+        //handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << FilePath.toStdString() << "," << prime.toStdString();
         handler.close();
 
         QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));

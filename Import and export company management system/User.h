@@ -9,11 +9,12 @@ private:
     double Ubalance;
     Cart* userCart;
     Order* pastOrders;
+    std::string membership;
 
 public:
     User();
     
-    User(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, double Ubalance, Cart* userCart, Order* pastOrders);
+    User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account);
 
     double getBalance() const;
     bool setBalance(const double& Ubalance);
@@ -27,4 +28,7 @@ public:
     void viewInfo() const;
 
     void delete_account() const;
+
+    std::string getMembership() const;
+    bool setMembership(std::string const& membership);
 };

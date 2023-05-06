@@ -1,7 +1,7 @@
 #include "Employee.h"
 
-Employee::Employee(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs)
-    : Person(name, birthdate, address, phonenum, gender, profilePic, referecode, membership, account), EmployeeID(EmployeeID), jobTitle(jobTitle), salary(salary), department(department), overtimehrs(overtimehrs) {}
+Employee::Employee(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs)
+    : Person(name, birthdate, address, phonenum, gender, profilePic, account), EmployeeID(EmployeeID), jobTitle(jobTitle), salary(salary), department(department), overtimehrs(overtimehrs) {}
 
 int Employee::getemployeeID() const
 {
