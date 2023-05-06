@@ -5,9 +5,13 @@ Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem(
 
 void Importandexportcompanymanagementsystem::loginUser()
 {
-    QString username = ui.userLoginI->text();
-    QString password = ui.passwordLoginI->text();
+    //QString username = ui.userLoginI->text();
+    //QString password = ui.passwordLoginI->text();
 
+    Account user;
+    user.setUsername(ui.userLoginI->text().toStdString());
+    user.setPassword(ui.passwordLoginI->text().toStdString());
+    
     std::ifstream handler("test.csv");
 
     std::string line;
@@ -17,16 +21,17 @@ void Importandexportcompanymanagementsystem::loginUser()
         QString qline = QString::fromStdString(line);
 
         QStringList columns = qline.split(",");
-        if (columns[1] == username && columns[3] == password)
+        if (columns[1].toStdString()==user.getUsername() &&  user.getPassword() == columns[3].toStdString())
         {
             found = true;
-            QString message = "Welcome Back " + username + "\n";
+            QString message = "Welcome Back " + QString::fromStdString(user.getUsername()) + "\n";
             QMessageBox::information(this, tr("Login Successful"), message);
             break;
         }
     }
     handler.close();
-    if (!found)
+    
+    if (found==false )
     {
         QMessageBox::information(this, tr("Login Failed"), tr("Invalid username or password."));
     }
