@@ -41,8 +41,6 @@ void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 
 void Importandexportcompanymanagementsystem::registerUser()
 {
-    ui.loginAndRegister->hide();
-    ui.storeView->show();
     std::string name = ui.nameI->text().toStdString();
     std::string username = ui.userI->text().toStdString();
     std::string email = ui.emailI->text().toStdString();
