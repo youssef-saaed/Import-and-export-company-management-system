@@ -5,9 +5,6 @@ Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem(
 
 void Importandexportcompanymanagementsystem::loginUser()
 {
-    //QString username = ui.userLoginI->text();
-    //QString password = ui.passwordLoginI->text();
-
     Account user;
     user.setUsername(ui.userLoginI->text().toStdString());
     user.setPassword(ui.passwordLoginI->text().toStdString());
