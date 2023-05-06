@@ -128,7 +128,7 @@ std::string User::Register()
     this->setReferecode(lastReferenceNumber + 1);
     std::ofstream csvWriter;
     csvWriter.open(path);
-    csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
+    csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << gender << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
     csvWriter.close();
     return "Done";
 }
