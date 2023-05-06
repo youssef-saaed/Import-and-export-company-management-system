@@ -34,6 +34,7 @@ void Importandexportcompanymanagementsystem::loginUser()
 
 void Importandexportcompanymanagementsystem::uploadFile()
 {
+   
 }
 
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
@@ -71,9 +72,8 @@ void Importandexportcompanymanagementsystem::registerUser()
             prime = "Normal";
         }
 
-
         QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
-            
+
         QDir mediaDir("media");
         if (!mediaDir.exists())
         {
@@ -84,11 +84,11 @@ void Importandexportcompanymanagementsystem::registerUser()
         QString FilePath = mediaDir.path() + "/" + Info.fileName();
         QFile::copy(PhotoSelect, FilePath);
 
-
-
-        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << FilePath.toStdString() << "," << prime.toStdString();
+        
+        handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << prime.toStdString();
         handler.close();
 
         QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
     }
 }
+
