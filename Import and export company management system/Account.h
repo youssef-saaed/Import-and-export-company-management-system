@@ -1,5 +1,9 @@
 #pragma once
 #include <string>
+#include <QString>
+#include <QStringList>
+#include <fstream>
+#include <iostream>
 
 class Account {
 
@@ -30,7 +34,25 @@ public:
     bool const& getIsVerified() const;
     bool setIsVerified(bool const& isverified);
 
-    std::string checkCredentials();
+    std::string checkCredentials() 
+    {
+        std::ifstream handler("userAndEmployeeData.csv");
+        std::string line;
+        while (std::getline(handler, line))
+        {
+            QString qline = QString::fromStdString(line);
+
+            QStringList columns = qline.split(",");
+            if (columns[1].toStdString() == username && columns[3].toStdString() == password)
+            {
+                accountType = columns[4].toStdString();
+                handler.close();
+                return accountType;
+            }
+        }
+        handler.close();
+        return;
+    }
 
     void verify() const;
 };
