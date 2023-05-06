@@ -44,7 +44,7 @@ void Importandexportcompanymanagementsystem::registerUser()
 {
     User user;
     user.setName(ui.nameI->text().toStdString());
-    user.
+    user.account.setUsername(ui.userI->text().toStdString());
     std::ofstream handler("test.csv", std::ios::app);
     if (handler.is_open()) {
         QString name = ui.nameI->text();
