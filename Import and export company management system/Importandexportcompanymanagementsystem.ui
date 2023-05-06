@@ -569,6 +569,324 @@ color: #ff0000;
      </widget>
     </widget>
    </widget>
+   <widget class="QFrame" name="storeView">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>130</y>
+      <width>1080</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="userHiLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>191</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#userHiLabel{
+color:#240747;
+font-size: 22px;
+font-weight: 800;
+}</string>
+     </property>
+     <property name="text">
+      <string>Hi, User</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="refNumLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#refNumLabel{
+font-size:12px;
+color: #333;
+font-weight:300;
+}</string>
+     </property>
+     <property name="text">
+      <string>Ref no.: 11111 </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="editAccBtn">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>20</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#editAccBtn{
+background-color:rgb(218, 160, 44);
+border:none;
+border-radius: 10%;
+color:#fff;
+font-size:14px;
+font-weight:600;
+}
+#editAccBtn::hover{
+background-color:#fff;
+border: 1px solid rgb(218, 160, 44);
+color:rgb(218, 160, 44);
+}</string>
+     </property>
+     <property name="text">
+      <string>Edit Account</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="returnBtn">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>20</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#returnBtn{
+background-color:rgb(198, 38, 38);
+border:none;
+border-radius: 10%;
+color:#fff;
+font-size:14px;
+font-weight:600;
+}
+#returnBtn::hover{
+background-color:#fff;
+border: 1px solid rgb(198, 38, 38);
+color:rgb(198, 38, 38);
+}</string>
+     </property>
+     <property name="text">
+      <string>Return Item</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="orderTrackBtn">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>20</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#orderTrackBtn{
+background-color:#000;
+border:none;
+border-radius: 10%;
+color:#fff;
+font-size:14px;
+font-weight:600;
+}
+#orderTrackBtn::hover{
+background-color:#fff;
+border: 1px solid #000;
+color:#000;
+}</string>
+     </property>
+     <property name="text">
+      <string>Track Order</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cartBtn">
+     <property name="geometry">
+      <rect>
+       <x>1010</x>
+       <y>20</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#cartBtn{
+background:none;
+border:none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>media/shopping-cart-icon-2.png</normaloff>media/shopping-cart-icon-2.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>1041</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1022</width>
+        <height>439</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item alignment="Qt::AlignTop">
+        <widget class="QWidget" name="category" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>1004</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1004</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#category{
+background-color:rgb(60, 116, 221);
+border-radius: 15%;
+}</string>
+         </property>
+         <widget class="QLabel" name="categoryLabel">
+          <property name="geometry">
+           <rect>
+            <x>140</x>
+            <y>44</y>
+            <width>211</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#categoryLabel{
+color:white;
+font-size: 18px;
+font-weight: 700;
+}</string>
+          </property>
+          <property name="text">
+           <string>Category 1</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="categoryPic">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>40</y>
+            <width>41</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>media/shopping-cart-icon-2.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="categoryBtn">
+          <property name="geometry">
+           <rect>
+            <x>910</x>
+            <y>33</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#categoryBtn{
+border: none;
+border-radius:25px;
+background-color:white;
+}
+#categoryBtn::hover{
+background-color:rgb(200, 200, 200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>media/right arrow.png</normaloff>media/right arrow.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>17</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
