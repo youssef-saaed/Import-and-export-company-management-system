@@ -35,6 +35,7 @@ public:
                 "}"));
             QLabel* categoryLabel = new QLabel(category);
             categoryLabel->setObjectName("categoryLabel2");
+            categoryLabel->setText(QString::fromStdString("Test"));
             categoryLabel->setGeometry(QRect(140, 44, 211, 31));
             categoryLabel->setStyleSheet(QString::fromUtf8("#categoryLabel2{\n"
                 "color:white;\n"
