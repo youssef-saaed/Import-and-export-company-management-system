@@ -4,22 +4,23 @@
 #include "Date.h"
 #include "Account.h"
 
+enum Gender{Male,Female};
+
 class Person {
 
 protected:
     std::string name;
     std::string phonenum;
-    int gender;
+    Gender gender;
     Date birthdate;
     std::string address;
     std::string profilePic;
-    std::string membership;
+    Account account;
     int referecode;
 
 public:
-    Account account;
     Person();
-    Person(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
+    Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account account);
     virtual ~Person();
 
     std::string getName() const;
@@ -28,8 +29,8 @@ public:
     std::string getPhonenum() const;
     bool setPhonenum(const std::string& phonenum);
 
-    int getGender() const;
-    bool setGender(int const& gender);
+    Gender getGender() const;
+    bool setGender(Gender const& gender);
 
     int getAge() const;
     Date getBirthdate() const;
@@ -47,9 +48,6 @@ public:
 
     std::string getProfilePic() const;
     bool setProfilePic(std::string const& profilePic);
-
-    std::string getMembership() const;
-    bool setMembership(std::string const& membership);
 
     int getReferecode() const;
     bool setReferecode(int const& referecode);

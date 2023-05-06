@@ -4,8 +4,8 @@ Person::Person()
 {
 }
 
-Person::Person(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account)
-    : name(name), birthdate(birthdate), address(address), phonenum(phonenum), gender(gender), profilePic(profilePic), referecode(referecode), membership(membership), account(account) {}
+Person::Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account account)
+    : name(name), birthdate(birthdate), address(address), phonenum(phonenum), gender(gender), profilePic(profilePic), account(account) {}
 
 Person::~Person()
 {
@@ -68,12 +68,12 @@ bool Person::setPhonenum(const std::string& phonenum)
 }
 
 
-int Person::getGender() const
+Gender Person::getGender() const
 {
     return gender;
 }
 
-bool Person::setGender(int const& gender)
+bool Person::setGender(Gender const& gender)
 {
     if (gender == 0 || gender == 1) {
         this->gender = gender;
@@ -109,20 +109,6 @@ bool Person::setProfilePic(std::string const& profilePic)
     if (!profilePic.empty())
     {
         this->profilePic = profilePic;
-        return true;
-    }
-    return false;
-}
-
-std::string Person::getMembership() const
-{
-    return membership;
-}
-bool Person::setMembership(std::string const& membership)
-{
-    if (!membership.empty())
-    {
-        this->membership = membership;
         return true;
     }
     return false;
