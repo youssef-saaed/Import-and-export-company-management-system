@@ -30,6 +30,8 @@ public:
 
     void delete_account() const;
 
+    void getData(Account) const;
+
     std::string getMembership() const;
     bool setMembership(std::string const& membership);
 

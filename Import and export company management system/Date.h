@@ -4,10 +4,8 @@ class Date
 {
 private:
 	int day, month, year;
-	int *toIntDate(std::string);
 public:
 	Date();
-	Date(std::string);
 	Date(int&, int&, int&);
 	bool setDay(const int&);
 	bool setMonth(const int&);

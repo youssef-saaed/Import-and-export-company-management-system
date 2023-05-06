@@ -5,11 +5,17 @@ Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem(
 
 void Importandexportcompanymanagementsystem::loginUser()
 {
-    Account user;
-    user.setUsername(ui.userLoginI->text().toStdString());
-    user.setPassword(ui.passwordLoginI->text().toStdString());
+    Account userAcc;
+
+    userAcc.setUsername(ui.userLoginI->text().toStdString());
+    userAcc.setPassword(ui.passwordLoginI->text().toStdString());
+
+    if (userAcc.checkCredentials() == "User") {
+        User user;
+        user.getData(userAcc);
+    }
     
-    std::ifstream handler("test.csv");
+    /*std::ifstream handler("test.csv");
 
     std::string line;
     bool found = false;
@@ -28,10 +34,10 @@ void Importandexportcompanymanagementsystem::loginUser()
     }
     handler.close();
     
-    if (found==false )
+    if (found==false)
     {
         QMessageBox::warning(this, tr("Login Failed"), tr("Invalid username or password."));
-    }
+    }*/
 }
 
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
@@ -47,7 +53,10 @@ void Importandexportcompanymanagementsystem::registerUser()
     std::string password = ui.passwordI->text().toStdString();
     std::string phone = ui.phoneNumI->text().toStdString();
     std::string address = ui.addressI->text().toStdString();
-    std::string bd = ui.birthDateI->text().toStdString();
+    QStringList bdList = ui.birthDateI->text().split('/');
+    int day = bdList[1].trimmed().toInt();
+    int month = bdList[0].trimmed().toInt();
+    int year = bdList[2].trimmed().toInt();
     Gender gender;
     std::string Membership;
     bool isVerified = false;
@@ -74,10 +83,20 @@ void Importandexportcompanymanagementsystem::registerUser()
         Membership = "Normal";
     }
 
-    Date birthDate(bd);
+    Date birthDate(day,month,year);
     Account userAcc(username,password,email,isVerified,accType);
     User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
-    user.Register();
+    std::string registerReturn = user.Register();
+    if (registerReturn == "Done") {
+        ui.loginAndRegister->hide();
+        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+        ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+        ui.storeView->show();
+    }
+    else {
+        ui.signupErrorBox->setText(QString::fromStdString("Error! " + registerReturn));
+        ui.signupErrorBox->show();
+    }
 }
 void Importandexportcompanymanagementsystem::uploadFile(QString user)
 {

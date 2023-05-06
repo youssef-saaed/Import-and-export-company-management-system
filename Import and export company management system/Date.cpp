@@ -1,45 +1,12 @@
 #include "Date.h"
 
-int* Date::toIntDate(std::string date)
-{
-	std::string day, month, year;
-	int intDate[3];
-	int pos = 0;
-	for (char x : date) {
-		if (x == '/') pos++;
-		if (pos == 0) month += x;
-		if (pos == 1) day += x;
-		if (pos == 2) year += x;
-	}
-	if (day.length() == 1) {
-		intDate[0] = day[0] - '0';
-	}
-	else {
-		intDate[0] = (day[0] - '0') * 10 + (day[1] - '0');
-	}
-	if (month.length() == 1) {
-		intDate[1] = month[0] - '0';
-	}
-	else {
-		intDate[1] = (month[0] - '0') * 10 + (month[1] - '0');
-	}
-	intDate[2] = (year[0] - '0') * 1000 + (year[1] - '0') * 100 + (year[2] - '0') * 10 + (year[0] - '0');
-	return intDate;
-}
+
 
 Date::Date()
 {
 	setDay(1);
 	setMonth(1);
 	setYear(1900);
-}
-
-Date::Date(std::string date)
-{
-	int* theIntDate = toIntDate(date);
-	day = *theIntDate;
-	month = *(theIntDate + 1);
-	year = *(theIntDate + 2);
 }
 
 Date::Date(int& day, int& month, int& year)
@@ -55,6 +22,7 @@ bool Date::setDay(const int& day)
 		this->day = day;
 		return true;
 	}
+	this->day = 1;
 	return false;
 }
 
@@ -64,6 +32,7 @@ bool Date::setMonth(const int& month)
 		this->month = month;
 		return true;
 	}
+	this->month = 1;
 	return false;
 }
 
@@ -73,6 +42,7 @@ bool Date::setYear(const int& year)
 		this->year = year;
 		return true;
 	}
+	this->year = 1990;
 	return false;
 }
 

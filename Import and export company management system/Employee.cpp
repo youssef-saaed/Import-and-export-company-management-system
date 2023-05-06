@@ -57,3 +57,8 @@ void Employee::viewInfo() const
 void Employee::delete_account() const
 {
 }
+
+void Employee::getData(Account) const
+{
+
+}

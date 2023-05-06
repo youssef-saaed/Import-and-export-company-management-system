@@ -15,10 +15,9 @@ protected:
     Date birthdate;
     std::string address;
     std::string profilePic;
-    Account account;
     int referecode;
-
 public:
+    Account account;
     Person();
     Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account account);
     virtual ~Person();
@@ -54,4 +53,5 @@ public:
 
     virtual void viewInfo() const = 0;
     virtual void delete_account() const = 0;
+    virtual void getData(Account) const = 0;
 };

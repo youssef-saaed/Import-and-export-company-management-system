@@ -26,6 +26,10 @@ void User::delete_account() const
 {
 }
 
+void User::getData(Account) const
+{
+}
+
 std::string User::getMembership() const
 {
     return membership;
@@ -47,91 +51,85 @@ std::string User::Register()
     }
 
     if (account.getUsername() == "") {
-        return "username is empty, please enter a username";
+        return "username is required";
+    }
+
+    std::ifstream csvReader;
+    std::string path = "./DB/userAndEmployeeData.csv";
+    csvReader.open(path);
+    std::string line = "";
+    int lastReferenceNumber = 0;
+    std::string csvData = "";
+    if (csvReader.good()) {
+        while (std::getline(csvReader, line)) {
+            QString qline = QString::fromStdString(line);
+            QStringList cells = qline.split(",");
+            if (cells[2].toStdString() == account.getUsername()) {
+                return "username exists";
+            }
+            if (!(cells[0].toStdString() == "referenceNumber")) {
+                lastReferenceNumber = cells[0].toInt();
+            }
+            csvData += qline.toStdString();
+            csvData += '\n';
+        }
+    }
+
+    csvReader.close();
+
+    for (char character : account.getUsername()) {
+        if (character == ' ') return "invalid username";
     }
 
     if (account.getEmail() == "") {
-        return "email is empty, please enter an email";
+        return "email is required";
+    }
+
+    bool dotExist = false;
+    bool atExist = false;
+
+    int emailIndex = 0;
+    for (char character : account.getEmail()) {
+        if (character == '@') atExist = true;
+        if (character == '.' && atExist && emailIndex != account.getEmail().length() - 1) {
+            dotExist = true;
+            break;
+        }
+        emailIndex++;
+    }
+    if (!(dotExist && atExist)) {
+        return "invalid email";
+    }
+
+    if (account.getPassword().length() <= 8) {
+        return "password must be more than 8 characters";
     }
     if (phonenum == "") {
-        return "Phone Number is empty, please enter a Phone Number";
+        return "Phone Number is required";
     }
+
+    for (char digit : phonenum) {
+        if (digit < '0' || digit > '9') return "invalid phone number";
+    }
+
     if (address == "") {
-        return "address is empty, please enter an address";
+        return "address is required";
     }
     if (!birthdate.isValid()) {
         return "enter a valid date";
     }
-    if (gender == None){
+
+    if (gender == None) {
         return "you didn't choose gender";
     }
-    if (profilePic == "") {
-        return "you must upload a picture of yourself";
+    if (profilePic == "" or profilePic[profilePic.length() - 1] == '/') {
+        return "picture is required";
     }
-
-
-    std::ifstream handler;
-    std::string path = "./DB/userAndEmployeeData.csv";
-    handler.open(path);
-    std::string line = "";
-
-
-    if (handler) {
-        bool all_data_found = true;
-        int row_count = 0;
-        bool data_found;
-        while (std::getline(handler, line)) {
-            row_count++;
-
-            std::vector <std::string> data;
-            std::string user;
-            std::istringstream ss(line);
-            while (std::getline(ss, user, ',')) {
-                data.push_back(user);
-            }
-
-            std::string username = account.getUsername();
-            std::string email = account.getEmail();
-            std::string password = account.getPassword();
-            std::string phoneNumber = phonenum;
-
-            std::vector<std::pair<std::string, std::string>> required_data = {
-               {"name", name},
-               {"username", username},
-               {"email", email},
-               {"password", password},
-               {"phonenumber", phoneNumber},
-               {"address", address}
-            };
-            for (auto required : required_data) {
-                bool exists = false;
-                for (size_t i = 0; i < data.size(); i++) {
-                    if (data[i] == required.second) {
-                        exists = true;
-                        break;
-                    }
-                }
-                if (!exists) {
-                    std::cout << "Data '" << required.first << "' missing in row " << row_count << std::endl;
-                    all_data_found = false;
-                    data_found = false;
-                }
-            }
-
-            if (data_found) {
-                std::cout << "All required data found in row " << row_count << std::endl;
-            }
-        }
-
-        if (all_data_found) {
-            std::cout << "All required data found in all rows!" << std::endl;
-        }
-    }
-    else {
-        std::cout << "File not found: " << path << std::endl;
-    }
-
-
-        return std::string();
-    }
+    this->setReferecode(lastReferenceNumber + 1);
+    std::ofstream csvWriter;
+    csvWriter.open(path);
+    csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
+    csvWriter.close();
+    return "Done";
+}
 
