@@ -34,28 +34,23 @@ void Importandexportcompanymanagementsystem::loginUser()
     }
 }
 
-void Importandexportcompanymanagementsystem::uploadFile()
-{
-   
-}
-
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
 
 void Importandexportcompanymanagementsystem::registerUser()
 {
-    User user;
-    Account userAcc;
-    Date birthDate;
-    QString name = ui.nameI->text();
-    QString username = ui.userI->text();
-    QString email = ui.emailI->text();
-    QString password = ui.passwordI->text();
-    QString phone = ui.phoneNumI->text();
-    QString address = ui.addressI->text();
+    std::string name = ui.nameI->text().toStdString();
+    std::string username = ui.userI->text().toStdString();
+    std::string email = ui.emailI->text().toStdString();
+    std::string password = ui.passwordI->text().toStdString();
+    std::string phone = ui.phoneNumI->text().toStdString();
+    std::string address = ui.addressI->text().toStdString();
+    std::string bd = ui.birthDateI->text().toStdString();
     Gender gender;
-    bool prime;
+    std::string Membership;
+    bool isVerified = false;
+    std::string accType = "User";
 
     if (ui.genderMale->isChecked())
     {
@@ -68,34 +63,30 @@ void Importandexportcompanymanagementsystem::registerUser()
 
     if (ui.isPrimeCheckbox->isChecked())
     {
-        prime = true;
+        Membership = "Prime";
     }
     else
     {
-        prime = false;
+        Membership = "Normal";
     }
-    
-    std::ofstream handler("test.csv", std::ios::app);
-    if (handler.is_open()) {
 
-        QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
+    Date birthDate(bd);
+    Account userAcc(username,password,email,isVerified,accType);
+    User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
+}
+void Importandexportcompanymanagementsystem::uploadFile(QString user) {
+    if (user == QString::fromStdString("")) user = "Other Users";
+    QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
 
-        QDir mediaDir("media");
-        if (!mediaDir.exists())
-        {
-            mediaDir.mkpath(".");
-        }
-
-        QFileInfo Info(PhotoSelect);
-        QString FilePath = mediaDir.path() + "/" + Info.fileName();
-        QFile::copy(PhotoSelect, FilePath);
-
-
-
-        //handler << name.toStdString() << "," << username.toStdString() << "," << email.toStdString() << "," << password.toStdString() << "," << phone.toStdString() << "," << address.toStdString() << "," << gender.toStdString() << "," << FilePath.toStdString() << "," << prime.toStdString();
-        handler.close();
-
-        QMessageBox::information(this, tr("Registration Successful"), tr("Registered Successfully"));
+    QDir mediaDir(QString::fromStdString("media/")+user);
+    if (!mediaDir.exists())
+    {
+        mediaDir.mkpath(".");
     }
+
+    QFileInfo Info(PhotoSelect);
+    QString FilePath = mediaDir.path() + "/" + Info.fileName();
+    QFile::copy(PhotoSelect, FilePath);
+    filePath = FilePath.toStdString();
 }
 

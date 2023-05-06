@@ -26,7 +26,7 @@ public:
         ui.signupErrorBox->hide();
         connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
-        connect(ui.upload, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadFile);
+        connect(ui.upload, &QPushButton::clicked, this, [=]() {uploadFile(ui.userI->text()); });
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -34,9 +34,10 @@ public:
 private slots:
     void registerUser();
     void loginUser();
-    void uploadFile();
+    void uploadFile(QString);
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
+    std::string filePath;
 };
 
