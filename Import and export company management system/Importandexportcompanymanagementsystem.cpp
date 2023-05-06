@@ -60,6 +60,9 @@ void Importandexportcompanymanagementsystem::registerUser()
     {
         gender = Female;
     }
+    else {
+        gender = None;
+    }
 
     if (ui.isPrimeCheckbox->isChecked())
     {

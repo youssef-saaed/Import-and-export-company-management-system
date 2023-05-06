@@ -91,6 +91,11 @@ int Date::getYear() const
 	return year;
 }
 
+bool Date::isValid() const
+{
+	return true;
+}
+
 int Date::getAge() const
 {
 	return 0;
