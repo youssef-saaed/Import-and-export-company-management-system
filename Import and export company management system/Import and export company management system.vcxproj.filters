@@ -27,6 +27,9 @@
     <Filter Include="Media\Logos">
       <UniqueIdentifier>{361cacaf-1e9f-428b-9aa6-aaaae65ae3a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{952f50af-8d9c-42b3-8353-2bbcf826460a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Importandexportcompanymanagementsystem.qrc">
@@ -184,5 +187,16 @@
     <ClInclude Include="SystemStart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB\employee.csv">
+      <Filter>DB</Filter>
+    </None>
+    <None Include="DB\user.csv">
+      <Filter>DB</Filter>
+    </None>
+    <None Include="DB\userAndEmployeeData.csv">
+      <Filter>DB</Filter>
+    </None>
   </ItemGroup>
 </Project>
