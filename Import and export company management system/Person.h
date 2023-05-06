@@ -14,10 +14,10 @@ protected:
     std::string address;
     std::string profilePic;
     std::string membership;
-    Account account;
     int referecode;
 
 public:
+    Account account;
     Person();
     Person(std::string name, Date birthdate, std::string address, std::string phonenum, int gender, std::string profilePic, int referecode, std::string membership, Account account);
     virtual ~Person();

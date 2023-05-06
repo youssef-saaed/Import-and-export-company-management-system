@@ -1,4 +1,4 @@
-#include "Importandexportcompanymanagementsystem.h"
+#include "SystemStart.h"
 
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
@@ -43,6 +43,9 @@ void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
 
 void Importandexportcompanymanagementsystem::registerUser()
 {
+    User user;
+    user.setName(ui.nameI->text().toStdString());
+    user.account.setUsername(ui.userI->text().toStdString());
     std::ofstream handler("test.csv", std::ios::app);
     if (handler.is_open()) {
         QString name = ui.nameI->text();
