@@ -30,7 +30,7 @@ public:
     bool const& getIsVerified() const;
     bool setIsVerified(bool const& isverified);
 
-
+    std::string checkCredentials();
 
     void verify() const;
 };

@@ -73,6 +73,7 @@ void Importandexportcompanymanagementsystem::registerUser()
     Date birthDate(bd);
     Account userAcc(username,password,email,isVerified,accType);
     User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
+    user.Register();
 }
 void Importandexportcompanymanagementsystem::uploadFile(QString user) {
     if (user == QString::fromStdString("")) user = "Other Users";

@@ -31,4 +31,6 @@ public:
 
     std::string getMembership() const;
     bool setMembership(std::string const& membership);
+
+    std::string Register();
 };

@@ -37,3 +37,9 @@ bool User::setMembership(std::string const& membership)
     }
     return false;
 }
+
+std::string User::Register()
+{
+
+    return std::string();
+}
