@@ -59,6 +59,15 @@ std::string User::Register()
     if (address == "") {
         return "address is empty, please enter an address";
     }
+    if (!birthdate.isValid()) {
+        return "enter a valid date";
+    }
+    if (gender == None){
+        return "you didn't choose gender";
+    }
+    if (profilePic == "") {
+        return "you must upload a picture of yourself";
+    }
 
 
     std::ifstream handler;
