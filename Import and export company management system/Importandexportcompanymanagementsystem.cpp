@@ -30,11 +30,12 @@ void Importandexportcompanymanagementsystem::loginUser()
     
     if (found==false )
     {
-        QMessageBox::information(this, tr("Login Failed"), tr("Invalid username or password."));
+        QMessageBox::warning(this, tr("Login Failed"), tr("Invalid username or password."));
     }
 }
 
-void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath) {
+void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
+{
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
 
@@ -75,7 +76,8 @@ void Importandexportcompanymanagementsystem::registerUser()
     User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
     user.Register();
 }
-void Importandexportcompanymanagementsystem::uploadFile(QString user) {
+void Importandexportcompanymanagementsystem::uploadFile(QString user)
+{
     if (user == QString::fromStdString("")) user = "Other Users";
     QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
 

@@ -5,7 +5,8 @@
 #include <fstream>
 #include <iostream>
 
-class Account {
+class Account 
+{
 
 private:
     std::string accountType;
@@ -43,15 +44,13 @@ public:
             QString qline = QString::fromStdString(line);
 
             QStringList columns = qline.split(",");
-            if (columns[1].toStdString() == username && columns[3].toStdString() == password)
+            if (columns[2].toStdString() == username && columns[4].toStdString() == password)
             {
-                accountType = columns[4].toStdString();
-                handler.close();
+                accountType = columns[5].toStdString();
                 return accountType;
             }
         }
         handler.close();
-        return;
     }
 
     void verify() const;
