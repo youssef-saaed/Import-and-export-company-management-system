@@ -2,6 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <regex>
+
 User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
 
@@ -85,19 +87,10 @@ std::string User::Register()
         return "email is required";
     }
 
-    bool dotExist = false;
-    bool atExist = false;
-
-    int emailIndex = 0;
-    for (char character : account.getEmail()) {
-        if (character == '@') atExist = true;
-        if (character == '.' && atExist && emailIndex != account.getEmail().length() - 1) {
-            dotExist = true;
-            break;
-        }
-        emailIndex++;
-    }
-    if (!(dotExist && atExist)) {
+  
+    std::regex emailPattern("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
+    bool mailIsValid = std::regex_match(account.getEmail(), emailPattern);
+    if (!mailIsValid) {
         return "invalid email";
     }
 

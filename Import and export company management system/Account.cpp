@@ -62,7 +62,7 @@ bool Account::setIsVerified(bool const& isverified)
     return true;
 }
 
-std::string Account::checkCredentials() const
+std::string Account::checkCredentials()
     {
         std::ifstream handler("userAndEmployeeData.csv");
         std::string line;
