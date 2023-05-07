@@ -10,37 +10,27 @@ void Importandexportcompanymanagementsystem::loginUser()
     userAcc.setUsername(ui.userLoginI->text().toStdString());
     userAcc.setPassword(ui.passwordLoginI->text().toStdString());
 
-    if (userAcc.checkCredentials() == "User") {
+    if (userAcc.checkCredentials() == "User")
+    {
         User user;
         user.getData(userAcc);
-    }
-    
-    /*std::ifstream handler("test.csv");
 
-    std::string line;
-    bool found = false;
-    while (std::getline(handler, line))
-    {
-        QString qline = QString::fromStdString(line);
+        std::string loginResult = user.Login();
 
-        QStringList columns = qline.split(",");
-        if (columns[1].toStdString()==user.getUsername() &&  user.getPassword() == columns[3].toStdString())
+        if (loginResult == "Done")
         {
-            found = true;
-            QString message = "Welcome Back " + QString::fromStdString(user.getUsername()) + "\n";
-            QMessageBox::information(this, tr("Login Successful"), message);
-            break;
+            ui.loginAndRegister->hide();
+            ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+            ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+            ui.storeView->show();
+            QMessageBox::information(this, "Login Successful", "You have been logged in successfully.");
+        }
+        else
+        {
+            QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
         }
     }
-    handler.close();
-    
-    if (found==false)
-    {
-        QMessageBox::warning(this, tr("Login Failed"), tr("Invalid username or password."));
-    }*/
-}
-
-void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
+}void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }

@@ -133,3 +133,42 @@ std::string User::Register()
     return "Done";
 }
 
+std::string User::Login()
+{
+    if (account.getUsername() == "")
+    {
+        return "username is required";
+    }
+    if (account.getPassword() == "") 
+    {
+        return "password is required";
+    }
+
+    std::ifstream csvReader;
+    std::string path = "./DB/userAndEmployeeData.csv";
+    csvReader.open(path);
+    std::string line = "";
+    bool found = false;
+    if (csvReader.good())
+    {
+        while (std::getline(csvReader, line))
+        {
+            QString qline = QString::fromStdString(line);
+            QStringList cells = qline.split(",");
+            if (cells[2].toStdString() == account.getUsername() && cells[4].toStdString() == account.getPassword()) 
+            {
+                found = true;
+                break;
+            }
+        }
+    }
+
+    csvReader.close();
+
+    if (found) {
+        return "Done";
+    }
+    else {
+        return "Invalid username or password";
+    }
+}

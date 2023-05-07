@@ -35,25 +35,7 @@ public:
     bool const& getIsVerified() const;
     bool setIsVerified(bool const& isverified);
 
-    std::string checkCredentials() 
-    {
-        std::ifstream handler("userAndEmployeeData.csv");
-        std::string line;
-        while (std::getline(handler, line))
-        {
-            QString qline = QString::fromStdString(line);
-
-            QStringList columns = qline.split(",");
-            if (columns[2].toStdString() == username && columns[4].toStdString() == password)
-            {
-                accountType = columns[5].toStdString();
-                return accountType;
-            }
-        }
-        handler.close();
-    }
-
-
-
+    std::string checkCredentials() const;
+    
     void verify() const;
 };
