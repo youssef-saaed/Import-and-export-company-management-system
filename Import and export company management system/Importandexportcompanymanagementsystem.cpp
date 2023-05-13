@@ -10,24 +10,24 @@ void Importandexportcompanymanagementsystem::loginUser()
     userAcc.setUsername(ui.userLoginI->text().toStdString());
     userAcc.setPassword(ui.passwordLoginI->text().toStdString());
 
-    if ("user")
+    if (1)
     {
         User user;
-        user.getData(userAcc);
+        user.account = &userAcc;
 
         std::string loginResult = user.Login();
 
-        if (loginResult == "Done")
+        if (!(loginResult == "Invalid username or password" || loginResult == "username is required" || loginResult == "password is required"))
         {
             ui.loginAndRegister->hide();
-            ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+            ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user.account->getUsername()));
             ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
             ui.storeView->show();
-            QMessageBox::information(this, "Login Successful", "You have been logged in successfully.");
         }
         else
         {
-            QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
+            ui.loginErrorBox->setText(QString::fromStdString("Error! " + loginResult));
+            ui.loginErrorBox->show();
         }
     }
 }void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
@@ -75,11 +75,11 @@ void Importandexportcompanymanagementsystem::registerUser()
 
     Date birthDate(day,month,year);
     Account userAcc(username,password,email,isVerified,accType);
-    User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
+    User user(name,birthDate,address,phone,gender,filePath,Membership,&userAcc);
     std::string registerReturn = user.Register();
     if (registerReturn == "Done") {
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account->getUsername()));
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
         ui.storeView->show();
     }

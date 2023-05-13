@@ -4,7 +4,7 @@
 #include <vector>
 #include <regex>
 
-User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account)
+User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
 
 User::User() {}
@@ -57,12 +57,12 @@ std::string User::Register()
         return "letters and space are only allowed in name";
     }
 
-    if (account.getUsername() == "") {
+    if (account->getUsername() == "") {
         return "username is required";
     }
 
     std::regex userPattern("(\\w+)");
-    if (!std::regex_match(account.getUsername(), userPattern)) return "letters,numbers,underscore are only allowed in username";
+    if (!std::regex_match(account->getUsername(), userPattern)) return "letters,numbers,underscore are only allowed in username";
 
     std::ifstream csvReader;
     std::string path = "./DB/userAndEmployeeData.csv";
@@ -73,7 +73,7 @@ std::string User::Register()
     while (std::getline(csvReader, line)) {
         QString qline = QString::fromStdString(line);
         QStringList cells = qline.split(",");
-        if (cells[2].toStdString() == account.getUsername()) {
+        if (cells[2].toStdString() == account->getUsername()) {
             return "username exists";
         }
         if (!(cells[0].toStdString() == "referenceNumber")) {
@@ -85,18 +85,18 @@ std::string User::Register()
 
     csvReader.close();
 
-    if (account.getEmail() == "") {
+    if (account->getEmail() == "") {
         return "email is required";
     }
 
   
     std::regex emailPattern("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
-    bool mailIsValid = std::regex_match(account.getEmail(), emailPattern);
+    bool mailIsValid = std::regex_match(account->getEmail(), emailPattern);
     if (!mailIsValid) {
         return "invalid email";
     }
 
-    if (account.getPassword().length() <= 8) {
+    if (account->getPassword().length() <= 8) {
         return "password must be more than 8 characters";
     }
     if (phonenum == "") {
@@ -125,7 +125,7 @@ std::string User::Register()
 
     std::ofstream csvWriter;
     csvWriter.open(path);
-    csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << gender << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
+    csvWriter << csvData << referecode << ',' << name << ',' << account->getUsername() << ',' << account->getEmail() << ',' << account->getPassword() << ',' << account->getAccountType() << ',' << account->getIsVerified() << ',' << phonenum << ',' << gender << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
     csvWriter.close();
 
     path = "./DB/user.csv";
@@ -142,11 +142,11 @@ std::string User::Register()
 
 std::string User::Login()
 {
-    if (account.getUsername() == "")
+    if (account->getUsername() == "")
     {
         return "username is required";
     }
-    if (account.getPassword() == "") 
+    if (account->getPassword() == "") 
     {
         return "password is required";
     }
@@ -156,15 +156,17 @@ std::string User::Login()
     csvReader.open(path);
     std::string line = "";
     bool found = false;
+    QStringList cells;
     if (csvReader.good())
     {
         while (std::getline(csvReader, line))
         {
             QString qline = QString::fromStdString(line);
-            QStringList cells = qline.split(",");
-            if (cells[2].toStdString() == account.getUsername() && cells[4].toStdString() == account.getPassword()) 
+            cells = qline.split(",");
+            if (cells[2].toStdString() == account->getUsername() && cells[4].toStdString() == account->getPassword()) 
             {
                 found = true;
+                referecode = cells[0].toInt();
                 break;
             }
         }
@@ -173,7 +175,7 @@ std::string User::Login()
     csvReader.close();
 
     if (found) {
-        return "Done";
+        return cells[2].toStdString();
     }
     else {
         return "Invalid username or password";

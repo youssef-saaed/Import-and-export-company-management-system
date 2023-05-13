@@ -3,9 +3,8 @@
 #include "Order.h"
 #include "Person.h"
 
-class Order;
 class Account;
-class Person;
+class Order;
 class User : public Person {
 
 private:
@@ -17,7 +16,7 @@ private:
 public:
     User();
     
-    User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account);
+    User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account);
 
     double getBalance() const;
     bool setBalance(const double& Ubalance);

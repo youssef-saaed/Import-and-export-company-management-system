@@ -4,10 +4,10 @@
 #include <QStringList>
 #include <fstream>
 #include <iostream>
-#include "User.h"
-class User;
+
 class Account 
 {
+
 private:
     std::string accountType;
     std::string username;
@@ -35,7 +35,7 @@ public:
     bool const& getIsVerified() const;
     bool setIsVerified(bool const& isverified);
 
-    User checkCredentials();
+    std::string checkCredentials();
     
     void verify() const;
 };

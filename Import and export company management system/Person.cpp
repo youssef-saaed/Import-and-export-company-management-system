@@ -4,7 +4,7 @@ Person::Person()
 {
 }
 
-Person::Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account account)
+Person::Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account* account)
     : name(name), birthdate(birthdate), address(address), phonenum(phonenum), gender(gender), profilePic(profilePic), account(account) {}
 
 Person::~Person()
