@@ -29,8 +29,9 @@ void Importandexportcompanymanagementsystem::loginUser()
             ui.loginErrorBox->setText(QString::fromStdString("Error! " + loginResult));
             ui.loginErrorBox->show();
         }
-    }
-}void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
+    
+}
+void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
