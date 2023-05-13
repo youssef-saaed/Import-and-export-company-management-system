@@ -51,10 +51,18 @@ std::string User::Register()
     if (name == "") {
         return "name must be filled";
     }
+    
+    std::regex namePattern("[A-Za-z\\s]+");
+    if (!std::regex_match(name, namePattern)) {
+        return "letters and space are only allowed in name";
+    }
 
     if (account.getUsername() == "") {
         return "username is required";
     }
+
+    std::regex userPattern("(\\w+)");
+    if (!std::regex_match(account.getUsername(), userPattern)) return "letters,numbers,underscore are only allowed in username";
 
     std::ifstream csvReader;
     std::string path = "./DB/userAndEmployeeData.csv";
@@ -76,10 +84,6 @@ std::string User::Register()
     }
 
     csvReader.close();
-
-    for (char character : account.getUsername()) {
-        if (character == ' ') return "invalid username";
-    }
 
     if (account.getEmail() == "") {
         return "email is required";
