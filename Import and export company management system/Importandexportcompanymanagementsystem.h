@@ -79,7 +79,34 @@ public:
 
 private slots:
     void registerUser();
-    void loginUser();
+    void loginUser()
+    {
+        Account userAcc;
+
+        userAcc.setUsername(ui.userLoginI->text().toStdString());
+        userAcc.setPassword(ui.passwordLoginI->text().toStdString());
+
+        if ("user")
+        {
+            User user;
+            user.getData(userAcc);
+        }
+        std::string loginResult = user.Login();
+
+        if (loginResult == "Done")
+        {
+            ui.loginAndRegister->hide();
+            ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+            ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+            ui.storeView->show();
+            QMessageBox::information(this, "Login Successful", "You have been logged in successfully.");
+        }
+        else
+        {
+            QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
+        }
+
+    }
     void uploadFile(QString);
 
 private:
