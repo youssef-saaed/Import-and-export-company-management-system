@@ -2,6 +2,7 @@
 #include "Cart.h"
 #include "Order.h"
 #include "Person.h"
+#include "User.h"
 
 class Account;
 class Order;
