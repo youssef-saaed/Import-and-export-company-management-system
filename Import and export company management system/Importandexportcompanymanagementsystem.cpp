@@ -106,6 +106,6 @@ void Importandexportcompanymanagementsystem::uploadFile(QString user)
     QFileInfo Info(PhotoSelect);
     QString FilePath = mediaDir.path() + "/" + Info.fileName();
     QFile::copy(PhotoSelect, FilePath);
-    filePath = FilePath.toStdString();
+    filePath = FilePath.toStdString() ;
 }
 
