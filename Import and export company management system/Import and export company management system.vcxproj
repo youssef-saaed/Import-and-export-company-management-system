@@ -143,9 +143,13 @@
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DB\categories.csv" />
     <None Include="DB\employee.csv" />
     <None Include="DB\user.csv" />
     <None Include="DB\userAndEmployeeData.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="DB\categories count.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

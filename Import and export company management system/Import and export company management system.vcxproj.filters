@@ -198,5 +198,13 @@
     <None Include="DB\userAndEmployeeData.csv">
       <Filter>DB</Filter>
     </None>
+    <None Include="DB\categories.csv">
+      <Filter>DB</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="DB\categories count.txt">
+      <Filter>DB</Filter>
+    </Text>
   </ItemGroup>
 </Project>

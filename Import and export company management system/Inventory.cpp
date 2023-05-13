@@ -26,3 +26,17 @@ Category* Inventory::getCategories() const
 {
 	return categories;
 }
+
+bool Inventory::setCategoryCount(const int& count)
+{
+	if (count > 0) {
+		categoryCount = count;
+		return true;
+	}
+	return false;
+}
+
+int Inventory::getCategoryCount() const
+{
+	return categoryCount;
+}
