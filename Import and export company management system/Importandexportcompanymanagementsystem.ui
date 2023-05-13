@@ -188,9 +188,9 @@ background-color:#000;
     <widget class="QFrame" name="signupForm">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>95</x>
        <y>90</y>
-       <width>301</width>
+       <width>350</width>
        <height>461</height>
       </rect>
      </property>
@@ -203,7 +203,7 @@ background-color:#000;
      <widget class="QLineEdit" name="nameI">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>35</x>
         <y>20</y>
         <width>281</width>
         <height>31</height>
@@ -216,10 +216,61 @@ background-color:#000;
        <string>Name</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="userI">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>60</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Username</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="emailI">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>98</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Email</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="passwordI">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>135</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+      <property name="placeholderText">
+       <string>Password</string>
+      </property>
+     </widget>
      <widget class="QLineEdit" name="phoneNumI">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>35</x>
         <y>172</y>
         <width>281</width>
         <height>31</height>
@@ -235,7 +286,7 @@ background-color:#000;
      <widget class="QLineEdit" name="addressI">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>35</x>
         <y>212</y>
         <width>281</width>
         <height>31</height>
@@ -251,7 +302,7 @@ background-color:#000;
      <widget class="QDateEdit" name="birthDateI">
       <property name="geometry">
        <rect>
-        <x>73</x>
+        <x>98</x>
         <y>252</y>
         <width>218</width>
         <height>31</height>
@@ -282,7 +333,7 @@ background-color:#000;
      <widget class="QLabel" name="birthDateLabel">
       <property name="geometry">
        <rect>
-        <x>13</x>
+        <x>38</x>
         <y>259</y>
         <width>61</width>
         <height>16</height>
@@ -295,7 +346,7 @@ background-color:#000;
      <widget class="QLabel" name="genderLabel">
       <property name="geometry">
        <rect>
-        <x>13</x>
+        <x>38</x>
         <y>292</y>
         <width>61</width>
         <height>16</height>
@@ -308,7 +359,7 @@ background-color:#000;
      <widget class="QRadioButton" name="genderMale">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>145</x>
         <y>292</y>
         <width>89</width>
         <height>20</height>
@@ -321,7 +372,7 @@ background-color:#000;
      <widget class="QRadioButton" name="genderFemale">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>225</x>
         <y>292</y>
         <width>89</width>
         <height>20</height>
@@ -334,7 +385,7 @@ background-color:#000;
      <widget class="QLabel" name="picLabel">
       <property name="geometry">
        <rect>
-        <x>13</x>
+        <x>38</x>
         <y>325</y>
         <width>61</width>
         <height>16</height>
@@ -347,7 +398,7 @@ background-color:#000;
      <widget class="QPushButton" name="upload">
       <property name="geometry">
        <rect>
-        <x>73</x>
+        <x>98</x>
         <y>320</y>
         <width>81</width>
         <height>31</height>
@@ -360,61 +411,10 @@ background-color:#000;
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="emailI">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>98</y>
-        <width>281</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Email</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="passwordI">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>135</y>
-        <width>281</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Normal</enum>
-      </property>
-      <property name="placeholderText">
-       <string>Password</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="userI">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>281</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Username</string>
-      </property>
-     </widget>
      <widget class="QCheckBox" name="isPrimeCheckbox">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>205</x>
         <y>325</y>
         <width>101</width>
         <height>20</height>
@@ -427,7 +427,7 @@ background-color:#000;
      <widget class="QPushButton" name="registerBtn">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>35</x>
         <y>370</y>
         <width>281</width>
         <height>51</height>
@@ -455,9 +455,9 @@ border:1px solid #000000;
      <widget class="QLabel" name="signupErrorBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>430</y>
-        <width>261</width>
+        <width>350</width>
         <height>21</height>
        </rect>
       </property>

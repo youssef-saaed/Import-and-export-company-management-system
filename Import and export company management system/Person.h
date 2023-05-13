@@ -5,7 +5,7 @@
 #include "Account.h"
 
 enum Gender{Male,Female,None};
-
+class Account;
 class Person {
 
 protected:

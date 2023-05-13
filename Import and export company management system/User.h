@@ -4,6 +4,8 @@
 #include "Person.h"
 
 class Order;
+class Account;
+class Person;
 class User : public Person {
 
 private:

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "Person.h"
-
+class Person;
 class Employee : public Person {
 
 private:

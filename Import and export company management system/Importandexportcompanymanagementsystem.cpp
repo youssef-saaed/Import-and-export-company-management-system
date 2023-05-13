@@ -10,7 +10,7 @@ void Importandexportcompanymanagementsystem::loginUser()
     userAcc.setUsername(ui.userLoginI->text().toStdString());
     userAcc.setPassword(ui.passwordLoginI->text().toStdString());
 
-    if (userAcc.checkCredentials() == "User")
+    if ("user")
     {
         User user;
         user.getData(userAcc);

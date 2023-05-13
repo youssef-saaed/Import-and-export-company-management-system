@@ -2,6 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <regex>
+
 User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
 
@@ -49,10 +51,18 @@ std::string User::Register()
     if (name == "") {
         return "name must be filled";
     }
+    
+    std::regex namePattern("[A-Za-z\\s]+");
+    if (!std::regex_match(name, namePattern)) {
+        return "letters and space are only allowed in name";
+    }
 
     if (account.getUsername() == "") {
         return "username is required";
     }
+
+    std::regex userPattern("(\\w+)");
+    if (!std::regex_match(account.getUsername(), userPattern)) return "letters,numbers,underscore are only allowed in username";
 
     std::ifstream csvReader;
     std::string path = "./DB/userAndEmployeeData.csv";
@@ -60,44 +70,29 @@ std::string User::Register()
     std::string line = "";
     int lastReferenceNumber = 0;
     std::string csvData = "";
-    if (csvReader.good()) {
-        while (std::getline(csvReader, line)) {
-            QString qline = QString::fromStdString(line);
-            QStringList cells = qline.split(",");
-            if (cells[2].toStdString() == account.getUsername()) {
-                return "username exists";
-            }
-            if (!(cells[0].toStdString() == "referenceNumber")) {
-                lastReferenceNumber = cells[0].toInt();
-            }
-            csvData += qline.toStdString();
-            csvData += '\n';
+    while (std::getline(csvReader, line)) {
+        QString qline = QString::fromStdString(line);
+        QStringList cells = qline.split(",");
+        if (cells[2].toStdString() == account.getUsername()) {
+            return "username exists";
         }
+        if (!(cells[0].toStdString() == "referenceNumber")) {
+            lastReferenceNumber = cells[0].toInt();
+        }
+        csvData += qline.toStdString();
+        csvData += '\n';
     }
 
     csvReader.close();
-
-    for (char character : account.getUsername()) {
-        if (character == ' ') return "invalid username";
-    }
 
     if (account.getEmail() == "") {
         return "email is required";
     }
 
-    bool dotExist = false;
-    bool atExist = false;
-
-    int emailIndex = 0;
-    for (char character : account.getEmail()) {
-        if (character == '@') atExist = true;
-        if (character == '.' && atExist && emailIndex != account.getEmail().length() - 1) {
-            dotExist = true;
-            break;
-        }
-        emailIndex++;
-    }
-    if (!(dotExist && atExist)) {
+  
+    std::regex emailPattern("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
+    bool mailIsValid = std::regex_match(account.getEmail(), emailPattern);
+    if (!mailIsValid) {
         return "invalid email";
     }
 
@@ -125,10 +120,22 @@ std::string User::Register()
     if (profilePic == "" or profilePic[profilePic.length() - 1] == '/') {
         return "picture is required";
     }
+
     this->setReferecode(lastReferenceNumber + 1);
+
     std::ofstream csvWriter;
     csvWriter.open(path);
     csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << gender << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
+    csvWriter.close();
+
+    path = "./DB/user.csv";
+    csvData = "";
+    csvReader.open(path);
+    while (std::getline(csvReader, line)) {
+        csvData += line + '\n';
+    }
+    csvWriter.open(path);
+    csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << ',' << membership << '\n';
     csvWriter.close();
     return "Done";
 }

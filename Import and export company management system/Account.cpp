@@ -62,7 +62,7 @@ bool Account::setIsVerified(bool const& isverified)
     return true;
 }
 
-std::string Account::checkCredentials() const
+User Account::checkCredentials()
     {
         std::ifstream handler("userAndEmployeeData.csv");
         std::string line;
@@ -74,7 +74,8 @@ std::string Account::checkCredentials() const
             if (columns[2].toStdString() == username && columns[4].toStdString() == password)
             {
                 accountType = columns[5].toStdString();
-                return accountType;
+                User x;
+                return x;
             }
         }
         handler.close();
