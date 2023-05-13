@@ -17,7 +17,7 @@ void Importandexportcompanymanagementsystem::loginUser()
 
         std::string loginResult = user.Login();
 
-        if (!(loginResult == "Invalid username or password" | | loginResult == "username is required" || loginResult == "password is required"))
+        if (!(loginResult == "Invalid username or password" || loginResult == "username is required" || loginResult == "password is required"))
         {
             ui.loginAndRegister->hide();
             ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user.account->getUsername()));
