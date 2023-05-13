@@ -62,19 +62,17 @@ std::string User::Register()
     std::string line = "";
     int lastReferenceNumber = 0;
     std::string csvData = "";
-    if (csvReader.good()) {
-        while (std::getline(csvReader, line)) {
-            QString qline = QString::fromStdString(line);
-            QStringList cells = qline.split(",");
-            if (cells[2].toStdString() == account.getUsername()) {
-                return "username exists";
-            }
-            if (!(cells[0].toStdString() == "referenceNumber")) {
-                lastReferenceNumber = cells[0].toInt();
-            }
-            csvData += qline.toStdString();
-            csvData += '\n';
+    while (std::getline(csvReader, line)) {
+        QString qline = QString::fromStdString(line);
+        QStringList cells = qline.split(",");
+        if (cells[2].toStdString() == account.getUsername()) {
+            return "username exists";
         }
+        if (!(cells[0].toStdString() == "referenceNumber")) {
+            lastReferenceNumber = cells[0].toInt();
+        }
+        csvData += qline.toStdString();
+        csvData += '\n';
     }
 
     csvReader.close();
@@ -118,10 +116,22 @@ std::string User::Register()
     if (profilePic == "" or profilePic[profilePic.length() - 1] == '/') {
         return "picture is required";
     }
+
     this->setReferecode(lastReferenceNumber + 1);
+
     std::ofstream csvWriter;
     csvWriter.open(path);
     csvWriter << csvData << referecode << ',' << name << ',' << account.getUsername() << ',' << account.getEmail() << ',' << account.getPassword() << ',' << account.getAccountType() << ',' << account.getIsVerified() << ',' << phonenum << ',' << gender << ',' << birthdate.getDay() << ',' << birthdate.getMonth() << ',' << birthdate.getYear() << ',' << address << ',' << profilePic << '\n';
+    csvWriter.close();
+
+    path = "./DB/user.csv";
+    csvData = "";
+    csvReader.open(path);
+    while (std::getline(csvReader, line)) {
+        csvData += line + '\n';
+    }
+    csvWriter.open(path);
+    csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << ',' << membership << '\n';
     csvWriter.close();
     return "Done";
 }
