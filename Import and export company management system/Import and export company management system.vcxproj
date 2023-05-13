@@ -143,6 +143,7 @@
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="categories.csv" />
     <None Include="DB\employee.csv" />
     <None Include="DB\user.csv" />
     <None Include="DB\userAndEmployeeData.csv" />
