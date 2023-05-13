@@ -14,11 +14,13 @@
 #include "User.h"
 #include "Vehicle.h"
 
+class Importandexportcompanymanagementsystem;
 class SystemStart
 {
 private:
 	void initiatingDB();
 public:
+	Inventory* inventory = new Inventory;
 	SystemStart(int, char* [], std::string, std::string);
 };
 

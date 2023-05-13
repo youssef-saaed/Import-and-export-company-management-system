@@ -10,6 +10,7 @@ private:
 public:
 	Category(const std::string&, const std::string&, const std::string&, const std::string&, Product*);
 	Category();
+	Category(Category*);
 	~Category();
 
 	bool setName(const std::string&);

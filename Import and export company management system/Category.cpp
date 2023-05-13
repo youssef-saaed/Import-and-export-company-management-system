@@ -1,5 +1,15 @@
 #include "Category.h"
 
+Category::Category(){}
+
+Category::Category(Category* cCategory)
+{
+	this->name = cCategory->getName();
+	this->description = cCategory->getDescription();
+	this->image = cCategory->getImage();
+	this->tags = cCategory->getTags();
+}
+
 Category::Category(const std::string& name, const std::string& description, const std::string& tags, const std::string& image, Product* products) {
 	setName(name);
 	setDescription(description);
