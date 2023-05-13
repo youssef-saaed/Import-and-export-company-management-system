@@ -99,17 +99,21 @@ std::string User::Register()
     if (account->getPassword().length() <= 8) {
         return "password must be more than 8 characters";
     }
-    if (phonenum == "") {
-        return "Phone Number is required";
-    }
 
-    for (char digit : phonenum) {
-        if (digit < '0' || digit > '9') return "invalid phone number";
+    std::regex phoneNumberPattern("^\\d{11}");
+    if (!std::regex_match(phonenum, phoneNumberPattern)) {
+        return "invalid phone " ;
     }
 
     if (address == "") {
         return "address is required";
     }
+
+    std::regex addressPattern("^[^,]+$");
+    if (!std::regex_match(address, addressPattern)) {
+        return "address should not contain commas (,)";
+    }
+
     if (!birthdate.isValid()) {
         return "enter a valid date";
     }
