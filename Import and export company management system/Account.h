@@ -1,7 +1,5 @@
 #pragma once
 #include <string>
-#include <QString>
-#include <QStringList>
 #include <fstream>
 #include <iostream>
 

@@ -3,6 +3,8 @@
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
+<<<<<<< HEAD
+=======
 void Importandexportcompanymanagementsystem::loginUser()
 {
     Account userAcc;
@@ -29,8 +31,10 @@ void Importandexportcompanymanagementsystem::loginUser()
             ui.loginErrorBox->setText(QString::fromStdString("Error! " + loginResult));
             ui.loginErrorBox->show();
         }
-    }
-}void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
+    
+}
+>>>>>>> fbcc1f3cd4448fa3ea0068583d471f9b46048886
+void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
