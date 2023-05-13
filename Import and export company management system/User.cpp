@@ -28,7 +28,7 @@ void User::delete_account() const
 {
 }
 
-void User::getData(Account) const
+void User::getData() const
 {
 }
 
@@ -44,6 +44,21 @@ bool User::setMembership(std::string const& membership)
         return true;
     }
     return false;
+}
+
+void User::importData()
+{
+    std::ifstream csvReader;
+    csvReader.open("user.csv");
+    std::string line;
+    while (std::getline(csvReader, line)) {
+        QStringList row = QString::fromStdString(line).split(",");
+        if (row[0].toInt() == referecode) {
+            setBalance(row[1].toDouble());
+            setMembership(row[4].toStdString());
+
+        }
+    }
 }
 
 std::string User::Register()
@@ -171,6 +186,17 @@ std::string User::Login()
             {
                 found = true;
                 referecode = cells[0].toInt();
+                name = cells[1].toStdString();
+                account->setEmail(cells[3].toStdString());
+                account->setAccountType(cells[5].toStdString());
+                account->setIsVerified(cells[6].toInt());
+                phonenum = cells[7].toStdString();
+                gender = static_cast<Gender>(cells[8].toInt());
+                birthdate.setDay(cells[8].toInt());
+                birthdate.setMonth(cells[9].toInt());
+                birthdate.setYear(cells[10].toInt());
+                address = cells[11].toStdString();
+                profilePic = cells[12].toStdString();
                 break;
             }
         }
@@ -179,7 +205,8 @@ std::string User::Login()
     csvReader.close();
 
     if (found) {
-        return cells[2].toStdString();
+        getData();
+        return account->getAccountType();
     }
     else {
         return "Invalid username or password";

@@ -31,5 +31,5 @@ public:
     double overTime_Ecalc() const;
     void viewInfo() const;
     void delete_account() const;
-    void getData(Account) const;
+    void getData() const;
 };

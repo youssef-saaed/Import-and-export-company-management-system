@@ -58,7 +58,7 @@ void Employee::delete_account() const
 {
 }
 
-void Employee::getData(Account) const
+void Employee::getData() const
 {
 
 }

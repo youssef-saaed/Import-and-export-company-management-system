@@ -32,10 +32,12 @@ public:
 
     void delete_account() const;
 
-    void getData(Account) const;
+    void getData() const;
 
     std::string getMembership() const;
     bool setMembership(std::string const& membership);
+
+    void importData();
 
     std::string Register();
     std::string Login();

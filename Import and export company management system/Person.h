@@ -55,5 +55,5 @@ public:
 
     virtual void viewInfo() const = 0;
     virtual void delete_account() const = 0;
-    virtual void getData(Account) const = 0;
+    virtual void getData() const = 0;
 };
