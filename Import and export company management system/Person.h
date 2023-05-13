@@ -4,8 +4,10 @@
 #include "Date.h"
 #include "Account.h"
 
-enum Gender{Male,Female,None};
 class Account;
+
+enum Gender{Male,Female,None};
+
 class Person {
 
 protected:
@@ -17,9 +19,9 @@ protected:
     std::string profilePic;
     int referecode;
 public:
-    Account account;
+    Account* account;
     Person();
-    Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account account);
+    Person(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, Account* account);
     virtual ~Person();
 
     std::string getName() const;

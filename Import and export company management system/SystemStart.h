@@ -14,10 +14,6 @@
 #include "User.h"
 #include "Vehicle.h"
 
-class Account;
-class User;
-class Person;
-
 class SystemStart
 {
 private:

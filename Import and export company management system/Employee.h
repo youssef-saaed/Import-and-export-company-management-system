@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
 #include "Person.h"
-class Person;
+
+class Account;
 class Employee : public Person {
 
 private:
@@ -13,7 +14,7 @@ private:
 
 public:
     
-    Employee(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs);
+    Employee(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs);
 
     int getemployeeID() const;
     bool setemployeeID(int const& EmployeeID);

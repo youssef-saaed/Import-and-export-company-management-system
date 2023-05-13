@@ -3,6 +3,37 @@
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
+<<<<<<< HEAD
+=======
+void Importandexportcompanymanagementsystem::loginUser()
+{
+    Account userAcc;
+
+    userAcc.setUsername(ui.userLoginI->text().toStdString());
+    userAcc.setPassword(ui.passwordLoginI->text().toStdString());
+
+    if (1)
+    {
+        User user;
+        user.account = &userAcc;
+
+        std::string loginResult = user.Login();
+
+        if (!(loginResult == "Invalid username or password" || loginResult == "username is required" || loginResult == "password is required"))
+        {
+            ui.loginAndRegister->hide();
+            ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user.account->getUsername()));
+            ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+            ui.storeView->show();
+        }
+        else
+        {
+            ui.loginErrorBox->setText(QString::fromStdString("Error! " + loginResult));
+            ui.loginErrorBox->show();
+        }
+    
+}
+>>>>>>> fbcc1f3cd4448fa3ea0068583d471f9b46048886
 void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
@@ -48,11 +79,11 @@ void Importandexportcompanymanagementsystem::registerUser()
 
     Date birthDate(day,month,year);
     Account userAcc(username,password,email,isVerified,accType);
-    User user(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
+    User user(name,birthDate,address,phone,gender,filePath,Membership,&userAcc);
     std::string registerReturn = user.Register();
     if (registerReturn == "Done") {
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account.getUsername()));
+        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account->getUsername()));
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
         ui.storeView->show();
     }
