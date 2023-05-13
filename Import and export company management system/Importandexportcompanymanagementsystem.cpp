@@ -14,7 +14,7 @@ void Importandexportcompanymanagementsystem::loginUser()
     {
         User user;
         user.getData(userAcc);
-
+    }
         std::string loginResult = user.Login();
 
         if (loginResult == "Done")
@@ -29,8 +29,9 @@ void Importandexportcompanymanagementsystem::loginUser()
         {
             QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
         }
-    }
-}void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
+    
+}
+void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 {
     ui.Logo->setPixmap(QPixmap(QString::fromStdString(logoPath)));
 }
