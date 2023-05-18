@@ -48,9 +48,6 @@ SystemStart::SystemStart(int argc, char* argv[], std::string companyName, std::s
                 }
             }
         }
-        else {
-            temp->setNumOfProducts(-1);
-        }
         fileReader2.close();
         temp->setProducts(products);
         *(allCategories + i) = *temp;

@@ -503,23 +503,23 @@ color: #ff0000;
       </property>
      </widget>
      <widget class="QLineEdit" name="passwordLoginI">
-       <property name="geometry">
-         <rect>
-           <x>10</x>
-           <y>67</y>
-           <width>281</width>
-           <height>31</height>
-         </rect>
-       </property>
-       <property name="text">
-         <string/>
-       </property>
-       <property name="echoMode">
-         <enum>QLineEdit::Normal</enum>
-       </property>
-       <property name="placeholderText">
-         <string>Password</string>
-       </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>67</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+      <property name="placeholderText">
+       <string>Password</string>
+      </property>
      </widget>
      <widget class="QPushButton" name="loginBtn">
       <property name="geometry">
@@ -836,8 +836,7 @@ border:none;
          <height>379</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout">
-       </layout>
+       <layout class="QGridLayout" name="gridLayout"/>
       </widget>
      </widget>
      <widget class="QLineEdit" name="searchInput">

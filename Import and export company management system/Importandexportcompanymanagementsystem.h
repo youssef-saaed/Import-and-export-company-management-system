@@ -34,7 +34,6 @@ public:
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
         connect(ui.upload, &QPushButton::clicked, this, [=]() {uploadFile(ui.userI->text()); });
         connect(ui.categoryBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backToAllCategories);
-        ui.gridLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
