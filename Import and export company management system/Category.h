@@ -7,6 +7,7 @@ class Category
 private:
 	std::string name, description, tags, image;
 	Product* products;
+	int numOfProducts;
 public:
 	Category(const std::string&, const std::string&, const std::string&, const std::string&, Product*);
 	Category();
@@ -46,5 +47,7 @@ public:
 	// void editCategory();
 
 	bool search();
+	bool setNumOfProducts(const int&);
+	int getNumOfProducts() const;
 };
 

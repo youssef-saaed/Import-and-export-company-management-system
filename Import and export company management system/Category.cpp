@@ -1,6 +1,8 @@
 #include "Category.h"
 
-Category::Category(){}
+Category::Category(){
+	setNumOfProducts(0);
+}
 
 Category::Category(Category* cCategory)
 {
@@ -81,5 +83,16 @@ bool Category::setProducts(Product* products)
 Product* Category::getProducts() const
 {
 	return products;
+}
+
+bool Category::setNumOfProducts(const int&n)
+{
+	numOfProducts = n;
+	return true;
+}
+
+int Category::getNumOfProducts() const
+{
+	return numOfProducts;
 }
 

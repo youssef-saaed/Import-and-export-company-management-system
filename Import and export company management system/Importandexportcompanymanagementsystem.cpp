@@ -1,5 +1,12 @@
 #include "SystemStart.h"
 
+void Importandexportcompanymanagementsystem::backToAllCategories()
+{
+    ui.categoryView->hide();
+    ui.searchInput->clear();
+    ui.categories->show();
+}
+
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
@@ -146,7 +153,74 @@ void Importandexportcompanymanagementsystem::generateCategories()
         icon2.addFile(QString::fromUtf8("./media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
         categoryBtn->setIcon(icon2);
         categoryBtn->setIconSize(QSize(17, 16));
+        connect(categoryBtn, &QPushButton::clicked, this, [=]() {generateProducts(i); });
         ui.verticalLayout->addWidget(category, i, Qt::AlignTop);
     }
+}
+
+void Importandexportcompanymanagementsystem::generateProducts(int j)
+{
+    QLayoutItem* child;
+    while (ui.gridLayout->count() != 0) {
+        child = ui.gridLayout->takeAt(0);
+        if (child->widget() != 0) {
+            delete child->widget();
+        }
+        delete child;
+    }
+    int n = inventory->getCategories()[j].getNumOfProducts();
+    Product* products = inventory->getCategories()[j].getProducts();
+    for (int i = 0; i < n; i++) {
+        QFrame* product = new QFrame(ui.scrollAreaWidgetContents_2);
+        product->setObjectName("product_" + QString::fromStdString(std::to_string(i)));
+        product->setMinimumSize(QSize(194, 240));
+        product->setMaximumSize(QSize(194, 240));
+        product->setStyleSheet(QString::fromUtf8("#product_" + std::to_string(i) + "{\n"
+            "background-color:#fff;\n"
+            "border-radius:25%;\n"
+            "border: 0.5px solid #2b094a;\n"
+            "}"));
+        product->setFrameShape(QFrame::StyledPanel);
+        product->setFrameShadow(QFrame::Raised);
+        QLabel* productImg = new QLabel(product);
+        productImg->setObjectName("productImg_" + QString::fromStdString(std::to_string(i)));
+        productImg->setGeometry(QRect(37, 30, 121, 121));
+        productImg->setTextFormat(Qt::PlainText);
+        productImg->setPixmap(QPixmap(QString::fromUtf8(products[i].getImage())));
+        productImg->setScaledContents(true);
+        QLabel* productName = new QLabel(product);
+        productName->setObjectName("productName_" + QString::fromStdString(std::to_string(i)));
+        productName->setText(QString::fromStdString(products[i].getName()));
+        productName->setGeometry(QRect(20, 170, 100, 20));
+        productName->setStyleSheet(QString::fromUtf8("#productName_" + std::to_string(i) + "{\n"
+            "color:#2b094a;\n"
+            "font-weight:700;\n"
+            "}"));
+        QLabel* productPrice = new QLabel(product);
+        productPrice->setObjectName("productPrice_" + QString::fromStdString(std::to_string(i)));
+        productPrice->setText(QString::fromStdString(std::to_string(products[i].getPrice())).left(QString::fromStdString(std::to_string(products[i].getPrice())).size()-4));
+        productPrice->setGeometry(QRect(20, 190, 100, 20));
+        productPrice->setStyleSheet(QString::fromUtf8("#productPrice_" + std::to_string(i) + "{\n"
+            "color:#2b094a;\n"
+            "font-weight:700;\n"
+            "}"));
+        QPushButton* productBtn = new QPushButton(product);
+        productBtn->setObjectName("productBtn_" + QString::fromStdString(std::to_string(i)));
+        productBtn->setGeometry(QRect(130, 170, 51, 41));
+        productBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        productBtn->setStyleSheet(QString::fromUtf8("#productBtn_" + std::to_string(i) + "{\n"
+            "background-color:#39b105;\n"
+            "}\n"
+            "#productBtn_" + std::to_string(i) + "::hover{\n"
+            "background-color:#fff;\n"
+            "border:1px solid #000;\n"
+            "}"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        productBtn->setIcon(icon2);
+        ui.gridLayout->addWidget(product, i / 5, i % 5, 1, 1);
+    }
+    ui.categories->hide();
+    ui.categoryView->show();
 }
 
