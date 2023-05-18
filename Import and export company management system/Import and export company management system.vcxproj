@@ -145,6 +145,7 @@
   <ItemGroup>
     <None Include="DB\categories.csv" />
     <None Include="DB\employee.csv" />
+    <None Include="DB\products.csv" />
     <None Include="DB\user.csv" />
     <None Include="DB\userAndEmployeeData.csv" />
   </ItemGroup>

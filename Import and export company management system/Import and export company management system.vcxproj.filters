@@ -201,6 +201,9 @@
     <None Include="DB\categories.csv">
       <Filter>DB</Filter>
     </None>
+    <None Include="DB\products.csv">
+      <Filter>DB</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="DB\categories count.txt">

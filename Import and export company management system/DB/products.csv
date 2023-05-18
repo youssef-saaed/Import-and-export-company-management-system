@@ -1,0 +1,3 @@
+product ID,name,description,image,price,amount,life cycle period,mass,volume
+1,milk,bottle of milk,./media/Products img/milk.png,9.5,10,6 monthes,1100,1050
+2,water,bottle of water,./media/Products img/water.jpg,3.5,55,12 monthes,1067,1054
