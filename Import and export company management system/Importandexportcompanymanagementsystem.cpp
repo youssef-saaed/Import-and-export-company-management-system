@@ -16,7 +16,7 @@ void Importandexportcompanymanagementsystem::productViewSetup(Product* p)
     ui.productViewMassT->setText(QString::fromStdString(std::to_string(p->getMass())).left(std::to_string(p->getMass()).size() - 4) + QString::fromStdString("GM"));
     ui.productViewVolumeT->setText(QString::fromStdString(std::to_string(p->getVolume())).left(std::to_string(p->getVolume()).size() - 4) + QString::fromStdString("ML"));
     ui.productViewLCT->setText(QString::fromStdString(p->getlifeCyclePeriod()));
-    ui.productViewPic->setText(QString::fromStdString(p->getImage()));
+    ui.productViewPic->setPixmap(QPixmap(QString::fromStdString(p->getImage())));
     ui.categoryView->hide();
     ui.productView->show();
 }
