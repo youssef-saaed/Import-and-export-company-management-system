@@ -66,3 +66,45 @@ Product* Promocode::getProducts() const
 {
 	return products;
 }
+
+bool Promocode::addPromocode(const std::string& code)
+{
+	if (std::find(promoCodes.begin(), promoCodes.end(), code) == promoCodes.end()) {
+		promoCodes.push_back(code);
+		std::cout << "promocode" << code << "added" << std::endl;
+		return true;
+	}
+	else {
+		std::cout << code << "already exists" << std::endl;
+		return false;
+
+	}
+}
+
+bool Promocode::editPromocode(const std::string& oldCode, const std::string& newCode)
+{
+	auto iteratore = std::find(promoCodes.begin(), promoCodes.end(), oldCode);
+	if (iteratore != promoCodes.end()) {
+		*iteratore = newCode;
+		std::cout << newCode << "old code edited" << std::endl;
+		return true;
+	}
+	else {
+		std::cout << newCode << "already exists" << std::endl;
+		return false;
+	}
+}
+
+bool Promocode::removePromocode(const std::string& code)
+{
+	auto iteratore = std::find(promoCodes.begin(), promoCodes.end(), code);
+	if (iteratore != promoCodes.end()) {
+		promoCodes.erase(iteratore);
+		std::cout << code << "removed";
+		return true;
+	}
+	else {
+		std::cout << code << "doesn't exist" << std::endl;
+		return false;
+	}
+}
