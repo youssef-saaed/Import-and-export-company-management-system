@@ -7,6 +7,19 @@ void Importandexportcompanymanagementsystem::backToAllCategories()
     ui.categories->show();
 }
 
+void Importandexportcompanymanagementsystem::productViewSetup(Product* p)
+{
+    ui.productViewPrice->setAlignment(Qt::AlignRight);
+    ui.productViewName->setText(QString::fromStdString(p->getName()));
+    ui.productViewPrice->setText(QString::fromStdString(std::to_string(p->getPrice())).left(std::to_string(p->getPrice()).size() - 4) + QString::fromStdString("EGP"));
+    ui.productViewDescriptionT->setText(QString::fromStdString(p->getDescription()));
+    ui.productViewMassT->setText(QString::fromStdString(std::to_string(p->getMass())).left(std::to_string(p->getMass()).size() - 4) + QString::fromStdString("GM"));
+    ui.productViewVolumeT->setText(QString::fromStdString(std::to_string(p->getVolume())).left(std::to_string(p->getVolume()).size() - 4) + QString::fromStdString("ML"));
+    ui.productViewLCT->setText(QString::fromStdString(p->getlifeCyclePeriod()));
+    ui.categoryView->hide();
+    ui.productView->show();
+}
+
 Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem()
 {}
 
@@ -200,7 +213,7 @@ void Importandexportcompanymanagementsystem::generateProducts(int j)
                 "}"));
             QLabel* productPrice = new QLabel(product);
             productPrice->setObjectName("productPrice_" + QString::fromStdString(std::to_string(i)));
-            productPrice->setText(QString::fromStdString(std::to_string(products[i].getPrice())).left(QString::fromStdString(std::to_string(products[i].getPrice())).size() - 4));
+            productPrice->setText(QString::fromStdString(std::to_string(products[i].getPrice())).left(QString::fromStdString(std::to_string(products[i].getPrice())).size() - 4) + QString::fromStdString("EGP"));
             productPrice->setGeometry(QRect(20, 190, 100, 20));
             productPrice->setStyleSheet(QString::fromUtf8("#productPrice_" + std::to_string(i) + "{\n"
                 "color:#2b094a;\n"
@@ -220,6 +233,7 @@ void Importandexportcompanymanagementsystem::generateProducts(int j)
             QIcon icon2;
             icon2.addFile(QString::fromUtf8("media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
             productBtn->setIcon(icon2);
+            connect(productBtn, &QPushButton::clicked, this, [=]() {productViewSetup(&products[i]); });
             ui.gridLayout->addWidget(product, i / 5, i % 5, 1, 1);
         }
     }
@@ -234,6 +248,11 @@ void Importandexportcompanymanagementsystem::generateProducts(int j)
         ui.gridLayout->addWidget(categoryEmptyLabel, 0, 0, 1, 1);
     }
     ui.categories->hide();
+    ui.categoryView->show();
+}
+
+void Importandexportcompanymanagementsystem::backToCategory() {
+    ui.productView->hide();
     ui.categoryView->show();
 }
 

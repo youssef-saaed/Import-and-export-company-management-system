@@ -27,6 +27,7 @@ public:
         ui.passwordLoginI->setEchoMode(QLineEdit::Password);
         ui.storeView->hide(); 
         ui.categoryView->hide();
+        ui.productView->hide();
 
         ui.loginErrorBox->hide();
         ui.signupErrorBox->hide();
@@ -34,6 +35,7 @@ public:
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
         connect(ui.upload, &QPushButton::clicked, this, [=]() {uploadFile(ui.userI->text()); });
         connect(ui.categoryBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backToAllCategories);
+        connect(ui.toCategoryBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backToCategory);
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -45,6 +47,8 @@ private slots:
     void generateCategories();
     void generateProducts(int);
     void backToAllCategories();
+    void backToCategory();
+    void productViewSetup(Product*);
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
