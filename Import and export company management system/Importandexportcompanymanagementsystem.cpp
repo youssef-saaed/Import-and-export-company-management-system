@@ -272,3 +272,6 @@ void Importandexportcompanymanagementsystem::closeEditAcc() {
     ui.editAccountView->hide();
 
 }
+void Importandexportcompanymanagementsystem::search() {
+
+}

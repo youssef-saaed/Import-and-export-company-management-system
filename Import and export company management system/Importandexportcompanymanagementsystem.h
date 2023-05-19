@@ -14,13 +14,13 @@
 #include "SystemStart.h"
 
 class Inventory;
+class Product;
 class User;
 class Importandexportcompanymanagementsystem : public QMainWindow
 {
     Q_OBJECT
 public:
-    Inventory* inventory;
-    User* currentUser;
+    friend class SystemStart;
     Importandexportcompanymanagementsystem(QWidget* parent = nullptr)
         : QMainWindow(parent)
     {
@@ -60,9 +60,14 @@ private slots:
     void productViewSetup(Product*);
     void editAcc();
     void closeEditAcc();
+    void search();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
+    Inventory* inventory;
+    Product* searchResult;
+    int searchResultCount;
+    User* currentUser;
     std::string filePath = "";
 };
 
