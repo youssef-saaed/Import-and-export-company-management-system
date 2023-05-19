@@ -25,20 +25,21 @@ Importandexportcompanymanagementsystem::~Importandexportcompanymanagementsystem(
 
 void Importandexportcompanymanagementsystem::loginUser()
 {
-    Account userAcc;
+    Account *userAcc = new Account;
 
-    userAcc.setUsername(ui.userLoginI->text().toStdString());
-    userAcc.setPassword(ui.passwordLoginI->text().toStdString());
+    userAcc->setUsername(ui.userLoginI->text().toStdString());
+    userAcc->setPassword(ui.passwordLoginI->text().toStdString());
 
-    User user;
-    user.account = &userAcc;
-    std::string loginResult = user.Login();
+    User* user = new User;
+    user->account = userAcc;
+    std::string loginResult = user->Login();
 
     if (loginResult == "User")
     {
+        currentUser = user;
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user.account->getUsername()));
-        ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+        ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user->account->getUsername()));
+        ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
         generateCategories();
         ui.storeView->show();
     }
@@ -93,14 +94,15 @@ void Importandexportcompanymanagementsystem::registerUser()
 
     Date birthDate(day,month,year);
     Account userAcc(username,password,email,isVerified,accType);
-    User user(name,birthDate,address,phone,gender,filePath,Membership,&userAcc);
-    std::string registerReturn = user.Register();
+    User* user=new User(name,birthDate,address,phone,gender,filePath,Membership,&userAcc);
+    std::string registerReturn = user->Register();
     if (registerReturn == "Done") {
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user.account->getUsername()));
-        ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user.getReferecode())));
+        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user->account->getUsername()));
+        ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
         generateCategories();
         ui.storeView->show();
+        currentUser = user;
     }
     else {
         ui.signupErrorBox->setText(QString::fromStdString("Error! " + registerReturn));
@@ -256,3 +258,16 @@ void Importandexportcompanymanagementsystem::backToCategory() {
     ui.categoryView->show();
 }
 
+void Importandexportcompanymanagementsystem::editAcc() {
+    ui.editName->setText(QString::fromStdString(currentUser->getName()));
+    ui.editEmail->setText(QString::fromStdString(currentUser->account->getEmail()));
+    ui.editAddress->setText(QString::fromStdString(currentUser->getAddress()));
+    ui.editPhonenum->setText(QString::fromStdString(currentUser->getPhonenum()));
+    if (currentUser->getMembership() == "Prime") ui.isPrimeEdit->setChecked(true);
+    ui.editAccountView->show();
+}
+
+void Importandexportcompanymanagementsystem::closeEditAcc() {
+    ui.editAccountView->hide();
+
+}

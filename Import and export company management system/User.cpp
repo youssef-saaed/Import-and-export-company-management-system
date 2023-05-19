@@ -49,16 +49,17 @@ bool User::setMembership(std::string const& membership)
 void User::importData()
 {
     std::ifstream csvReader;
-    csvReader.open("user.csv");
+    csvReader.open("./DB/user.csv");
     std::string line;
     while (std::getline(csvReader, line)) {
         QStringList row = QString::fromStdString(line).split(",");
         if (row[0].toInt() == referecode) {
             setBalance(row[1].toDouble());
-            setMembership(row[4].toStdString());
+            setMembership(row[4].trimmed().toStdString());
 
         }
     }
+    csvReader.close();
 }
 
 std::string User::Register()
@@ -192,11 +193,11 @@ std::string User::Login()
                 account->setIsVerified(cells[6].toInt());
                 phonenum = cells[7].toStdString();
                 gender = static_cast<Gender>(cells[8].toInt());
-                birthdate.setDay(cells[8].toInt());
-                birthdate.setMonth(cells[9].toInt());
-                birthdate.setYear(cells[10].toInt());
-                address = cells[11].toStdString();
-                profilePic = cells[12].toStdString();
+                birthdate.setDay(cells[9].toInt());
+                birthdate.setMonth(cells[10].toInt());
+                birthdate.setYear(cells[11].toInt());
+                address = cells[12].toStdString();
+                profilePic = cells[13].toStdString();
                 break;
             }
         }
@@ -205,7 +206,7 @@ std::string User::Login()
     csvReader.close();
 
     if (found) {
-        getData();
+        importData();
         return account->getAccountType();
     }
     else {
