@@ -159,7 +159,7 @@ std::string User::Register()
     csvWriter << "number,name,quantity,price,shipment type\n";
     csvWriter.close();
     csvWriter.open(path);
-    csvWriter << csvData << referecode << ',' << 0 << ',' << firstCart << ',' << ',' << membership << '\n';
+    csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << firstCart << ',' << membership << '\n';
     csvWriter.close();
     return "Done";
 }
