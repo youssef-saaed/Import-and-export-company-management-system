@@ -3,8 +3,6 @@
 #include <sstream>
 #include <vector>
 #include <regex>
-#include <sys/stat.h>
-#include <sys/types.h>
 
 User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
@@ -220,4 +218,25 @@ std::string User::Login()
     else {
         return "Invalid username or password";
     }
+}
+
+void User::updateBalance()
+{
+    std::ifstream csvReader;
+    csvReader.open("./DB/user.csv");
+    std::string line,output;
+    std::getline(csvReader, line);
+    output = line + '\n';
+    while (getline(csvReader, line)) {
+        QStringList row = QString::fromStdString(line).split(",");
+        if (referecode == row[0].toInt()) {
+            row[1] = QString::fromStdString(std::to_string(Ubalance));
+        }
+        output += row[0].toStdString() + ',' + row[1].toStdString() + ',' + row[2].toStdString() + ',' + row[3].toStdString() + '\n';
+    }
+    csvReader.close();
+
+    std::ofstream csvWriter("./DB/user.csv");
+    csvWriter << output;
+    csvWriter.close();
 }

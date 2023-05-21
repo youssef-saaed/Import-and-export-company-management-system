@@ -356,3 +356,12 @@ void Importandexportcompanymanagementsystem::search(std::string word)
     int* searchRes = inventory->getCategories()[currentCategory].search(word);
     generateProducts(searchRes);
 }
+
+void Importandexportcompanymanagementsystem::addCash(double amount)
+{
+    currentUser->setBalance(currentUser->getBalance() + amount);
+    ui.currentCreditL->setText(QString::fromStdString("Your current credit is ") + QString::fromStdString(std::to_string(currentUser->getBalance())).left(QString::fromStdString(std::to_string(currentUser->getBalance())).size()-4) + QString::fromStdString(" EGP"));
+    ui.currentCreditL->setAlignment(Qt::AlignCenter);
+    ui.addCreditAmount->setValue(10.00);
+    currentUser->updateBalance();
+}
