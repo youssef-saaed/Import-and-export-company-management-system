@@ -26,9 +26,6 @@ public:
     {
         ui.setupUi(this);
 
-        ui.exitBtn->hide();
-        ui.minimizeBtn->hide();
-
         ui.passwordI->setEchoMode(QLineEdit::Password);
         ui.passwordLoginI->setEchoMode(QLineEdit::Password);
         ui.editPassword->setEchoMode(QLineEdit::Password);
@@ -51,6 +48,7 @@ public:
         connect(ui.toCategoryBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backToCategory);
         connect(ui.editAccBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::editAcc);
         connect(ui.editAccBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::closeEditAcc);
+        connect(ui.searchBtn, &QPushButton::clicked, this, [=]() {search(ui.searchInput->text().toLower().toStdString()); });
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -61,17 +59,20 @@ private slots:
     void uploadFile(QString);
     void generateCategories();
     void generateProducts(int);
+    void generateProducts(int*);
     void backToAllCategories();
     void backToCategory();
     void productViewSetup(Product*);
     void editAcc();
     void closeEditAcc();
+    void search(std::string);
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
     Inventory* inventory;
     Product* searchResult;
     int searchResultCount;
+    int currentCategory;
     User* currentUser;
     std::string filePath = "";
 };

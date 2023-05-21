@@ -93,8 +93,25 @@ bool Category::setNumOfProducts(const int&n)
 
 int* Category::search(std::string searchWord)
 {
-
-	return nullptr;
+	int* res = new int[numOfProducts + 1];
+	res[0] = 0;
+	for (int i = 0; i < numOfProducts; i++) {
+		std::string pData[2] = {products[i].getName(),products[i].getDescription()};
+		for (std::string str : pData) {
+			std::string lowered;
+			for (int j = 0; j < str.length(); j++) lowered += std::tolower(str[j]);
+			if (lowered.find(searchWord) >= 0 and lowered.find(searchWord) < lowered.length()) {
+				res[0]++;
+				res[res[0]] = i;
+				break;
+			}
+		}
+	}
+	int* res2 = new int[res[0] + 1];
+	res2[0] = res[0];
+	for (int i = 1; i <= res[0]; i++) res2[i] = res[i];
+	delete[] res;
+	return res2;
 }
 
 int Category::getNumOfProducts() const

@@ -176,6 +176,7 @@ void Importandexportcompanymanagementsystem::generateCategories()
 
 void Importandexportcompanymanagementsystem::generateProducts(int j)
 {
+    currentCategory = j;
     QLayoutItem* child;
     while (ui.gridLayout->count() != 0) {
         child = ui.gridLayout->takeAt(0);
@@ -254,6 +255,83 @@ void Importandexportcompanymanagementsystem::generateProducts(int j)
     ui.categoryView->show();
 }
 
+void Importandexportcompanymanagementsystem::generateProducts(int* products)
+{
+    QLayoutItem* child;
+    while (ui.gridLayout->count() != 0) {
+        child = ui.gridLayout->takeAt(0);
+        if (child->widget() != nullptr) {
+            delete child->widget();
+        }
+        delete child;
+    }
+    Product* all = inventory->getCategories()[currentCategory].getProducts();
+    if (products[0] != 0) {
+        ui.gridLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+        for (int i = 1; i <= products[0]; i++) {
+            QFrame* product = new QFrame(ui.scrollAreaWidgetContents_2);
+            product->setObjectName("product_" + QString::fromStdString(std::to_string(products[i])));
+            product->setMinimumSize(QSize(194, 240));
+            product->setMaximumSize(QSize(194, 240));
+            product->setStyleSheet(QString::fromUtf8("#product_" + std::to_string(products[i]) + "{\n"
+                "background-color:#fff;\n"
+                "border-radius:25%;\n"
+                "border: 0.5px solid #2b094a;\n"
+                "}"));
+            product->setFrameShape(QFrame::StyledPanel);
+            product->setFrameShadow(QFrame::Raised);
+            QLabel* productImg = new QLabel(product);
+            productImg->setObjectName("productImg_" + QString::fromStdString(std::to_string(products[i])));
+            productImg->setGeometry(QRect(37, 30, 121, 121));
+            productImg->setTextFormat(Qt::PlainText);
+            productImg->setPixmap(QPixmap(QString::fromUtf8(all[products[i]].getImage())));
+            productImg->setScaledContents(true);
+            QLabel* productName = new QLabel(product);
+            productName->setObjectName("productName_" + QString::fromStdString(std::to_string(products[i])));
+            productName->setText(QString::fromStdString(all[products[i]].getName()));
+            productName->setGeometry(QRect(20, 170, 100, 20));
+            productName->setStyleSheet(QString::fromUtf8("#productName_" + std::to_string(products[i]) + "{\n"
+                "color:#2b094a;\n"
+                "font-weight:700;\n"
+                "}"));
+            QLabel* productPrice = new QLabel(product);
+            productPrice->setObjectName("productPrice_" + QString::fromStdString(std::to_string(products[i])));
+            productPrice->setText(QString::fromStdString(std::to_string(all[products[i]].getPrice())).left(QString::fromStdString(std::to_string(all[products[i]].getPrice())).size() - 4) + QString::fromStdString("EGP"));
+            productPrice->setGeometry(QRect(20, 190, 100, 20));
+            productPrice->setStyleSheet(QString::fromUtf8("#productPrice_" + std::to_string(products[i]) + "{\n"
+                "color:#2b094a;\n"
+                "font-weight:700;\n"
+                "}"));
+            QPushButton* productBtn = new QPushButton(product);
+            productBtn->setObjectName("productBtn_" + QString::fromStdString(std::to_string(products[i])));
+            productBtn->setGeometry(QRect(130, 170, 51, 41));
+            productBtn->setCursor(QCursor(Qt::PointingHandCursor));
+            productBtn->setStyleSheet(QString::fromUtf8("#productBtn_" + std::to_string(products[i]) + "{\n"
+                "background-color:#39b105;\n"
+                "}\n"
+                "#productBtn_" + std::to_string(products[i]) + "::hover{\n"
+                "background-color:#fff;\n"
+                "border:1px solid #000;\n"
+                "}"));
+            QIcon icon2;
+            icon2.addFile(QString::fromUtf8("media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+            productBtn->setIcon(icon2);
+            connect(productBtn, &QPushButton::clicked, this, [=]() {productViewSetup(&all[products[i]]); });
+            ui.gridLayout->addWidget(product, (i - 1) / 5, (i - 1) % 5, 1, 1);
+        }
+    }
+    else {
+        ui.gridLayout->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        QLabel* categoryEmptyLabel = new QLabel(ui.scrollAreaWidgetContents_2);
+        categoryEmptyLabel->setObjectName("categoryEmptyLabel");
+        categoryEmptyLabel->setStyleSheet(QString::fromUtf8("#categoryEmptyLabel{\n"
+            "color:#777;\n"
+            "}"));
+        categoryEmptyLabel->setText(QString::fromStdString("No results"));
+        ui.gridLayout->addWidget(categoryEmptyLabel, 0, 0, 1, 1);
+    }
+}
+
 void Importandexportcompanymanagementsystem::backToCategory() {
     ui.productView->hide();
     ui.categoryView->show();
@@ -271,4 +349,10 @@ void Importandexportcompanymanagementsystem::editAcc() {
 void Importandexportcompanymanagementsystem::closeEditAcc() {
     ui.editAccountView->hide();
 
+}
+
+void Importandexportcompanymanagementsystem::search(std::string word)
+{
+    int* searchRes = inventory->getCategories()[currentCategory].search(word);
+    generateProducts(searchRes);
 }

@@ -62,7 +62,7 @@ SystemStart::SystemStart(int argc, char* argv[], std::string companyName, std::s
     w.setWindowIcon(QIcon(QString::fromStdString(logoPath)));
     w.customizeUI(logoPath);
     w.inventory = inventory;
-    /*w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);*/
+    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     w.show();
     a.exec();
 }
