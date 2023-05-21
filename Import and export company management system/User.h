@@ -1,4 +1,7 @@
 #pragma once
+
+#include <QDir>
+#include <QString>
 #include "Cart.h"
 #include "Order.h"
 #include "Person.h"

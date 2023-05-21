@@ -3,6 +3,8 @@
 #include <sstream>
 #include <vector>
 #include <regex>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
@@ -154,10 +156,12 @@ std::string User::Register()
     while (std::getline(csvReader, line)) {
         csvData += line + '\n';
     }
-    std::string firstCart = "./DB/" + name + "/" + "cart0.csv";
-    csvWriter = std::ofstream(firstCart);
-    csvWriter << "number,name,quantity,price,shipment type\n";
-    csvWriter.close();
+    QDir carts(QString::fromStdString("DB/"+account->getUsername() + "/carts"));
+    carts.mkpath(".");
+    std::string firstCart = "./DB/" + account->getUsername() + "/carts/cart0.csv";
+    std::ofstream cartCsv(firstCart,std::ios::out);
+    cartCsv << "number,name,quantity,price,shipment type\n";
+    cartCsv.close();
     csvWriter.open(path);
     csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << firstCart << ',' << membership << '\n';
     csvWriter.close();

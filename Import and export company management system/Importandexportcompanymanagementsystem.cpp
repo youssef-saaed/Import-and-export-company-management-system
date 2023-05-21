@@ -112,10 +112,10 @@ void Importandexportcompanymanagementsystem::registerUser()
 }
 void Importandexportcompanymanagementsystem::uploadFile(QString user)
 {
-    if (user == QString::fromStdString("")) user = "Other Users";
+    if (user == QString::fromStdString("")) return;
     QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
 
-    QDir mediaDir(QString::fromStdString("media/")+user);
+    QDir mediaDir(QString::fromStdString("media/")+user.toLower());
     if (!mediaDir.exists())
     {
         mediaDir.mkpath(".");
