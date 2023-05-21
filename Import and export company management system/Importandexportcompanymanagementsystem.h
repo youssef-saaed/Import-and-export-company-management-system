@@ -38,6 +38,9 @@ public:
         ui.loginErrorBox->hide();
         ui.signupErrorBox->hide();
         ui.editAccErrorBox->hide();
+
+        connect(ui.exitBtn, &QPushButton::clicked, this, &QMainWindow::close);
+        connect(ui.minimizeBtn, &QPushButton::clicked, this, [=]() {QWidget::setWindowState(Qt::WindowMinimized); });
         connect(ui.registerBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::registerUser);
         connect(ui.loginBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::loginUser);
         connect(ui.upload, &QPushButton::clicked, this, [=]() {uploadFile(ui.userI->text()); });
