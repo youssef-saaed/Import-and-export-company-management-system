@@ -22,7 +22,7 @@ Category::Category(const std::string& name, const std::string& description, cons
 
 Category::~Category()
 {
-	delete products;
+	delete[] products;
 }
 
 
@@ -89,6 +89,12 @@ bool Category::setNumOfProducts(const int&n)
 {
 	numOfProducts = n;
 	return true;
+}
+
+int* Category::search(std::string searchWord)
+{
+
+	return nullptr;
 }
 
 int Category::getNumOfProducts() const

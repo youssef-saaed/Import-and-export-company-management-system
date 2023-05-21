@@ -46,8 +46,8 @@ public:
 
 	// void editCategory();
 
-	bool search();
 	bool setNumOfProducts(const int&);
+	int* search(std::string);
 	int getNumOfProducts() const;
 };
 

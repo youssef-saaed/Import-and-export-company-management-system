@@ -26,6 +26,9 @@ public:
     {
         ui.setupUi(this);
 
+        ui.exitBtn->hide();
+        ui.minimizeBtn->hide();
+
         ui.passwordI->setEchoMode(QLineEdit::Password);
         ui.passwordLoginI->setEchoMode(QLineEdit::Password);
         ui.editPassword->setEchoMode(QLineEdit::Password);
@@ -63,7 +66,6 @@ private slots:
     void productViewSetup(Product*);
     void editAcc();
     void closeEditAcc();
-    void search();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
