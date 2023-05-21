@@ -28,7 +28,7 @@ void Importandexportcompanymanagementsystem::loginUser()
 {
     Account *userAcc = new Account;
 
-    userAcc->setUsername(ui.userLoginI->text().toStdString());
+    userAcc->setUsername(ui.userLoginI->text().toLower().toStdString());
     userAcc->setPassword(ui.passwordLoginI->text().toStdString());
 
     User* user = new User;
@@ -39,7 +39,7 @@ void Importandexportcompanymanagementsystem::loginUser()
     {
         currentUser = user;
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user->account->getUsername()));
+        ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + user->getName()));
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
         generateCategories();
         ui.storeView->show();
@@ -58,8 +58,8 @@ void Importandexportcompanymanagementsystem::customizeUI(std::string logoPath)
 void Importandexportcompanymanagementsystem::registerUser()
 {
     std::string name = ui.nameI->text().toStdString();
-    std::string username = ui.userI->text().toStdString();
-    std::string email = ui.emailI->text().toStdString();
+    std::string username = ui.userI->text().toLower().toStdString();
+    std::string email = ui.emailI->text().toLower().toStdString();
     std::string password = ui.passwordI->text().toStdString();
     std::string phone = ui.phoneNumI->text().toStdString();
     std::string address = ui.addressI->text().toStdString();
@@ -94,12 +94,12 @@ void Importandexportcompanymanagementsystem::registerUser()
     }
 
     Date birthDate(day,month,year);
-    Account userAcc(username,password,email,isVerified,accType);
-    User* user=new User(name,birthDate,address,phone,gender,filePath,Membership,&userAcc);
+    Account* userAcc = new Account(username,password,email,isVerified,accType);
+    User* user=new User(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
     std::string registerReturn = user->Register();
     if (registerReturn == "Done") {
         ui.loginAndRegister->hide();
-        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user->account->getUsername()));
+        ui.userHiLabel->setText(QString::fromStdString("Hi! " + user->getName()));
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
         generateCategories();
         ui.storeView->show();

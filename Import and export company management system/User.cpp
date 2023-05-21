@@ -154,8 +154,12 @@ std::string User::Register()
     while (std::getline(csvReader, line)) {
         csvData += line + '\n';
     }
+    std::string firstCart = "./DB/" + name + "/" + "cart0.csv";
+    csvWriter = std::ofstream(firstCart);
+    csvWriter << "number,name,quantity,price,shipment type\n";
+    csvWriter.close();
     csvWriter.open(path);
-    csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << ',' << membership << '\n';
+    csvWriter << csvData << referecode << ',' << 0 << ',' << firstCart << ',' << ',' << membership << '\n';
     csvWriter.close();
     return "Done";
 }
