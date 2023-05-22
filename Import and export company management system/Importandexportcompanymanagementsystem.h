@@ -36,6 +36,7 @@ public:
         ui.editAccountView->hide();
         ui.addCreditView->hide();
         ui.inventoryView->hide();
+        ui.teamCreditsView->hide();
 
         ui.loginErrorBox->hide();
         ui.signupErrorBox->hide();
@@ -54,6 +55,8 @@ public:
         connect(ui.addCreditBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::viewAddCash);
         connect(ui.addCreditBackBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); });
         connect(ui.addCreditConfirmBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); addCash(ui.addCreditAmount->value()); });
+        connect(ui.goToCredits, &QPushButton::clicked, this, [=]() {ui.teamCreditsView->show(); });
+        connect(ui.teamCreditsBackBtn, &QPushButton::clicked, this, [=]() {ui.teamCreditsView->hide(); });
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
