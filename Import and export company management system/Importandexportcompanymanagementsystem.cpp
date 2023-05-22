@@ -512,3 +512,11 @@ void Importandexportcompanymanagementsystem::viewAddCash()
     ui.currentCreditL->setAlignment(Qt::AlignCenter);
     ui.currentCreditL->setText(QString::fromStdString("Your current credit is ") + QString::fromStdString(std::to_string(currentUser->getBalance())).left(QString::fromStdString(std::to_string(currentUser->getBalance())).size() - 4) + QString::fromStdString(" EGP"));
 }
+
+void Importandexportcompanymanagementsystem::backFromAddCategory()
+{
+    ui.addCategoryView->hide();
+    ui.categoryNameI->clear();
+    ui.categoryDescriptionI->clear();
+    ui.categoryTagsI->clear();
+}

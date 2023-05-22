@@ -37,10 +37,12 @@ public:
         ui.addCreditView->hide();
         ui.inventoryView->hide();
         ui.teamCreditsView->hide();
+        ui.addCategoryView->hide();
 
         ui.loginErrorBox->hide();
         ui.signupErrorBox->hide();
         ui.editAccErrorBox->hide();
+        ui.addCategoryErrorBox->hide();
 
         connect(ui.exitBtn, &QPushButton::clicked, this, &QMainWindow::close);
         connect(ui.minimizeBtn, &QPushButton::clicked, this, [=]() {QWidget::setWindowState(Qt::WindowMinimized); });
@@ -57,6 +59,8 @@ public:
         connect(ui.addCreditConfirmBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); addCash(ui.addCreditAmount->value()); });
         connect(ui.goToCredits, &QPushButton::clicked, this, [=]() {ui.teamCreditsView->show(); });
         connect(ui.teamCreditsBackBtn, &QPushButton::clicked, this, [=]() {ui.teamCreditsView->hide(); });
+        connect(ui.addCategoryBtn, &QPushButton::clicked, this, [=]() {ui.addCategoryView->show(); });
+        connect(ui.addCategoryBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backFromAddCategory);
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -78,6 +82,7 @@ private slots:
     void search(std::string);
     void addCash(double);
     void viewAddCash();
+    void backFromAddCategory();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
