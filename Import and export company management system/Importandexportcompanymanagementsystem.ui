@@ -1925,6 +1925,202 @@ color:rgb(0, 167, 76);
       <string>Add category</string>
      </property>
     </widget>
+    <widget class="QFrame" name="addCategoryView">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>76</y>
+       <width>1080</width>
+       <height>483</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#addCategoryView{
+background-color:rgb(240, 240, 240);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QFrame" name="addCategoryForm">
+      <property name="geometry">
+       <rect>
+        <x>365</x>
+        <y>20</y>
+        <width>350</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="addCategoryL">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>191</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;Add Category&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addCategoryAddBtn">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>340</y>
+         <width>271</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#addCategoryAddBtn{
+background-color:#000000;
+color:#FFFFFF;
+border:none;
+font-size:16px;
+font-weight:700;
+transition: 1s;
+}
+#addCategoryAddBtn:hover{
+background-color:#FFFFFF;
+color:#000000;
+border:1px solid #000000;
+}</string>
+       </property>
+       <property name="text">
+        <string>Add</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="categoryNameI">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>90</y>
+         <width>271</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Name</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="categoryDescriptionI">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>140</y>
+         <width>271</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Description</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="categoryTagsI">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>227</y>
+         <width>271</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Tags seperated with (-)</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>284</y>
+         <width>75</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Upload</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>290</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Category image:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="addCategoryErrorBox">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>400</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#addCategoryErrorBox{
+color: rgb(240, 0, 0);
+}</string>
+       </property>
+       <property name="text">
+        <string>Error!</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="addCategoryBackBtn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#addCategoryBackBtn{
+background:none;
+border:none;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>media/back arrow.png</normaloff>media/back arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QFrame" name="teamCreditsView">
     <property name="geometry">
