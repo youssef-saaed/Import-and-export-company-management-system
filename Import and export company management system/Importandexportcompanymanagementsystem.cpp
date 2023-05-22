@@ -442,7 +442,7 @@ void Importandexportcompanymanagementsystem::editAcc()
 }
 void Importandexportcompanymanagementsystem::saveChanges()
 {
-    std::string newName = ui.editName->text().toLower().toStdString();
+    std::string newName = ui.editName->text().toStdString();
     std::string newEmail = ui.editEmail->text().toLower().toStdString();
     std::string newPassword = ui.editPassword->text().toLower().toStdString();
     std::string newPhone = ui.editPhonenum->text().toLower().toStdString();
@@ -451,6 +451,7 @@ void Importandexportcompanymanagementsystem::saveChanges()
     std::string res = currentUser->editUser(newName, newEmail, newPassword, newPhone,newAddress, filePath, isPrime);
     if (res == "done") {
         currentUser->updateUser();
+        closeEditAcc();
         ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + currentUser->getName()));
         filePath = "";
     }
