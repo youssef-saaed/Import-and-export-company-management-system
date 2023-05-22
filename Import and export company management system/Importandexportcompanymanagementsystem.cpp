@@ -30,8 +30,10 @@ void Importandexportcompanymanagementsystem::loginUser()
 
     userAcc->setUsername(ui.userLoginI->text().toLower().toStdString());
     userAcc->setPassword(ui.passwordLoginI->text().toStdString());
-
+    Employee* employee = new Employee;
     User* user = new User;
+    employee->account = userAcc;
+    employee->Login();
     user->account = userAcc;
     std::string loginResult = user->Login();
 
@@ -43,6 +45,14 @@ void Importandexportcompanymanagementsystem::loginUser()
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
         generateCategories();
         ui.storeView->show();
+    }
+    else if (loginResult == "Employee") {
+        currentEmployee = employee;
+        ui.loginAndRegister->hide();
+        ui.userHiLabelE->setText(QString::fromStdString("Welcome back! " + employee->getName()));
+        ui.refNumLabelE->setText(QString::fromStdString("Ref No.: " + std::to_string(employee->getReferecode())));
+        generateCategoriesE();
+        ui.inventoryView->show();
     }
     else
     {
@@ -171,6 +181,69 @@ void Importandexportcompanymanagementsystem::generateCategories()
         categoryBtn->setIconSize(QSize(17, 16));
         connect(categoryBtn, &QPushButton::clicked, this, [=]() {generateProducts(i); });
         ui.verticalLayout->addWidget(category, i, Qt::AlignTop);
+    }
+}
+
+void Importandexportcompanymanagementsystem::generateCategoriesE()
+{
+    Category* categories = inventory->getCategories();
+    for (int i = 0; i < inventory->getCategoryCount(); i++) {
+        QWidget* category = new QWidget(ui.scrollAreaWidgetContents2);
+        category->setObjectName("category" + QString::fromStdString("_" + std::to_string(i)));
+        category->setMinimumSize(QSize(1004, 120));
+        category->setMaximumSize(QSize(1004, 120));
+        category->setStyleSheet(QString::fromUtf8("#category_" + std::to_string(i) + "{\n"
+            "background-color:rgb(60, 116, 221);\n"
+            "border-radius: 15%;\n"
+            "}"));
+        QLabel* categoryLabel = new QLabel(category);
+        categoryLabel->setObjectName("categoryLabel" + QString::fromStdString("_" + std::to_string(i)));
+        categoryLabel->setText(QString::fromStdString(categories[i].getName()));
+        categoryLabel->setGeometry(QRect(140, 44, 211, 31));
+        categoryLabel->setStyleSheet(QString::fromUtf8("#categoryLabel_" + std::to_string(i) + "{\n"
+            "color:white;\n"
+            "font-size: 18px;\n"
+            "font-weight: 700;\n"
+            "}"));
+        QLabel* categoryPic = new QLabel(category);
+        categoryPic->setObjectName("categoryPic" + QString::fromStdString("_" + std::to_string(i)));
+        categoryPic->setGeometry(QRect(50, 40, 41, 41));
+        categoryPic->setPixmap(QPixmap(QString::fromStdString(categories[i].getImage())));
+        categoryPic->setScaledContents(true);
+        QPushButton* editCategoryBtn = new QPushButton(category);
+        editCategoryBtn->setObjectName("editCategoryBtn" + QString::fromStdString("_" + std::to_string(i)));
+        editCategoryBtn->setGeometry(QRect(850, 33, 50, 50));
+        editCategoryBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        editCategoryBtn->setStyleSheet(QString::fromUtf8("#editCategoryBtn_" + std::to_string(i) + "{\n"
+            "border: none;\n"
+            "border-radius:25px;\n"
+            "background-color:white;\n"
+            "}\n"
+            "#editCategoryBtn_" + std::to_string(i) + "::hover{\n"
+            "background-color:rgb(200, 200, 200);\n"
+            "}"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8("./media/edit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        editCategoryBtn->setIcon(icon3);
+        editCategoryBtn->setIconSize(QSize(17, 16));
+        QPushButton* categoryBtn = new QPushButton(category);
+        categoryBtn->setObjectName("categoryBtn" + QString::fromStdString("_" + std::to_string(i)));
+        categoryBtn->setGeometry(QRect(910, 33, 50, 50));
+        categoryBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        categoryBtn->setStyleSheet(QString::fromUtf8("#categoryBtn_" + std::to_string(i) + "{\n"
+            "border: none;\n"
+            "border-radius:25px;\n"
+            "background-color:white;\n"
+            "}\n"
+            "#categoryBtn_" + std::to_string(i) + "::hover{\n"
+            "background-color:rgb(200, 200, 200);\n"
+            "}"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("./media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        categoryBtn->setIcon(icon2);
+        categoryBtn->setIconSize(QSize(17, 16));
+        connect(categoryBtn, &QPushButton::clicked, this, [=]() {generateProducts(i); });
+        ui.verticalLayout_2->addWidget(category, i, Qt::AlignTop);
     }
 }
 

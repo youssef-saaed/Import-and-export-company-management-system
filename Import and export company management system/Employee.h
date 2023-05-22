@@ -15,6 +15,7 @@ private:
 public:
     
     Employee(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account, int EmployeeID, std::string jobTitle, double salary, std::string department, double overtimehrs);
+    Employee();
 
     int getemployeeID() const;
     bool setemployeeID(int const& EmployeeID);

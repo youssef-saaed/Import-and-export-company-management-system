@@ -1926,6 +1926,281 @@ color:rgb(0, 167, 76);
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="teamCreditsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>130</y>
+      <width>1081</width>
+      <height>559</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#teamCreditsView{
+background-color:rgb(240, 240, 240);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="teamCreditsBackBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#teamCreditsBackBtn{
+background:none;
+border:none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>media/back arrow.png</normaloff>media/back arrow.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QFrame" name="teamMember1">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>701</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="creditsProfilePic1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>140</width>
+        <height>140</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsProfilePic1{
+border: 5px solid rgb(43, 9, 74);
+border-radius: 70px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>media/pics team/adham.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditsName1">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>30</y>
+        <width>481</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsName1{
+color:rgb(43, 9, 74);
+font-weight:700;
+font-size:20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Adham Ashraf Eltholth</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditDetails1">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Undergraduate student at university of science and technology at zewail city&lt;/p&gt;&lt;p&gt;Email: &lt;a href=&quot;mailto:s-adham.mohamed@zewailcity.edu.eg&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;s-adham.mohamed@zewailcity.edu.eg&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Mobile: &lt;a href=&quot;tel:+201550840224&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;+201550840224&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="teamMember2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>190</y>
+       <width>701</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="creditsProfilePic2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>140</width>
+        <height>140</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsProfilePic2{
+border: 5px solid rgb(43, 9, 74);
+border-radius: 70px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>media/pics team/hozien.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditsName2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>30</y>
+        <width>481</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsName2{
+color:rgb(43, 9, 74);
+font-weight:700;
+font-size:20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Mohamed Mohamed Hozien</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditDetails2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Undergraduate student at university of science and technology at zewail city&lt;/p&gt;&lt;p&gt;Email: &lt;a href=&quot;mailto:s-mohamed.hozien@zewailcity.edu.eg&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;s-mohamed.hozien@zewailcity.edu.eg&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Mobile: &lt;a href=&quot;tel:+201154526580&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;+201154526580&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="teamMember3">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>370</y>
+       <width>701</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="creditsProfilePic3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>140</width>
+        <height>140</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsProfilePic3{
+border: 5px solid rgb(43, 9, 74);
+border-radius: 70px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>media/pics team/yousef.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditsName3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>30</y>
+        <width>481</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#creditsName3{
+color:rgb(43, 9, 74);
+font-weight:700;
+font-size:20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Yousef Moustafa Lotfy</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="creditDetails3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>481</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Undergraduate student at university of science and technology at zewail city&lt;/p&gt;&lt;p&gt;Email: &lt;a href=&quot;mailto:s-yousef.said@zewailcity.edu.eg&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;s-yousef.said@zewailcity.edu.eg&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Mobile: &lt;a href=&quot;tel:+201006224467&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;+201006224467&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

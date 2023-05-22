@@ -1,2 +1,3 @@
 referenceNumber,name,username,email,password,accountType,isVerified,phoneNumber,gender,birthDay,birthMonth,birthYear,address,profile
 1,Yousef Said,yousefsaid,yousef@example.com,qwerty1234,User,0,01234567890,0,28,6,2004,123 street 45,media/yousefsaid/YUGI2204.jpg
+2,Yousef Said,yousefsaid01,yousef@example.com,qwerty1234,Employee,0,01234567890,0,28,6,2004,123 street 45,media/yousefsaid/YUGI2204.jpg
