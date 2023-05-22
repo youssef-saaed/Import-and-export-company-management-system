@@ -423,64 +423,63 @@ void Importandexportcompanymanagementsystem::editAcc()
 }
 std::string Importandexportcompanymanagementsystem::saveChanges()
 {
-        std::string newName = ui.editName->text().toStdString();
-        std::string newEmail = ui.editEmail->text().toStdString();
-        std::string newPassword = ui.editPassword->text().toStdString();
-        std::string newPhone = ui.editPhonenum->text().toStdString();
-        std::string newAddress = ui.editAddress->text().toStdString();
-        bool isPrime = ui.isPrimeEdit->isChecked();
+    std::string newName = ui.editName->text().toStdString();
+    std::string newEmail = ui.editEmail->text().toStdString();
+    std::string newPassword = ui.editPassword->text().toStdString();
+    std::string newPhone = ui.editPhonenum->text().toStdString();
+    std::string newAddress = ui.editAddress->text().toStdString();
+    bool isPrime = ui.isPrimeEdit->isChecked();
 
-        if (newName == "")
-        {
-            return "name must be filled";
-        }
-        std::regex nameRegex("[A-Za-z]+");
-        if (!std::regex_match(newName, nameRegex))
-        {
-            return "letters and space are only allowed in name";
-        }
+    if (newName == "")
+    {
+        return "name must be filled";
+    }
+    std::regex nameRegex("[A-Za-z]+");
+    if (!std::regex_match(newName, nameRegex))
+    {
+        return "letters and space are only allowed in name";
+    }
 
-        if (newEmail == "")
-        {
-            return "email must be filled";
-        }
-        std::regex emailRegex("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
-        if (!std::regex_match(newEmail, emailRegex))
-        {
-            return "invalid email";
-        }
+    if (newEmail == "")
+    {
+        return "email must be filled";
+    }
+    std::regex emailRegex("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
+    if (!std::regex_match(newEmail, emailRegex))
+    {
+        return "invalid email";
+    }
 
-        if (newPassword == "")
-        {
-            return "password must be filled";
-        }
-        std::regex passwordRegex(".{8,}");
-        if (!std::regex_match(newPassword, passwordRegex))
-        {
-            return "invalid password";
-        }
+    if (newPassword == "")
+    {
+        return "password must be filled";
+    }
+    std::regex passwordRegex(".{8,}");
+    if (!std::regex_match(newPassword, passwordRegex))
+    {
+        return "invalid password";
+    }
 
-        if (newPhone == "")
-        {
-            return "phone must be filled";
-        }
-        std::regex phoneRegex("\\d{11}");
-        if (!std::regex_match(newPhone, phoneRegex))
-        {
-            return "invalid phone ";
-        }
+    if (newPhone == "")
+    {
+        return "phone must be filled";
+    }
+    std::regex phoneRegex("\\d{11}");
+    if (!std::regex_match(newPhone, phoneRegex))
+    {
+        return "invalid phone ";
+    }
 
 
-        if (newAddress == "")
-        {
-            return "address must be filled";
-        }
-        std::regex addressRegex("^[^,]+$");
-        if (!std::regex_match(newAddress, addressRegex))
-        {
-            return "invalid address";
-        }
-
+    if (newAddress == "")
+    {
+        return "address must be filled";
+    }
+    std::regex addressRegex("^[^,]+$");
+    if (!std::regex_match(newAddress, addressRegex))
+    {
+        return "invalid address";
+    }
 
 }
 
