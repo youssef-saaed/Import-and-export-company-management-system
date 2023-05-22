@@ -154,11 +154,12 @@ std::string User::Register()
     QDir carts(QString::fromStdString("DB/"+account->getUsername() + "/carts"));
     carts.mkpath(".");
     std::string firstCart = "./DB/" + account->getUsername() + "/carts/cart0.csv";
+    Ubalance = 0.;
     std::ofstream cartCsv(firstCart,std::ios::out);
     cartCsv << "number,name,quantity,price,shipment type\n";
     cartCsv.close();
     csvWriter.open(path);
-    csvWriter << csvData << referecode << ',' << 0 << ',' << ',' << firstCart << ',' << membership << '\n';
+    csvWriter << csvData << referecode << ',' << Ubalance << ',' << ',' << firstCart << ',' << membership << '\n';
     csvWriter.close();
     return "Done";
 }
