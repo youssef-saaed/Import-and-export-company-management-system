@@ -481,6 +481,12 @@ std::string Importandexportcompanymanagementsystem::saveChanges()
         return "invalid address";
     }
 
+    if (!ui.uploadPicEdit->isChecked())
+    {
+        return "photo must be uploded ";
+    }
+
+
 }
 
 void Importandexportcompanymanagementsystem::closeEditAcc() 
