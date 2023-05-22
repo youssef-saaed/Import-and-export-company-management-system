@@ -1,8 +1,5 @@
 #include "User.h"
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <regex>
+
 
 User::User(std::string name, Date birthdate, std::string address, std::string phonenum, Gender gender, std::string profilePic, std::string membership, Account* account)
     : Person(name, birthdate, address, phonenum, gender, profilePic, account),membership(membership) {}
@@ -166,59 +163,6 @@ std::string User::Register()
     return "Done";
 }
 
-std::string User::Login()
-{
-    if (account->getUsername() == "")
-    {
-        return "username is required";
-    }
-    if (account->getPassword() == "") 
-    {
-        return "password is required";
-    }
-
-    std::ifstream csvReader;
-    std::string path = "./DB/userAndEmployeeData.csv";
-    csvReader.open(path);
-    std::string line = "";
-    bool found = false;
-    QStringList cells;
-    if (csvReader.good())
-    {
-        while (std::getline(csvReader, line))
-        {
-            QString qline = QString::fromStdString(line);
-            cells = qline.split(",");
-            if (cells[2].toStdString() == account->getUsername() && cells[4].toStdString() == account->getPassword()) 
-            {
-                found = true;
-                referecode = cells[0].toInt();
-                name = cells[1].toStdString();
-                account->setEmail(cells[3].toStdString());
-                account->setAccountType(cells[5].toStdString());
-                account->setIsVerified(cells[6].toInt());
-                phonenum = cells[7].toStdString();
-                gender = static_cast<Gender>(cells[8].toInt());
-                birthdate.setDay(cells[9].toInt());
-                birthdate.setMonth(cells[10].toInt());
-                birthdate.setYear(cells[11].toInt());
-                address = cells[12].toStdString();
-                profilePic = cells[13].toStdString();
-                break;
-            }
-        }
-    }
-
-    csvReader.close();
-
-    if (found) {
-        importData();
-        return account->getAccountType();
-    }
-    else {
-        return "Invalid username or password";
-    }
-}
 
 void User::updateBalance()
 {
@@ -232,7 +176,7 @@ void User::updateBalance()
         if (referecode == row[0].toInt()) {
             row[1] = QString::fromStdString(std::to_string(Ubalance));
         }
-        output += row[0].toStdString() + ',' + row[1].toStdString() + ',' + row[2].toStdString() + ',' + row[3].toStdString() + '\n';
+        output += row[0].toStdString() + ',' + row[1].toStdString() + ',' + row[2].toStdString() + ',' + row[3].toStdString() + ',' + row[4].toStdString() + '\n';
     }
     csvReader.close();
 

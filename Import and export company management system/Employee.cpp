@@ -62,3 +62,7 @@ void Employee::getData() const
 {
 
 }
+
+void Employee::importData()
+{
+}

@@ -32,4 +32,5 @@ public:
     void viewInfo() const;
     void delete_account() const;
     void getData() const;
+    void importData();
 };

@@ -43,7 +43,6 @@ public:
     void importData();
 
     std::string Register();
-    std::string Login();
 
     void updateBalance();
 };

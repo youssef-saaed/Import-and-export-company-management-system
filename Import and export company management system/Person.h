@@ -1,6 +1,13 @@
 #pragma once
 
 #include <string>
+#include <istream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <regex>
+#include <QDir>
+#include <QString>
 #include "Date.h"
 #include "Account.h"
 
@@ -53,7 +60,10 @@ public:
     int getReferecode() const;
     bool setReferecode(int const& referecode);
 
+    std::string Login();
+
     virtual void viewInfo() const = 0;
     virtual void delete_account() const = 0;
     virtual void getData() const = 0;
+    virtual void importData() = 0;
 };

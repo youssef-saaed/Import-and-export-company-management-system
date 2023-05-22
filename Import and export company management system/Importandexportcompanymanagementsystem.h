@@ -35,6 +35,7 @@ public:
         ui.productView->hide();
         ui.editAccountView->hide();
         ui.addCreditView->hide();
+        ui.inventoryView->hide();
 
         ui.loginErrorBox->hide();
         ui.signupErrorBox->hide();
@@ -51,7 +52,7 @@ public:
         connect(ui.editAccBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::closeEditAcc);
         connect(ui.searchBtn, &QPushButton::clicked, this, [=]() {search(ui.searchInput->text().toLower().toStdString()); });
         connect(ui.addCreditBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->show(); });
-        connect(ui.addCreditBackBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); ui.addCreditAmount->setValue(10.); });
+        connect(ui.addCreditBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::viewAddCash);
         connect(ui.addCreditConfirmBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); addCash(ui.addCreditAmount->value()); });
     }
     ~Importandexportcompanymanagementsystem();
@@ -71,6 +72,7 @@ private slots:
     void closeEditAcc();
     void search(std::string);
     void addCash(double);
+    void viewAddCash();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
