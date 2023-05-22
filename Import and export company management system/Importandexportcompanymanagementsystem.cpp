@@ -109,6 +109,7 @@ void Importandexportcompanymanagementsystem::registerUser()
     User* user=new User(name,birthDate,address,phone,gender,filePath,Membership,userAcc);
     std::string registerReturn = user->Register();
     if (registerReturn == "Done") {
+        filePath = "";
         ui.loginAndRegister->hide();
         ui.userHiLabel->setText(QString::fromStdString("Hi! " + user->getName()));
         ui.refNumLabel->setText(QString::fromStdString("Ref No.: " + std::to_string(user->getReferecode())));
@@ -136,6 +137,15 @@ void Importandexportcompanymanagementsystem::uploadFile(QString user)
     QString FilePath = mediaDir.path() + "/" + Info.fileName();
     QFile::copy(PhotoSelect, FilePath);
     filePath = FilePath.toStdString() ;
+}
+
+void Importandexportcompanymanagementsystem::uploadFile2()
+{
+    QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
+    QFileInfo Info(PhotoSelect);
+    QString FilePath = QString::fromStdString("./media/" + currentUser->account->getUsername() + '/') + Info.fileName();
+    QFile::copy(PhotoSelect, FilePath);
+    filePath = FilePath.toStdString();
 }
 
 void Importandexportcompanymanagementsystem::uploadCategoryPic()
@@ -422,79 +432,32 @@ void Importandexportcompanymanagementsystem::backToCategory() {
 
 void Importandexportcompanymanagementsystem::editAcc() 
 {
+    ui.editAccErrorBox->hide();
     ui.editName->setText(QString::fromStdString(currentUser->getName()));
     ui.editEmail->setText(QString::fromStdString(currentUser->account->getEmail()));
     ui.editAddress->setText(QString::fromStdString(currentUser->getAddress()));
     ui.editPhonenum->setText(QString::fromStdString(currentUser->getPhonenum()));
     if (currentUser->getMembership() == "Prime") ui.isPrimeEdit->setChecked(true);
-    connect(ui.saveEditAccBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::saveChanges);
     ui.editAccountView->show();
 }
-std::string Importandexportcompanymanagementsystem::saveChanges()
+void Importandexportcompanymanagementsystem::saveChanges()
 {
-    std::string newName = ui.editName->text().toStdString();
-    std::string newEmail = ui.editEmail->text().toStdString();
-    std::string newPassword = ui.editPassword->text().toStdString();
-    std::string newPhone = ui.editPhonenum->text().toStdString();
-    std::string newAddress = ui.editAddress->text().toStdString();
+    std::string newName = ui.editName->text().toLower().toStdString();
+    std::string newEmail = ui.editEmail->text().toLower().toStdString();
+    std::string newPassword = ui.editPassword->text().toLower().toStdString();
+    std::string newPhone = ui.editPhonenum->text().toLower().toStdString();
+    std::string newAddress = ui.editAddress->text().toLower().toStdString();
     bool isPrime = ui.isPrimeEdit->isChecked();
-
-    if (newName == "")
-    {
-        return "name must be filled";
+    std::string res = currentUser->editUser(newName, newEmail, newPassword, newPhone,newAddress, filePath, isPrime);
+    if (res == "done") {
+        currentUser->updateUser();
+        ui.userHiLabel->setText(QString::fromStdString("Welcome back! " + currentUser->getName()));
+        filePath = "";
     }
-    std::regex nameRegex("[A-Za-z]+");
-    if (!std::regex_match(newName, nameRegex))
-    {
-        return "letters and space are only allowed in name";
+    else {
+        ui.editAccErrorBox->setText(QString::fromStdString("Error! " + res));
+        ui.editAccErrorBox->show();
     }
-
-    if (newEmail == "")
-    {
-        return "email must be filled";
-    }
-    std::regex emailRegex("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
-    if (!std::regex_match(newEmail, emailRegex))
-    {
-        return "invalid email";
-    }
-
-    if (newPassword == "")
-    {
-        return "password must be filled";
-    }
-    std::regex passwordRegex(".{8,}");
-    if (!std::regex_match(newPassword, passwordRegex))
-    {
-        return "invalid password";
-    }
-
-    if (newPhone == "")
-    {
-        return "phone must be filled";
-    }
-    std::regex phoneRegex("\\d{11}");
-    if (!std::regex_match(newPhone, phoneRegex))
-    {
-        return "invalid phone ";
-    }
-
-
-    if (newAddress == "")
-    {
-        return "address must be filled";
-    }
-    std::regex addressRegex("^[^,]+$");
-    if (!std::regex_match(newAddress, addressRegex))
-    {
-        return "invalid address";
-    }
-
-    if (!ui.uploadPicEdit->isChecked())
-    {
-        return "photo must be uploded ";
-    }
-
 
 }
 

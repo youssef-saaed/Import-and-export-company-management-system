@@ -64,6 +64,8 @@ public:
         connect(ui.addCategoryBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backFromAddCategory);
         connect(ui.uploadCategoryPic, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadCategoryPic);
         connect(ui.addCategoryAddBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::addCategory);
+        connect(ui.saveEditAccBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::saveChanges);
+        connect(ui.uploadPicEdit, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadFile2);
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -72,6 +74,7 @@ private slots:
     void registerUser();
     void loginUser();
     void uploadFile(QString);
+    void uploadFile2();
     void uploadCategoryPic();
     void generateCategories();
     void generateCategoriesE();
@@ -81,7 +84,7 @@ private slots:
     void backToCategory();
     void productViewSetup(Product*);
     void editAcc();
-    std::string saveChanges();
+    void saveChanges();
     void closeEditAcc();
     void search(std::string);
     void addCash(double);

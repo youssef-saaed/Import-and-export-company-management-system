@@ -186,3 +186,116 @@ void User::updateBalance()
     csvWriter << output;
     csvWriter.close();
 }
+
+std::string User::editUser(std::string newName, std::string newEmail, std::string newPassword, std::string newPhone, std::string newAddress, std::string newPic, bool isPrime)
+{
+    if (newName == "")
+    {
+        return "name must be filled";
+    }
+    std::regex nameRegex("[A-Za-z\\s]+");
+    if (!std::regex_match(newName, nameRegex))
+    {
+        return "letters and space are only allowed in name";
+    }
+
+    if (newEmail == "")
+    {
+        return "email must be filled";
+    }
+    std::regex emailRegex("(\\w+)((\\.|_|-)(\\w|\\w+))?@(\\w+)(\\.(\\w+))+");
+    if (!std::regex_match(newEmail, emailRegex))
+    {
+        return "invalid email";
+    }
+
+    if (newPassword == "")
+    {
+        return "password must be filled";
+    }
+    std::regex passwordRegex(".{8,}");
+    if (!std::regex_match(newPassword, passwordRegex))
+    {
+        return "invalid password";
+    }
+
+    if (newPhone == "")
+    {
+        return "phone must be filled";
+    }
+    std::regex phoneRegex("\\d{11}");
+    if (!std::regex_match(newPhone, phoneRegex))
+    {
+        return "invalid phone ";
+    }
+
+
+    if (newAddress == "")
+    {
+        return "address must be filled";
+    }
+    std::regex addressRegex("^[^,]+$");
+    if (!std::regex_match(newAddress, addressRegex))
+    {
+        return "invalid address";
+    }
+
+    if (newPic == "" || newPic[newPic.length()-1] == '/')
+    {
+        return "photo must be uploded ";
+    }
+
+    name = newName;
+    account->setEmail(newEmail);
+    account->setPassword(newPassword);
+    address = newAddress;
+    phonenum = newPhone;
+    profilePic = newPic;
+    if (isPrime) {
+        membership = "Prime";
+    }
+    else {
+        membership = "Normal";
+    }
+    return "done";
+}
+
+void User::updateUser()
+{
+    std::ifstream csvReader;
+    csvReader.open("./DB/userAndEmployeeData.csv");
+    std::string line, output;
+    std::getline(csvReader, line);
+    output = line + '\n';
+    while (getline(csvReader, line)) {
+        QStringList row = QString::fromStdString(line).split(",");
+        if (referecode == row[0].toInt()) {
+            output += std::to_string(referecode) + ',' + name + ',' + account->getUsername() + ',' + account->getEmail() + ',' + account->getPassword() + ',' + account->getAccountType() + ',' + std::to_string(account->getIsVerified()) + ',' + phonenum + ',' + std::to_string(gender) + ',' + std::to_string(birthdate.getDay()) + ',' + std::to_string(birthdate.getMonth()) + ',' + std::to_string(birthdate.getYear()) + ',' + address + ',' + profilePic + '\n';
+        }
+        else {
+            output += line + '\n';
+        }
+    }
+    csvReader.close();
+
+    std::ofstream csvWriter("./DB/userAndEmployeeData.csv");
+    csvWriter << output;
+    csvWriter.close();
+
+    csvReader.open("./DB/user.csv");
+    std::getline(csvReader, line);
+    output = line + '\n';
+    while (getline(csvReader, line)) {
+        QStringList row = QString::fromStdString(line).split(",");
+        if (referecode == row[0].toInt()) {
+            row[4] = QString::fromStdString(membership);
+        }
+        output += row[0].toStdString() + ',' + row[1].toStdString() + ',' + row[2].toStdString() + ',' + row[3].toStdString() + ',' + row[4].toStdString() + '\n';
+    }
+    csvReader.close();
+
+    csvWriter.open("./DB/user.csv");
+    csvWriter << output;
+    csvWriter.close();
+
+}

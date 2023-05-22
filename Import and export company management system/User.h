@@ -45,4 +45,8 @@ public:
     std::string Register();
 
     void updateBalance();
+
+    std::string editUser(std::string, std::string, std::string, std::string, std::string, std::string, bool);
+
+    void updateUser();
 };
