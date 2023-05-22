@@ -63,6 +63,7 @@ private slots:
     void loginUser();
     void uploadFile(QString);
     void generateCategories();
+    void generateCategoriesE();
     void generateProducts(int);
     void generateProducts(int*);
     void backToAllCategories();
@@ -81,6 +82,7 @@ private:
     int searchResultCount;
     int currentCategory;
     User* currentUser;
+    Employee* currentEmployee;
     std::string filePath = "";
 };
 
