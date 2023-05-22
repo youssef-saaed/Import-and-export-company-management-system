@@ -51,8 +51,8 @@ public:
         connect(ui.editAccBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::editAcc);
         connect(ui.editAccBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::closeEditAcc);
         connect(ui.searchBtn, &QPushButton::clicked, this, [=]() {search(ui.searchInput->text().toLower().toStdString()); });
-        connect(ui.addCreditBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->show(); });
-        connect(ui.addCreditBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::viewAddCash);
+        connect(ui.addCreditBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::viewAddCash);
+        connect(ui.addCreditBackBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); });
         connect(ui.addCreditConfirmBtn, &QPushButton::clicked, this, [=]() {ui.addCreditView->hide(); addCash(ui.addCreditAmount->value()); });
     }
     ~Importandexportcompanymanagementsystem();

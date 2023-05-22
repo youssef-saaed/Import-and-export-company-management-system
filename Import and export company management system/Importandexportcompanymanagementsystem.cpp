@@ -368,7 +368,7 @@ void Importandexportcompanymanagementsystem::addCash(double amount)
 
 void Importandexportcompanymanagementsystem::viewAddCash()
 {
-    ui.addCreditView->hide();
+    ui.addCreditView->show();
     ui.addCreditAmount->setValue(10.);
     ui.currentCreditL->setAlignment(Qt::AlignCenter);
     ui.currentCreditL->setText(QString::fromStdString("Your current credit is ") + QString::fromStdString(std::to_string(currentUser->getBalance())).left(QString::fromStdString(std::to_string(currentUser->getBalance())).size() - 4) + QString::fromStdString(" EGP"));
