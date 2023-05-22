@@ -44,7 +44,8 @@ public:
     Date getBirthdate() const;
     bool setBirthdate(Date const& birthdate)
     {
-        if (birthdate.isValid()) {
+        if (birthdate.isValid()) 
+        {
             this->birthdate = birthdate;
             return true;
         }
@@ -61,7 +62,7 @@ public:
     bool setReferecode(int const& referecode);
 
     std::string Login();
-
+ 
     virtual void viewInfo() const = 0;
     virtual void delete_account() const = 0;
     virtual void getData() const = 0;

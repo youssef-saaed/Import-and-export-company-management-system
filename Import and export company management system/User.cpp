@@ -61,7 +61,8 @@ void User::importData()
 
 std::string User::Register()
 {
-    if (name == "") {
+    if (name == "") 
+    {
         return "name must be filled";
     }
     

@@ -81,6 +81,7 @@ private slots:
     void backToCategory();
     void productViewSetup(Product*);
     void editAcc();
+    std::string saveChanges();
     void closeEditAcc();
     void search(std::string);
     void addCash(double);
