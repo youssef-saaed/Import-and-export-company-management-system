@@ -137,6 +137,15 @@ void Importandexportcompanymanagementsystem::uploadFile(QString user)
     filePath = FilePath.toStdString() ;
 }
 
+void Importandexportcompanymanagementsystem::uploadCategoryPic()
+{
+    QString PhotoSelect = QFileDialog::getOpenFileName(this, tr("Select Image"), "/", tr("Image files(*.jpg;*.jpeg;*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png);;JPG files(*.jpg);;JPEG file(*.jpeg);;PNG files(*.png)"));
+    QFileInfo Info(PhotoSelect);
+    QString FilePath = "./media/Categories img/" + Info.fileName();
+    QFile::copy(PhotoSelect, FilePath);
+    categoryImgPath = FilePath.toStdString();
+}
+
 void Importandexportcompanymanagementsystem::generateCategories()
 {
     Category* categories = inventory->getCategories();
@@ -453,4 +462,26 @@ void Importandexportcompanymanagementsystem::backFromAddCategory()
     ui.categoryNameI->clear();
     ui.categoryDescriptionI->clear();
     ui.categoryTagsI->clear();
+    ui.addCategoryErrorBox->hide();
+}
+
+void Importandexportcompanymanagementsystem::addCategory()
+{
+    std::string name = ui.categoryNameI->text().toStdString();
+    std::string description = ui.categoryDescriptionI->toPlainText().toStdString();
+    std::string tags = ui.categoryTagsI->text().toStdString();
+    Category c = new Category(name,description,tags,categoryImgPath,nullptr);
+    std::string checkRes = c.check();
+    if (checkRes == "looks good") {
+        c.writeToCsv();
+        inventory->loadInventory();
+        generateCategoriesE();
+        ui.addCategoryErrorBox->hide();
+        categoryImgPath = "";
+        backFromAddCategory();
+    }
+    else {
+        ui.addCategoryErrorBox->setText(QString::fromStdString("Error! " + checkRes));
+        ui.addCategoryErrorBox->show();
+    }
 }

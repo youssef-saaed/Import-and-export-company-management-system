@@ -23,5 +23,6 @@ private:
 public:
 	Inventory* inventory = new Inventory;
 	SystemStart(int, char* [], std::string, std::string);
+	void loadCategories(Importandexportcompanymanagementsystem&);
 };
 

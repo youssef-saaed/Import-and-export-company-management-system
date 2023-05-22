@@ -2043,7 +2043,7 @@ border:1px solid #000000;
         <string>Tags seperated with (-)</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="uploadCategoryPic">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -2056,7 +2056,7 @@ border:1px solid #000000;
         <string>Upload</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="categoryPicUploadL">
        <property name="geometry">
         <rect>
          <x>70</x>

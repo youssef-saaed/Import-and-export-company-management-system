@@ -1,7 +1,13 @@
 #pragma once
 #include <string>
 #include "Product.h"
+#include <regex>
+#include <istream>
+#include <fstream>
+#include <sstream>
+#include <QString>
 
+class Product;
 class Category
 {
 private:
@@ -38,6 +44,8 @@ public:
 
 	void removeProduct(Product*);
 
+	std::string check();
+
 	// void addTag();
 
 	// void removeTag();
@@ -49,5 +57,6 @@ public:
 	bool setNumOfProducts(const int&);
 	int* search(std::string);
 	int getNumOfProducts() const;
+	void writeToCsv();
 };
 

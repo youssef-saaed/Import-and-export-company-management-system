@@ -16,6 +16,7 @@
 class Inventory;
 class Product;
 class User;
+class Category;
 class Importandexportcompanymanagementsystem : public QMainWindow
 {
     Q_OBJECT
@@ -61,6 +62,8 @@ public:
         connect(ui.teamCreditsBackBtn, &QPushButton::clicked, this, [=]() {ui.teamCreditsView->hide(); });
         connect(ui.addCategoryBtn, &QPushButton::clicked, this, [=]() {ui.addCategoryView->show(); });
         connect(ui.addCategoryBackBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::backFromAddCategory);
+        connect(ui.uploadCategoryPic, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::uploadCategoryPic);
+        connect(ui.addCategoryAddBtn, &QPushButton::clicked, this, &Importandexportcompanymanagementsystem::addCategory);
     }
     ~Importandexportcompanymanagementsystem();
     void customizeUI(std::string);
@@ -69,6 +72,7 @@ private slots:
     void registerUser();
     void loginUser();
     void uploadFile(QString);
+    void uploadCategoryPic();
     void generateCategories();
     void generateCategoriesE();
     void generateProducts(int);
@@ -82,6 +86,7 @@ private slots:
     void addCash(double);
     void viewAddCash();
     void backFromAddCategory();
+    void addCategory();
 
 private:
     Ui::ImportandexportcompanymanagementsystemClass ui;
@@ -92,5 +97,6 @@ private:
     User* currentUser;
     Employee* currentEmployee;
     std::string filePath = "";
+    std::string categoryImgPath = "";
 };
 

@@ -1,4 +1,6 @@
 #pragma once
+#include <QString>
+#include <QStringList>
 #include "Category.h"
 
 class Inventory
@@ -16,6 +18,7 @@ public:
 
 	bool setCategoryCount(const int&);
 	int getCategoryCount() const;
+	void loadInventory();
 
 	// bool addCategory();
 

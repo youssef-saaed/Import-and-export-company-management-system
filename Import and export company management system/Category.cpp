@@ -22,7 +22,6 @@ Category::Category(const std::string& name, const std::string& description, cons
 
 Category::~Category()
 {
-	delete[] products;
 }
 
 
@@ -85,6 +84,28 @@ Product* Category::getProducts() const
 	return products;
 }
 
+std::string Category::check()
+{	
+	if (name == "") return "name is required";
+	std::regex namePattern("[A-Za-z\\d\\s]+");
+	if (!std::regex_match(name, namePattern)) {
+		return "letters and space are only allowed in name";
+	}
+	if (description == "") return "description is required";
+	if (!std::regex_match(description, namePattern)) {
+		return "letters and space are only allowed in description";
+	}
+	if (tags == "") return "At least one tag is required";
+	std::regex tagsPattern("[A-Za-z\\s\\-\\d]+");
+	if (!std::regex_match(tags, tagsPattern)) {
+		return "write tags seperated with (-) only";
+	}
+	if (image == "" or image[image.length() - 1] == '/') {
+		return "picture is required";
+	}
+	return "looks good";
+}
+
 bool Category::setNumOfProducts(const int&n)
 {
 	numOfProducts = n;
@@ -117,5 +138,34 @@ int* Category::search(std::string searchWord)
 int Category::getNumOfProducts() const
 {
 	return numOfProducts;
+}
+
+void Category::writeToCsv()
+{
+	std::ifstream reader;
+	reader.open("./DB/categories.csv");
+	std::string file = "", line;
+	while (std::getline(reader, line)) {
+		file += line + '\n';
+	}
+	file += name + ',' + description + ',' + tags + ',' + image + ",\n";
+	reader.close();
+
+	int newCount;
+
+	reader.open("./DB/categories count.txt");
+	std::getline(reader, line);
+	newCount = QString::fromStdString(line).toInt() + 1;
+	reader.close();
+
+	std::ofstream writer;
+	writer.open("./DB/categories.csv");
+	writer << file;
+	writer.close();
+
+	writer.open("./DB/categories count.txt");
+	writer << newCount;
+	writer.close();
+
 }
 
