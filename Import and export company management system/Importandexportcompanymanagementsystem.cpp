@@ -212,7 +212,7 @@ void Importandexportcompanymanagementsystem::generateCategoriesE()
         categoryPic->setScaledContents(true);
         QPushButton* editCategoryBtn = new QPushButton(category);
         editCategoryBtn->setObjectName("editCategoryBtn" + QString::fromStdString("_" + std::to_string(i)));
-        editCategoryBtn->setGeometry(QRect(855, 33, 50, 50));
+        editCategoryBtn->setGeometry(QRect(850, 33, 50, 50));
         editCategoryBtn->setCursor(QCursor(Qt::PointingHandCursor));
         editCategoryBtn->setStyleSheet(QString::fromUtf8("#editCategoryBtn_" + std::to_string(i) + "{\n"
             "border: none;\n"
@@ -226,11 +226,11 @@ void Importandexportcompanymanagementsystem::generateCategoriesE()
         icon3.addFile(QString::fromUtf8("./media/edit.png"), QSize(), QIcon::Normal, QIcon::Off);
         editCategoryBtn->setIcon(icon3);
         editCategoryBtn->setIconSize(QSize(17, 16));
-        QPushButton* categoryBtn2 = new QPushButton(category);
-        categoryBtn2->setObjectName("categoryBtn" + QString::fromStdString("_" + std::to_string(i)));
-        categoryBtn2->setGeometry(QRect(910, 33, 50, 50));
-        categoryBtn2->setCursor(QCursor(Qt::PointingHandCursor));
-        categoryBtn2->setStyleSheet(QString::fromUtf8("#categoryBtn_" + std::to_string(i) + "{\n"
+        QPushButton* categoryBtn = new QPushButton(category);
+        categoryBtn->setObjectName("categoryBtn" + QString::fromStdString("_" + std::to_string(i)));
+        categoryBtn->setGeometry(QRect(910, 33, 50, 50));
+        categoryBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        categoryBtn->setStyleSheet(QString::fromUtf8("#categoryBtn_" + std::to_string(i) + "{\n"
             "border: none;\n"
             "border-radius:25px;\n"
             "background-color:white;\n"
@@ -240,9 +240,9 @@ void Importandexportcompanymanagementsystem::generateCategoriesE()
             "}"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8("./media/right arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
-        categoryBtn2->setIcon(icon2);
-        categoryBtn2->setIconSize(QSize(17, 16));
-        connect(categoryBtn2, &QPushButton::clicked, this, [=]() {generateProducts(i); });
+        categoryBtn->setIcon(icon2);
+        categoryBtn->setIconSize(QSize(17, 16));
+        connect(categoryBtn, &QPushButton::clicked, this, [=]() {generateProducts(i); });
         ui.verticalLayout_2->addWidget(category, i, Qt::AlignTop);
     }
 }
