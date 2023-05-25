@@ -180,7 +180,7 @@ void Importandexportcompanymanagementsystem::generateCategories()
             "}"));
         QLabel* categoryPic = new QLabel(category);
         categoryPic->setObjectName("categoryPic" + QString::fromStdString("_" + std::to_string(i)));
-        categoryPic->setGeometry(QRect(50, 40, 41, 41));
+        categoryPic->setGeometry(QRect(40, 30, 60, 60));
         categoryPic->setPixmap(QPixmap(QString::fromStdString(categories[i].getImage())));
         categoryPic->setScaledContents(true);
         QPushButton* categoryBtn = new QPushButton(category);
@@ -206,6 +206,14 @@ void Importandexportcompanymanagementsystem::generateCategories()
 
 void Importandexportcompanymanagementsystem::generateCategoriesE()
 {
+    QLayoutItem* child;
+    while (ui.verticalLayout_2->count() != 0) {
+        child = ui.verticalLayout_2->takeAt(0);
+        if (child->widget() != nullptr) {
+            delete child->widget();
+        }
+        delete child;
+    }
     Category* categories = inventory->getCategories();
     for (int i = 0; i < inventory->getCategoryCount(); i++) {
         QWidget* category = new QWidget(ui.scrollAreaWidgetContents2);
@@ -219,7 +227,7 @@ void Importandexportcompanymanagementsystem::generateCategoriesE()
         QLabel* categoryLabel = new QLabel(category);
         categoryLabel->setObjectName("categoryLabel" + QString::fromStdString("_" + std::to_string(i)));
         categoryLabel->setText(QString::fromStdString(categories[i].getName()));
-        categoryLabel->setGeometry(QRect(140, 44, 211, 31));
+        categoryLabel->setGeometry(QRect(140, 44, 350, 31));
         categoryLabel->setStyleSheet(QString::fromUtf8("#categoryLabel_" + std::to_string(i) + "{\n"
             "color:white;\n"
             "font-size: 18px;\n"
@@ -227,7 +235,7 @@ void Importandexportcompanymanagementsystem::generateCategoriesE()
             "}"));
         QLabel* categoryPic = new QLabel(category);
         categoryPic->setObjectName("categoryPic" + QString::fromStdString("_" + std::to_string(i)));
-        categoryPic->setGeometry(QRect(50, 40, 41, 41));
+        categoryPic->setGeometry(QRect(40, 30, 60, 60));
         categoryPic->setPixmap(QPixmap(QString::fromStdString(categories[i].getImage())));
         categoryPic->setScaledContents(true);
         QPushButton* editCategoryBtn = new QPushButton(category);

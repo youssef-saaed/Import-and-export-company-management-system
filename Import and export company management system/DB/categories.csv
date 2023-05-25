@@ -1,9 +1,10 @@
 name,description,tags,image,products
-Lab equipments,All about lab equipments,lab-lab equipments-microscope,./media/Categories img/labeqp.png,1-2-3-4-5-6
-Pathology,All about pathology equipments,pathology-blood slides,./media/Categories img/pathology.png,1
-Cosmetics,All about beauty,,./media/Categories img/cosmetics.png,2
-Lab equipments,All about lab equipments,lab-lab equipments-microscope,./media/Categories img/labeqp.png,
-Pathology,All about pathology equipments,pathology-blood slides,./media/Categories img/pathology.png,
-Cosmetics,All about beauty,,./media/Categories img/cosmetics.png,
-test,test is test,test-test,./media/Categories img/cosmetics.png,
-test 2,test 2 is test 2,test 2 - test 2- test 2,./media/Categories img/pathology.png,
+Chromatography,As a leading company in chromatography We represent the largest company in the world to produce chromatography products such as HPLC and UHPLC and GC columns and SPE and their accessories and etc,Chromatography,./media/Categories img/chromatography.jpg,1
+Pathology,As a leading pathology company We represent the best microtome made in Germany the largest manufacture of microtome blade plus our manufacturing of most of the pathology equipment,Pathology,./media/Categories img/pathology.jpg,2-3-4-5-6-7-8
+Lab Equipment and supplies,We provides basic laboratory equipment supplies and accessories through its representation with major international companies in this field and our production,Lab-Equipment-supplies,./media/Categories img/LabEquipments.jpg,
+Lab Furniture,We has great experience in laboratory furniture we can manufacture various laboratory furniture at the highest quality and we can also manufacture economic laboratory furniture without prejudice to the approved specifications,Lab Furniture,./media/Categories img/labfurniture.png,
+Protein separation,We serve biochemistry technique With our long experience in protein electrophoresis systems and Low Pressure Liquid Chromatography technique,Protein separation,./media/Categories img/proteinseperation.jpg,
+Pollution,We can offer samplers many kinds of meters as Ph Thermometer conductivity and DO meters plus samples containers,Pollution,./media/Categories img/pollution.jpg,
+Molecular biology,We cover most molecular biology items as PCR Submarines UV Lamps UV Cabinets DNA free filter tips and PCR tubes,Molecular biology,./media/Categories img/molecularbiology.jpg,
+Milk analysis,Supplying all Gerber instruments which is standard product range cover the entire range of chemical and Physical milk analysis,Milk analysis,./media/Categories img/milkanlaysis.jpg,
+Electron Microscope supplies,Supplying the best quality accessories and supplies of EM from SPI,Electron Microscope supplies,./media/Categories img/Electron-Microscope-supplies.jpg,

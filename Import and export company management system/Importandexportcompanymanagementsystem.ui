@@ -1378,7 +1378,7 @@ font-size: 14px;
          <x>310</x>
          <y>160</y>
          <width>661</width>
-         <height>91</height>
+         <height>95</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1396,6 +1396,9 @@ font-size: 14px;
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="productViewMassH">
