@@ -172,7 +172,7 @@ void Importandexportcompanymanagementsystem::generateCategories()
         QLabel* categoryLabel = new QLabel(category);
         categoryLabel->setObjectName("categoryLabel" + QString::fromStdString("_" + std::to_string(i)));
         categoryLabel->setText(QString::fromStdString(categories[i].getName()));
-        categoryLabel->setGeometry(QRect(140, 44, 211, 31));
+        categoryLabel->setGeometry(QRect(140, 44, 350, 31));
         categoryLabel->setStyleSheet(QString::fromUtf8("#categoryLabel_" + std::to_string(i) + "{\n"
             "color:white;\n"
             "font-size: 18px;\n"
